@@ -17,14 +17,13 @@
   h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-  @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-18px) rotate(var(--r,0deg))}}
-  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
   @keyframes cartPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1)}}
   @keyframes shine{to{left:130%}}
 
-  /* ===== TOPBAR (الشريط الفوق) ===== */
+  /* ===== TOPBAR ===== */
   .topbar{background:var(--green);color:#fff;overflow:hidden;white-space:nowrap;padding:9px 0;font-weight:800;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.15)}
   .topbar-inner{display:inline-block;animation:marquee 22s linear infinite}
   .topbar-inner span{margin:0 18px}
@@ -51,13 +50,11 @@
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
   /* ===== HERO SLIDER ===== */
-  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;padding:140px 20px 140px}
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;padding:140px 20px 90px}
   .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;z-index:0}
   .slide.active{opacity:1}
-  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:160px;background:linear-gradient(transparent,rgba(0,0,0,.7));z-index:1;pointer-events:none}
+  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:120px;background:linear-gradient(transparent,rgba(0,0,0,.6));z-index:1;pointer-events:none}
   .hero-fallback{position:relative;z-index:3;text-align:center;max-width:840px;margin:auto}
-  .hero-fallback>*{animation:fadeUp .9s both}
-  .hero.ready .hero-fallback{display:none}
   .hero-badge{display:inline-block;background:rgba(198,161,91,.14);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.88rem;font-weight:700;margin-bottom:22px}
   .hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.3;margin-bottom:16px;color:#fff}
   .hero h1 span{color:var(--gold-light)}
@@ -69,20 +66,14 @@
   .btn-outline{background:rgba(0,0,0,.25);color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
   .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
 
-  .hero-dots{position:absolute;bottom:26px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
+  .hero-dots{position:absolute;bottom:24px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
   .dot{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.45);cursor:pointer;transition:.3s;padding:0}
   .dot.on{background:var(--gold);transform:scale(1.3)}
   .h-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(198,161,91,.5);width:44px;height:44px;border-radius:50%;font-size:1.25rem;cursor:pointer;transition:.3s;line-height:1}
   .h-arrow:hover{background:var(--gold)}
   .h-prev{left:18px}.h-next{right:18px}
 
-  /* دائرة المنتجات الدوارة */
-  .hero-circle{position:absolute;bottom:-55px;left:50%;transform:translateX(-50%);width:172px;height:172px;z-index:6;animation:floatY 5s ease-in-out infinite;--r:0deg}
-  .hero-circle::before{content:'';position:absolute;inset:-9px;border:1.5px dashed rgba(198,161,91,.8);border-radius:50%;animation:spinSlow 20s linear infinite}
-  .hc-inner{width:100%;height:100%;border-radius:50%;background:#000;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.55);font-size:3rem}
-  .hc-inner img{position:absolute;inset:0;margin:auto;width:82%;height:82%;object-fit:contain;transition:opacity .35s ease;z-index:1}
-
-  .features{max-width:1200px;margin:95px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .features{max-width:1200px;margin:-30px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
   .feature{background:var(--cream);border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.2);transition:.35s}
   .feature:hover{transform:translateY(-8px);border-color:var(--gold)}
   .feature .ic{font-size:2.3rem;margin-bottom:10px;display:inline-block;animation:floatY 4s ease-in-out infinite}
@@ -197,9 +188,7 @@
     .burger{display:block}
     .about-grid{grid-template-columns:1fr}
     .btn-outline{margin-inline-start:0;margin-top:12px}
-    .hero{min-height:70vh;padding:120px 16px 120px}
-    .hero-circle{width:122px;height:122px;bottom:-42px}
-    .features{margin-top:72px}
+    .hero{min-height:70vh;padding:120px 16px 80px}
     .h-arrow{display:none}
   }
 </style>
@@ -231,7 +220,6 @@
   </nav>
 </header>
 
-<!-- HERO = SLIDER ديال 3 بنرات + دائرة المنتجات الدوارة -->
 <section class="hero" id="home">
   <img class="slide" src="images/banner1.jpg" alt="Jnan Edar">
   <img class="slide" src="images/banner2.jpg" alt="Jnan Edar">
@@ -243,10 +231,6 @@
     <p data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦</p>
     <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
     <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
-  </div>
-
-  <div class="hero-circle">
-    <div class="hc-inner">🌴<img id="circImg" alt="منتجاتنا"></div>
   </div>
 
   <button class="h-arrow h-prev" onclick="prevSlide()">‹</button>
@@ -474,7 +458,7 @@ var PRODUCTS = [
        fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
        en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
     variants:[
-      {g:250, price:35, img:'images/poudre1.jpg'},
+      {g:250, price:35, img:'images/pouder1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
     ]},
   { id:'creme', badge:'nat', emoji:'🍫',
@@ -510,7 +494,6 @@ function imgFix(el){
   else el.style.display='none';
 }
 
-/* ================= LANGUAGE ================= */
 function setLang(l){
   lang = l; localStorage.setItem('je_lang', l);
   var tr = T[l];
@@ -571,6 +554,7 @@ function slideFail(sl){
   if (sl.dataset.tried !== '1'){ sl.dataset.tried='1'; sl.src = sl.src.replace('.jpg','.png'); return; }
   sl.remove(); buildDots(); showSlide(0);
 }
+
 /* ================= PRODUCTS ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
@@ -685,7 +669,6 @@ function setZone(z){
   renderTotals();
 }
 
-/* ================= UI ================= */
 function openCart(){
   $('drawer').classList.add('open');
   $('overlay').classList.add('show');
@@ -709,7 +692,6 @@ function showToast(msg){
   setTimeout(function(){ el.classList.remove('show'); }, 2400);
 }
 
-/* ================= WHATSAPP ================= */
 function sendOrder(){
   var name = $('fName').value.trim();
   var phone = $('fPhone').value.trim();
@@ -740,7 +722,6 @@ function sendOrder(){
   showToast(t('t_sent'));
 }
 
-/* ================= ANIMATIONS ================= */
 function observeReveal(){
   var obs = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
@@ -761,7 +742,6 @@ function startCounters(){
   });
 }
 
-/* ================= INIT ================= */
 function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
 safe(function(){
   document.querySelectorAll('.slide').forEach(function(sl){
@@ -771,7 +751,6 @@ safe(function(){
   });
   buildDots(); showSlide(0);
 });
-safe(function(){ $('circImg').src = circImgs[0]; setInterval(rotCircle, 2600); });
 safe(function(){ $('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴'); });
 safe(function(){ setZone(zone); });
 safe(function(){ setLang(lang); });
