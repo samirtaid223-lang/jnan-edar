@@ -17,14 +17,20 @@
   h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-  @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(var(--r,0deg))}}
+  @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-18px) rotate(var(--r,0deg))}}
   @keyframes spinSlow{to{transform:rotate(360deg)}}
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
   @keyframes cartPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1)}}
   @keyframes shine{to{left:130%}}
 
-  header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(247,243,232,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(198,161,91,.3)}
+  /* ===== TOPBAR (الشريط الفوق) ===== */
+  .topbar{background:var(--green);color:#fff;overflow:hidden;white-space:nowrap;padding:9px 0;font-weight:800;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.15)}
+  .topbar-inner{display:inline-block;animation:marquee 22s linear infinite}
+  .topbar-inner span{margin:0 18px}
+  .topbar-inner i{color:var(--gold-light);font-style:normal}
+
+  header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(247,243,232,.92);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(28,36,22,.08)}
   .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:10px}
   .brand{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:700;cursor:pointer;text-decoration:none;color:var(--dark)}
   .logo-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(198,161,91,.35);flex-shrink:0}
@@ -44,30 +50,39 @@
   .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 75% 20%,#31452a,#151d10 70%);color:#fff;text-align:center;padding:130px 20px 110px;overflow:hidden}
-  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(198,161,91,.04) 0 2px,transparent 2px 14px)}
-  .hero-logo{width:150px;height:150px;border-radius:50%;margin:0 auto 26px;position:relative;animation:floatY 5s ease-in-out infinite;--r:0deg}
-  .hero-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid var(--gold);box-shadow:0 18px 45px rgba(0,0,0,.5)}
-  .hero-logo::after{content:'';position:absolute;inset:-8px;border:1.5px dashed rgba(198,161,91,.55);border-radius:50%;animation:spinSlow 22s linear infinite}
-  .hero-inner{max-width:840px;margin:auto;position:relative;z-index:2}
-  .hero-inner>*{animation:fadeUp .9s both}
-  .hero-badge{display:inline-block;background:rgba(198,161,91,.14);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.88rem;font-weight:700;margin-bottom:22px;animation-delay:.05s}
-  .hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.3;margin-bottom:16px;animation-delay:.15s}
+  /* ===== HERO SLIDER ===== */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;padding:140px 20px 140px}
+  .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;z-index:0}
+  .slide.active{opacity:1}
+  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:160px;background:linear-gradient(transparent,rgba(0,0,0,.7));z-index:1;pointer-events:none}
+  .hero-fallback{position:relative;z-index:3;text-align:center;max-width:840px;margin:auto}
+  .hero-fallback>*{animation:fadeUp .9s both}
+  .hero.ready .hero-fallback{display:none}
+  .hero-badge{display:inline-block;background:rgba(198,161,91,.14);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.88rem;font-weight:700;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.3;margin-bottom:16px;color:#fff}
   .hero h1 span{color:var(--gold-light)}
-  .hero p{font-size:1.1rem;color:#e6ddc9;margin-bottom:32px;line-height:2;animation-delay:.25s}
-  .hero-cta{animation-delay:.35s}
+  .hero p{font-size:1.1rem;color:#e6ddc9;margin-bottom:32px;line-height:2}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
   .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
   .btn-gold:hover{transform:translateY(-3px)}
-  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
+  .btn-outline{background:rgba(0,0,0,.25);color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
   .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
-  .particle{position:absolute;font-size:2rem;opacity:.16;animation:floatY 6s ease-in-out infinite;user-select:none;pointer-events:none}
 
-  .marquee{background:var(--green);color:#fff;overflow:hidden;padding:11px 0;white-space:nowrap}
-  .marquee-inner{display:inline-block;animation:marquee 22s linear infinite;font-weight:700;font-size:.9rem}
+  .hero-dots{position:absolute;bottom:26px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
+  .dot{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.45);cursor:pointer;transition:.3s;padding:0}
+  .dot.on{background:var(--gold);transform:scale(1.3)}
+  .h-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(198,161,91,.5);width:44px;height:44px;border-radius:50%;font-size:1.25rem;cursor:pointer;transition:.3s;line-height:1}
+  .h-arrow:hover{background:var(--gold)}
+  .h-prev{left:18px}.h-next{right:18px}
 
-  .features{max-width:1200px;margin:-45px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  /* دائرة المنتجات الدوارة */
+  .hero-circle{position:absolute;bottom:-55px;left:50%;transform:translateX(-50%);width:172px;height:172px;z-index:6;animation:floatY 5s ease-in-out infinite;--r:0deg}
+  .hero-circle::before{content:'';position:absolute;inset:-9px;border:1.5px dashed rgba(198,161,91,.8);border-radius:50%;animation:spinSlow 20s linear infinite}
+  .hc-inner{width:100%;height:100%;border-radius:50%;background:#000;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.55);font-size:3rem}
+  .hc-inner img{position:absolute;inset:0;margin:auto;width:82%;height:82%;object-fit:contain;transition:opacity .35s ease;z-index:1}
+
+  .features{max-width:1200px;margin:95px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
   .feature{background:var(--cream);border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.2);transition:.35s}
   .feature:hover{transform:translateY(-8px);border-color:var(--gold)}
   .feature .ic{font-size:2.3rem;margin-bottom:10px;display:inline-block;animation:floatY 4s ease-in-out infinite}
@@ -84,8 +99,8 @@
   .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-10px)}
-  .card-img{height:230px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-  .card-img img{position:absolute;inset:0;margin:auto;max-width:85%;max-height:90%;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));transition:.45s;z-index:1}
+  .card-img{height:230px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img img{position:absolute;inset:0;margin:auto;max-width:88%;max-height:92%;object-fit:contain;transition:.45s;z-index:1}
   .card:hover .card-img img{transform:scale(1.09) rotate(-2deg)}
   .img-emoji{font-size:4.2rem;z-index:0}
   .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px}
@@ -105,15 +120,15 @@
   .add-btn.added{background:var(--wa)}
 
   .ship-sec{padding:0 24px 80px}
-  .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
   .ship-card{background:var(--cream);border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.35s}
   .ship-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
   .ship-card .ic{font-size:2.3rem;margin-bottom:8px}
-  .ship-card h3{font-size:1.02rem;margin-bottom:4px;color:var(--green)}
+  .ship-card h3{font-size:1rem;margin-bottom:4px;color:var(--green)}
   .ship-card .pr{color:var(--green-2);font-weight:900;font-size:1.35rem}
   .ship-card .note{font-size:.8rem;color:#7d7361}
 
-  .about{background:radial-gradient(circle at 20% 30%,#2c3a22,#151d10 70%);color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
+  .about{background:#151d10;color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
   .about h2{font-size:2.2rem;margin-bottom:18px}
   .about h2 span{color:var(--gold-light)}
@@ -140,7 +155,7 @@
   .drawer-items{flex:1;overflow-y:auto;padding:18px 24px}
   .cart-empty{text-align:center;padding:60px 0;color:#b3a88f}
   .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #e5d9ba}
-  .c-item .em{width:56px;height:56px;border-radius:14px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;overflow:hidden;position:relative}
+  .c-item .em{width:56px;height:56px;border-radius:14px;background:#000;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;overflow:hidden;position:relative}
   .c-item .em img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .c-item .nm{font-weight:800;font-size:.92rem}
   .c-item .pr{color:var(--green-2);font-weight:800;font-size:.85rem}
@@ -151,6 +166,7 @@
   .drawer-foot{padding:18px 24px;border-top:1px solid #eee3c8;background:#fbf7ec}
   .lbl-sm{font-size:.8rem;font-weight:800;display:block;margin-bottom:6px;color:var(--green)}
   .zone-select{width:100%;padding:11px 14px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-weight:700;font-size:.87rem;background:#fff;margin-bottom:14px}
+  .ship-hint{font-size:.75rem;color:var(--green-2);font-weight:800;text-align:center;margin-bottom:10px}
   .sum-row{display:flex;justify-content:space-between;font-size:.88rem;color:#7d7361;margin-bottom:5px}
   .sum-row.total{font-weight:900;font-size:1.15rem;color:var(--dark);border-top:1px dashed #ddd2b8;padding-top:10px;margin:8px 0 14px}
   .checkout-btn{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;transition:.3s}
@@ -181,13 +197,17 @@
     .burger{display:block}
     .about-grid{grid-template-columns:1fr}
     .btn-outline{margin-inline-start:0;margin-top:12px}
-    .hero-logo{width:120px;height:120px}
+    .hero{min-height:70vh;padding:120px 16px 120px}
+    .hero-circle{width:122px;height:122px;bottom:-42px}
+    .features{margin-top:72px}
+    .h-arrow{display:none}
   }
 </style>
 </head>
 <body>
 
 <header>
+  <div class="topbar"><div class="topbar-inner" id="topbarInner"></div></div>
   <nav class="nav">
     <a class="brand" href="#home">
       <div class="logo-wrap">🌴<img src="images/logo.png" alt="Jnan Edar" onerror="this.style.display='none'"></div>
@@ -211,31 +231,34 @@
   </nav>
 </header>
 
+<!-- HERO = SLIDER ديال 3 بنرات + دائرة المنتجات الدوارة -->
 <section class="hero" id="home">
-  <span class="particle" style="top:18%;left:6%;font-size:3rem;--r:-12deg">🌴</span>
-  <span class="particle" style="top:60%;left:10%;animation-delay:1s">🍯</span>
-  <span class="particle" style="top:25%;right:7%;font-size:2.6rem;--r:14deg;animation-delay:.5s">🌴</span>
-  <span class="particle" style="top:65%;right:9%;animation-delay:1.6s">✨</span>
-  <span class="particle" style="top:80%;left:45%;animation-delay:2.2s">🫒</span>
-  <div class="hero-inner">
-    <div class="hero-logo">🌴<img src="images/logo.png" alt="Jnan Edar" onerror="this.style.display='none'"></div>
+  <img class="slide" src="images/banner1.jpg" alt="Jnan Edar">
+  <img class="slide" src="images/banner2.jpg" alt="Jnan Edar">
+  <img class="slide" src="images/banner3.jpg" alt="Jnan Edar">
+
+  <div class="hero-fallback">
     <div class="hero-badge" data-i18n="hero_badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
     <h1><span data-i18n="hero_t1">ودّع السكر...</span><br><b data-i18n="hero_t2">مرحبا بالتمر!</b></h1>
     <p data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦</p>
-    <div class="hero-cta">
-      <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
-      <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
-    </div>
+    <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
+    <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
   </div>
-</section>
 
-<div class="marquee"><div class="marquee-inner" id="marquee"></div></div>
+  <div class="hero-circle">
+    <div class="hc-inner">🌴<img id="circImg" alt="منتجاتنا"></div>
+  </div>
+
+  <button class="h-arrow h-prev" onclick="prevSlide()">‹</button>
+  <button class="h-arrow h-next" onclick="nextSlide()">›</button>
+  <div class="hero-dots" id="heroDots"></div>
+</section>
 
 <div class="features">
   <div class="feature reveal"><div class="ic">🌿</div><h3 data-i18n="f1t">طبيعي 100%</h3><p data-i18n="f1p">بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة</p></div>
   <div class="feature reveal"><div class="ic">🚚</div><h3 data-i18n="f2t">توصيل سريع</h3><p data-i18n="f2p">الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
+  <div class="feature reveal"><div class="ic">🎁</div><h3 data-i18n="f5t">توصيل مجاني</h3><p data-i18n="f5p">للطلبات فوق 299 درهم</p></div>
   <div class="feature reveal"><div class="ic">💵</div><h3 data-i18n="f3t">الدفع عند الاستلام</h3><p data-i18n="f3p">خلّص منين توصلك الطلبية لباب دارك</p></div>
-  <div class="feature reveal"><div class="ic">💬</div><h3 data-i18n="f4t">تأكيد عبر واتساب</h3><p data-i18n="f4p">طلبيتك كتوصلنا مباشرة فواتساب</p></div>
 </div>
 
 <section id="products">
@@ -256,6 +279,7 @@
     <div class="line"></div>
   </div>
   <div class="ship-grid">
+    <div class="ship-card reveal"><div class="ic">🎁</div><h3 data-i18n="ship_free">توصيل مجاني</h3><div class="pr" style="font-size:1.05rem" data-i18n="ship_free_v">فوق 299 درهم</div><div class="note" data-i18n="ship_free_n">على جميع الطلبات</div></div>
     <div class="ship-card reveal"><div class="ic">🏠</div><h3 data-i18n="ship_casa">الدار البيضاء</h3><div class="pr">25 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_casa_n">توصيل لباب دارك</div></div>
     <div class="ship-card reveal"><div class="ic">🇲🇦</div><h3 data-i18n="ship_other">باقي المدن</h3><div class="pr">35 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_other_n">لجميع المدن المغربية</div></div>
     <div class="ship-card reveal"><div class="ic">💵</div><h3 data-i18n="ship_cod">الدفع عند الاستلام</h3><div class="pr" style="font-size:1rem" data-i18n="ship_cod_v">خلّص منين توصلك</div><div class="note" data-i18n="ship_cod_n">بلا خلاص مسبق</div></div>
@@ -282,7 +306,7 @@
   <div class="brand"><div class="logo-wrap">🌴<img src="images/logo.png" alt="" onerror="this.style.display='none'"></div><span>Jnan Edar <small style="font-size:.75rem;color:var(--gold-light)">جنان الدار</small></span></div>
   <p data-i18n="ft_tag">منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة</p>
   <p>📞 <span data-i18n="ft_wa">واتساب</span>: <b>+212 723 180 222</b></p>
-  <p data-i18n="ft_del">🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 💵 الدفع عند الاستلام</p>
+  <p data-i18n="ft_del">🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 🎁 مجاني فوق 299 درهم • 💵 الدفع عند الاستلام</p>
   <div class="copy">© 2025 Jnan Edar — جنان الدار</div>
 </footer>
 
@@ -296,6 +320,7 @@
       <option value="casa" data-i18n="z_casa">🏠 الدار البيضاء — 25 درهم</option>
       <option value="other" data-i18n="z_other">🇲🇦 مدينة أخرى — 35 درهم</option>
     </select>
+    <div class="ship-hint" data-i18n="ship_hint">🎁 التوصيل مجاني للطلبات فوق 299 درهم</div>
     <div class="sum-row"><span data-i18n="subtotal">مجموع المنتجات</span><span id="sumSub">0</span></div>
     <div class="sum-row"><span data-i18n="shipping">التوصيل</span><span id="sumShip">25</span></div>
     <div class="sum-row total"><span data-i18n="total">الإجمالي</span><span id="sumAll" style="color:var(--green-2)">0</span></div>
@@ -334,26 +359,29 @@
 <script>
 var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
+var FREE_SHIP = 299;
 
 var T = {
 ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
+top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
 hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦',
 hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
-mq:['🌴 Jnan Edar — جنان الدار','🌿 طبيعي 100%','🚫 بلا سكر مضاف','🚚 توصيل سريع','💵 الدفع عند الاستلام'],
 f1t:'طبيعي 100%',f1p:'بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
-f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f4t:'تأكيد عبر واتساب',f4p:'طلبيتك كتوصلنا مباشرة فواتساب',
+f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
 prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
+ship_free:'توصيل مجاني',ship_free_v:'فوق 299 درهم',ship_free_n:'على جميع الطلبات',
 ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
 ship_cod:'الدفع عند الاستلام',ship_cod_v:'خلّص منين توصلك',ship_cod_n:'بلا خلاص مسبق',
 ab_title:'علاش ',ab_end:'؟',ab_p1:'حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.',
 ab_p2:'سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱',
 st1:'طبيعي',st2:'منتجات مميزة',st3:'مدة التوصيل',
 ft_tag:'منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة',ft_wa:'واتساب',
-ft_del:'🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 💵 الدفع عند الاستلام',
+ft_del:'🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 🎁 مجاني فوق 299 درهم • 💵 الدفع عند الاستلام',
 cart_t:'🛒 سلة المشتريات',cart_empty:'السلة خاوية... زيد شي منتجات!',zone_lbl:'🚚 منطقة التوصيل:',
 z_casa:'🏠 الدار البيضاء — 25 درهم',z_other:'🇲🇦 مدينة أخرى — 35 درهم',
-subtotal:'مجموع المنتجات',shipping:'التوصيل',total:'الإجمالي',checkout:'✅ تأكيد الطلب عبر واتساب',
+ship_hint:'🎁 التوصيل مجاني للطلبات فوق 299 درهم',
+subtotal:'مجموع المنتجات',shipping:'التوصيل',total:'الإجمالي',checkout:'✅ تأكيد الطلب عبر واتساب',free:'مجاني 🎉',
 m_title:'📝 معلومات التوصيل',m_sub:'عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا',
 m_name:'الاسم الكامل *',m_name_ph:'مثال: محمد العلوي',m_phone:'رقم الهاتف *',m_phone_ph:'06 XX XX XX XX',
 m_city:'المدينة *',m_casa:'الدار البيضاء',m_other:'مدينة أخرى',m_city_name:'اسم المدينة *',m_city_ph2:'مثال: مراكش، فاس، طنجة...',
@@ -366,23 +394,25 @@ w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'�
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
 fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_delivery:'Livraison',nav_contact:'Contact',
+top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'✨ 100% Naturel — Sans sucre ajouté',hero_t1:'Adieu le sucre...',hero_t2:'Bonjour les dattes !',
-hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles et délicieuses. Livraison partout au Maroc 🇲🇦',
+hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles. Livraison partout au Maroc 🇲🇦',
 hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
-mq:['🌴 Jnan Edar','🌿 100% Naturel','🚫 Sans sucre ajouté','🚚 Livraison rapide','💵 Paiement à la livraison'],
 f1t:'100% Naturel',f1p:'Sans sucre ajouté, sans gluten, sans conservateurs',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
-f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f4t:'Confirmation WhatsApp',f4p:'Votre commande arrive directement sur WhatsApp',
+f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
 prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
+ship_free:'Livraison offerte',ship_free_v:'Dès 299 DH',ship_free_n:'Sur toutes les commandes',
 ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
 ship_cod:'Paiement à la livraison',ship_cod_v:'Payez à la réception',ship_cod_n:'Sans avance',
 ab_title:'Pourquoi ',ab_end:' ?',ab_p1:'Nous vous apportons les meilleurs produits naturels à base de dattes — sirop, poudre, crème et pâte — sélectionnés avec soin.',
 ab_p2:'Dans le café, les pâtisseries ou pour les bébés — sans sucre ajouté, sans gluten, et vegan 🌱',
 st1:'Naturel',st2:'Produits',st3:'Livraison',
 ft_tag:'Produits naturels de dattes — Santé & goût réunis',ft_wa:'WhatsApp',
-ft_del:'🚚 Casablanca : 25 DH • Autres villes : 35 DH • 💵 Paiement à la livraison',
+ft_del:'🚚 Casablanca : 25 DH • Autres villes : 35 DH • 🎁 Offerte dès 299 DH • 💵 Paiement à la livraison',
 cart_t:'🛒 Panier',cart_empty:'Panier vide... ajoutez des produits !',zone_lbl:'🚚 Zone de livraison :',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Autre ville — 35 DH',
-subtotal:'Sous-total',shipping:'Livraison',total:'Total',checkout:'✅ Commander via WhatsApp',
+ship_hint:'🎁 Livraison offerte dès 299 DH d\'achat',
+subtotal:'Sous-total',shipping:'Livraison',total:'Total',checkout:'✅ Commander via WhatsApp',free:'Offerte 🎉',
 m_title:'📝 Informations de livraison',m_sub:'Remplissez vos informations, la commande arrive directement sur WhatsApp',
 m_name:'Nom complet *',m_name_ph:'Ex : Mohamed Alami',m_phone:'Téléphone *',m_phone_ph:'06 XX XX XX XX',
 m_city:'Ville *',m_casa:'Casablanca',m_other:'Autre ville',m_city_name:'Nom de la ville *',m_city_ph2:'Ex : Marrakech, Fès, Tanger...',
@@ -395,23 +425,25 @@ w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_to
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
 en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_delivery:'Delivery',nav_contact:'Contact',
+top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'✨ 100% Natural Date Products — No Added Sugar',hero_t1:'Out with sugar...',hero_t2:'In with dates!',
 hero_sub:'Date syrup, powder, spread & paste — natural and delicious alternatives. Delivery all over Morocco 🇲🇦',
 hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
-mq:['🌴 Jnan Edar','🌿 100% Natural','🚫 No added sugar','🚚 Fast delivery','💵 Cash on delivery'],
 f1t:'100% Natural',f1p:'No added sugar, gluten free, no preservatives',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
-f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f4t:'WhatsApp Confirmation',f4p:'Your order reaches us directly on WhatsApp',
+f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
 prod_tag:'Our Products',prod_title:'Natural Date Collection',del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
+ship_free:'Free Delivery',ship_free_v:'Over 299 DH',ship_free_n:'On all orders',
 ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
 ship_cod:'Cash on Delivery',ship_cod_v:'Pay on arrival',ship_cod_n:'No prepayment',
 ab_title:'Why ',ab_end:'?',ab_p1:'We bring you the finest natural date products — syrup, powder, spread and paste — carefully selected to replace white sugar the healthy way.',
 ab_p2:'In coffee, baking, or baby food — no added sugar, gluten free, and vegan 🌱',
 st1:'Natural',st2:'Products',st3:'Delivery',
 ft_tag:'Natural date products — Health & taste in one place',ft_wa:'WhatsApp',
-ft_del:'🚚 Casablanca: 25 DH • Other cities: 35 DH • 💵 Cash on delivery',
+ft_del:'🚚 Casablanca: 25 DH • Other cities: 35 DH • 🎁 Free over 299 DH • 💵 Cash on delivery',
 cart_t:'🛒 Shopping Cart',cart_empty:'Cart is empty... add some products!',zone_lbl:'🚚 Delivery zone:',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Other city — 35 DH',
-subtotal:'Subtotal',shipping:'Delivery',total:'Total',checkout:'✅ Checkout via WhatsApp',
+ship_hint:'🎁 Free delivery on orders over 299 DH',
+subtotal:'Subtotal',shipping:'Delivery',total:'Total',checkout:'✅ Checkout via WhatsApp',free:'Free 🎉',
 m_title:'📝 Delivery Information',m_sub:'Fill in your details, your order goes straight to our WhatsApp',
 m_name:'Full name *',m_name_ph:'e.g. Mohamed Alami',m_phone:'Phone *',m_phone_ph:'06 XX XX XX XX',
 m_city:'City *',m_casa:'Casablanca',m_other:'Other city',m_city_name:'City name *',m_city_ph2:'e.g. Marrakech, Fes, Tangier...',
@@ -442,7 +474,7 @@ var PRODUCTS = [
        fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
        en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
     variants:[
-      {g:250, price:35, img:'images/poudre1.jpg'},
+      {g:250, price:35, img:'images/pouder1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
     ]},
   { id:'creme', badge:'nat', emoji:'🍫',
@@ -478,6 +510,7 @@ function imgFix(el){
   else el.style.display='none';
 }
 
+/* ================= LANGUAGE ================= */
 function setLang(l){
   lang = l; localStorage.setItem('je_lang', l);
   var tr = T[l];
@@ -492,11 +525,69 @@ function setLang(l){
   for (var p=0;p<phs.length;p++){ var k2 = phs[p].getAttribute('data-ph'); if (tr[k2]!==undefined) phs[p].placeholder = tr[k2]; }
   var ab = $('ab_title');
   if (ab) ab.innerHTML = tr.ab_title + '<span>Jnan Edar</span>' + tr.ab_end;
-  var mq = $('marquee');
-  if (mq){ var m = tr.mq.join('  ✦  ') + '  ✦  '; mq.textContent = m + m; }
+  var tb = $('topbarInner');
+  if (tb){ var s=''; for (var x=0;x<4;x++) s += '<span>'+tr.top+'</span><i>✦</i>'; tb.innerHTML = s; }
   renderProducts(); renderCart(); startCounters();
 }
 
+/* ================= HERO SLIDER ================= */
+var slideIdx = 0, sliderStarted = false;
+function getSlides(){
+  var a = document.querySelectorAll('.slide'), r = [];
+  for (var i=0;i<a.length;i++) r.push(a[i]);
+  return r;
+}
+function buildDots(){
+  var d = $('heroDots'); if (!d) return;
+  var s = getSlides(); d.innerHTML = '';
+  for (var i=0;i<s.length;i++){
+    (function(n){
+      var b = document.createElement('button');
+      b.className = 'dot' + (n===slideIdx ? ' on' : '');
+      b.onclick = function(){ showSlide(n); };
+      d.appendChild(b);
+    })(i);
+  }
+}
+function showSlide(i){
+  var s = getSlides(); if (!s.length) return;
+  if (i >= s.length) i = 0;
+  if (i < 0) i = s.length - 1;
+  slideIdx = i;
+  for (var k=0;k<s.length;k++) s[k].classList.toggle('active', k===i);
+  var dots = $('heroDots').children;
+  for (var dd=0;dd<dots.length;dd++) dots[dd].classList.toggle('on', dd===i);
+}
+function nextSlide(){ showSlide(slideIdx + 1); }
+function prevSlide(){ showSlide(slideIdx - 1); }
+function heroOK(){
+  var h = document.querySelector('.hero');
+  if (h && !h.classList.contains('ready')){
+    h.classList.add('ready');
+    if (!sliderStarted){ sliderStarted = true; buildDots(); showSlide(0); setInterval(nextSlide, 4500); }
+  }
+}
+function slideFail(sl){
+  if (sl.dataset.tried !== '1'){ sl.dataset.tried='1'; sl.src = sl.src.replace('.jpg','.png'); return; }
+  sl.remove(); buildDots(); showSlide(0);
+}
+
+/* ================= دائرة المنتجات الدوارة ================= */
+var circImgs = [];
+PRODUCTS.forEach(function(p){ p.variants.forEach(function(v){ circImgs.push(v.img); }); });
+var ci = 0;
+function rotCircle(){
+  var im = $('circImg'); if (!im || !circImgs.length) return;
+  im.style.opacity = 0;
+  setTimeout(function(){
+    ci = (ci + 1) % circImgs.length;
+    im.style.display = 'block';
+    im.src = circImgs[ci];
+    im.style.opacity = 1;
+  }, 350);
+}
+
+/* ================= PRODUCTS ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
   var html = '';
@@ -542,6 +633,7 @@ function pickVariant(id, i, btn){
   btn.classList.add('active');
 }
 
+/* ================= CART ================= */
 function addToCart(id, btn){
   var vi = sel[id] || 0;
   var key = id + '|' + vi;
@@ -561,6 +653,7 @@ function cartTotal(){
   for (var k in cart){ var pr=k.split('|'); var p=PRODUCTS.find(function(x){return x.id===pr[0];}); if(p) s+=p.variants[+pr[1]].price*cart[k]; }
   return s;
 }
+function getShip(){ return cartTotal() >= FREE_SHIP ? 0 : DELIVERY[zone]; }
 function saveCart(){ localStorage.setItem('je_cart', JSON.stringify(cart)); renderCart(); }
 
 function renderCart(){
@@ -592,10 +685,10 @@ function renderCart(){
 }
 
 function renderTotals(){
-  var sub = cartTotal(), ship = DELIVERY[zone], n=0;
+  var sub = cartTotal(), ship = getShip(), n=0;
   for (var k in cart) n += cart[k];
   if ($('sumSub')) $('sumSub').textContent = sub + ' ' + t('dh');
-  if ($('sumShip')) $('sumShip').textContent = ship + ' ' + t('dh');
+  if ($('sumShip')) $('sumShip').textContent = ship===0 ? t('free') : ship + ' ' + t('dh');
   if ($('sumAll')) $('sumAll').textContent = (sub+ship) + ' ' + t('dh');
   if ($('modalSummary')) $('modalSummary').textContent = '🛒 ' + n + ' ' + t('summary') + ': ' + (sub+ship) + ' ' + t('dh') + ' (' + t('with_ship') + ')';
 }
@@ -608,6 +701,7 @@ function setZone(z){
   renderTotals();
 }
 
+/* ================= UI ================= */
 function openCart(){
   $('drawer').classList.add('open');
   $('overlay').classList.add('show');
@@ -631,6 +725,7 @@ function showToast(msg){
   setTimeout(function(){ el.classList.remove('show'); }, 2400);
 }
 
+/* ================= WHATSAPP ================= */
 function sendOrder(){
   var name = $('fName').value.trim();
   var phone = $('fPhone').value.trim();
@@ -640,7 +735,7 @@ function sendOrder(){
   var cityLabel = (zone==='casa') ? t('casaName') : otherCity;
   if (!name || !phone || !addr || !cityLabel){ showToast(t('t_fill')); return; }
 
-  var sub = cartTotal(), ship = DELIVERY[zone];
+  var sub = cartTotal(), ship = getShip();
   var msg = t('w_head') + '\n━━━━━━━━━━━━━━\n';
   msg += t('w_name') + ': ' + name + '\n' + t('w_phone') + ': ' + phone + '\n' + t('w_city') + ': ' + cityLabel + '\n' + t('w_addr') + ': ' + addr + '\n';
   if (notes) msg += t('w_notes') + ': ' + notes + '\n';
@@ -653,7 +748,7 @@ function sendOrder(){
     msg += '▪️ ' + p.n[lang] + ' (' + t('sizeL')(v.g) + ') × ' + cart[k] + ' = ' + (v.price*cart[k]) + ' ' + t('dh') + '\n';
   }
   msg += '━━━━━━━━━━━━━━\n' + t('w_sub') + ': ' + sub + ' ' + t('dh') + '\n';
-  msg += t('w_ship') + ': ' + ship + ' ' + t('dh') + ' (' + cityLabel + ')\n';
+  msg += ship===0 ? (t('w_ship') + ': ' + t('free') + '\n') : (t('w_ship') + ': ' + ship + ' ' + t('dh') + ' (' + cityLabel + ')\n');
   msg += t('w_total') + ': ' + (sub+ship) + ' ' + t('dh') + '*\n' + t('w_pay');
 
   window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
@@ -661,6 +756,7 @@ function sendOrder(){
   showToast(t('t_sent'));
 }
 
+/* ================= ANIMATIONS ================= */
 function observeReveal(){
   var obs = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
@@ -681,8 +777,17 @@ function startCounters(){
   });
 }
 
-/* ===== التشغيل — كل خطوة محمية باش أي خطأ ما يطيحش الصفحة ===== */
+/* ================= INIT ================= */
 function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
+safe(function(){
+  document.querySelectorAll('.slide').forEach(function(sl){
+    sl.addEventListener('load', heroOK);
+    sl.addEventListener('error', function(){ slideFail(sl); });
+    if (sl.complete && sl.naturalWidth > 0) heroOK();
+  });
+  buildDots(); showSlide(0);
+});
+safe(function(){ $('circImg').src = circImgs[0]; setInterval(rotCircle, 2600); });
 safe(function(){ $('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴'); });
 safe(function(){ setZone(zone); });
 safe(function(){ setLang(lang); });
