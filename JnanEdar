@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jnan Edar | جنة دار — منتجات التمر الطبيعية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=El+Messiri:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF7F0; --dark:#1B120A; --brown:#4A3222;
+    --gold:#C89B4B; --gold-light:#E8C98A; --green:#3E6B48;
+    --wa:#25D366; --shadow:0 10px 30px rgba(27,18,10,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden}
+  h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
+
+  header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(251,247,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,155,75,.25)}
+  .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:700}
+  .brand .logo{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#9a7226);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+  .brand small{font-size:.75rem;color:var(--gold);font-weight:600}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--brown);font-weight:600;font-size:.95rem;transition:.3s}
+  .nav-links a:hover{color:var(--gold)}
+  .cart-btn{position:relative;background:var(--dark);color:#fff;border:none;width:48px;height:48px;border-radius:14px;cursor:pointer;font-size:1.3rem;transition:.3s}
+  .cart-btn:hover{background:var(--gold)}
+  .cart-count{position:absolute;top:-6px;left:-6px;background:#e63946;color:#fff;font-size:.7rem;font-weight:700;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(rgba(12,8,4,.78),rgba(12,8,4,.82)),radial-gradient(circle at 70% 25%,#4a3520,#0d0805);color:#fff;text-align:center;padding:120px 20px 90px}
+  .hero::after{content:'';position:absolute;bottom:0;right:0;left:0;height:80px;background:var(--bg);clip-path:ellipse(75% 100% at 50% 100%)}
+  .hero-inner{max-width:820px;margin:auto;position:relative;z-index:2}
+  .hero-badge{display:inline-block;background:rgba(200,155,75,.15);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.9rem;font-weight:600;margin-bottom:24px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.3;margin-bottom:18px}
+  .hero h1 span{color:var(--gold-light)}
+  .hero p{font-size:1.12rem;color:#e8ded0;margin-bottom:36px;line-height:2}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 38px;border-radius:14px;font-family:'Cairo';font-weight:700;font-size:1.05rem;cursor:pointer;text-decoration:none;transition:.3s;border:none}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#a97e2f);color:#fff;box-shadow:0 8px 25px rgba(200,155,75,.4)}
+  .btn-gold:hover{transform:translateY(-3px)}
+  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);margin-right:12px}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+  .hero-emo{position:absolute;font-size:7rem;opacity:.1;user-select:none}
+  .e-r{top:16%;right:4%;transform:rotate(12deg)}
+  .e-l{bottom:20%;left:4%;transform:rotate(-10deg)}
+
+  .features{max-width:1200px;margin:-40px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .feature{background:#fff;border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(200,155,75,.15);transition:.3s}
+  .feature:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .feature .ic{font-size:2.2rem;margin-bottom:10px}
+  .feature h3{font-size:1.02rem;margin-bottom:6px}
+  .feature p{font-size:.84rem;color:#7a6a58;line-height:1.7}
+
+  section{padding:80px 24px}
+  .container{max-width:1200px;margin:auto}
+  .sec-head{text-align:center;margin-bottom:50px}
+  .sec-head .tag{color:var(--gold);font-weight:700;letter-spacing:1px;font-size:.9rem}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px}
+  .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
+
+  .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
+  .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(200,155,75,.14);transition:.35s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px)}
+  .card-img{height:215px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img img{position:absolute;inset:0;margin:auto;max-width:82%;max-height:88%;object-fit:contain;transition:.4s}
+  .card:hover .card-img img{transform:scale(1.06)}
+  .img-emoji{font-size:4.2rem}
+  .badge{position:absolute;top:14px;right:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a97e2f);color:#fff;font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:50px}
+  .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
+  .card-body h3{font-size:1.25rem;margin-bottom:6px}
+  .card-body .en{font-size:.68rem;color:#b0a494;font-weight:600;letter-spacing:.5px}
+  .card-body .desc{font-size:.84rem;color:#7a6a58;line-height:1.7}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
+  .chip{border:1.5px solid #e3d5bd;background:#fdfaf4;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:700;font-size:.8rem;cursor:pointer;color:var(--brown);transition:.25s}
+  .chip.active{background:var(--dark);color:var(--gold-light);border-color:var(--dark)}
+  .card-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px}
+  .price .now{font-size:1.35rem;font-weight:900;color:var(--green)}
+  .price .now small{font-size:.75rem;font-weight:600}
+  .price .unit{font-size:.72rem;color:#b0a494;font-weight:600}
+  .add-btn{background:var(--dark);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s}
+  .add-btn:hover{background:var(--gold)}
+  .add-btn.added{background:var(--green)}
+
+  .ship-sec{padding:0 24px 80px}
+  .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .ship-card{background:#fff;border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.3s}
+  .ship-card:hover{transform:translateY(-4px)}
+  .ship-card .ic{font-size:2.2rem;margin-bottom:8px}
+  .ship-card h3{font-size:1.05rem;margin-bottom:4px}
+  .ship-card .pr{color:var(--green);font-weight:900;font-size:1.3rem}
+  .ship-card .note{font-size:.8rem;color:#7a6a58}
+
+  .about{background:linear-gradient(140deg,#1a120a,#0d0805);color:#fff;border-radius:40px;margin:0 24px}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto}
+  .about h2{font-size:2.2rem;margin-bottom:18px}
+  .about h2 span{color:var(--gold-light)}
+  .about p{color:#d8cbb8;line-height:2;margin-bottom:14px}
+  .about .stats{display:flex;gap:30px;margin-top:28px}
+  .stat .num{font-size:2rem;font-weight:900;color:var(--gold-light)}
+  .stat .lbl{font-size:.85rem;color:#b8a88f}
+  .about-emoji{font-size:7.5rem;text-align:center}
+
+  footer{background:#0d0805;color:#c9b9a2;margin-top:80px;padding:60px 24px 24px;text-align:center}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
+  footer p{font-size:.9rem;max-width:520px;margin:0 auto 8px;line-height:1.9}
+  footer b{color:var(--gold-light)}
+  .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;font-size:.8rem;color:#8a7a63}
+
+  .overlay{position:fixed;inset:0;background:rgba(12,7,3,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
+  .overlay.show{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:#fff;z-index:201;transform:translateX(-105%);transition:.4s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f0e6d4}
+  .close-x{background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--brown)}
+  .drawer-items{flex:1;overflow-y:auto;padding:18px 24px}
+  .cart-empty{text-align:center;padding:60px 0;color:#b0a494}
+  .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #eee2cd}
+  .c-item .em{width:56px;height:56px;border-radius:14px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;overflow:hidden}
+  .c-item .em img{width:100%;height:100%;object-fit:cover}
+  .c-item .nm{font-weight:700;font-size:.93rem}
+  .c-item .pr{color:var(--green);font-weight:700;font-size:.85rem}
+  .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--gold);background:#fff;cursor:pointer;font-weight:700;color:var(--brown)}
+  .qty span{font-weight:700;min-width:20px;text-align:center}
+  .del{background:none;border:none;cursor:pointer;color:#e63946;font-size:1.05rem}
+  .drawer-foot{padding:18px 24px;border-top:1px solid #f0e6d4;background:#fdfaf4}
+  .lbl-sm{font-size:.8rem;font-weight:700;display:block;margin-bottom:6px}
+  .zone-select{width:100%;padding:11px 14px;border:1.5px solid #e8dcc6;border-radius:12px;font-family:'Cairo';font-weight:600;font-size:.88rem;background:#fff;margin-bottom:14px}
+  .sum-row{display:flex;justify-content:space-between;font-size:.88rem;color:#7a6a58;margin-bottom:5px}
+  .sum-row.total{font-weight:900;font-size:1.15rem;color:var(--dark);border-top:1px dashed #e8dcc6;padding-top:10px;margin:8px 0 14px}
+  .checkout-btn{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.05rem;cursor:pointer;transition:.3s}
+  .checkout-btn:hover{background:#1fb857}
+
+  .modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.3s}
+  .modal.show{opacity:1;pointer-events:auto}
+  .modal-box{background:#fff;border-radius:24px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:30px}
+  .modal-box h3{font-size:1.4rem;margin-bottom:4px}
+  .modal-box .sub{color:#7a6a58;font-size:.87rem;margin-bottom:18px}
+  .modal-summary{background:#f3ead8;border-radius:12px;padding:11px 16px;font-size:.85rem;font-weight:700;margin-bottom:20px;text-align:center;color:var(--brown)}
+  .field{margin-bottom:15px}
+  .field label{display:block;font-weight:700;font-size:.84rem;margin-bottom:6px}
+  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid #e8dcc6;border-radius:12px;font-family:'Cairo';font-size:.95rem;background:#fdfaf4}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold)}
+  .wa-send{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.05rem;cursor:pointer;margin-top:6px}
+
+  .float-wa{position:fixed;bottom:26px;right:26px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:150;text-decoration:none;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--dark);color:#fff;padding:14px 28px;border-radius:14px;font-weight:700;z-index:400;transition:.4s}
+  .toast.show{transform:translate(-50%,0)}
+  .reveal{opacity:0;transform:translateY(30px);transition:.7s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:820px){
+    .nav-links{display:none}
+    .about-grid{grid-template-columns:1fr}
+    .about-emoji{font-size:5rem}
+    .btn-outline{margin-right:0;margin-top:12px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand"><div class="logo">🌴</div> Jnan Edar <small>جنة دار</small></div>
+    <ul class="nav-links">
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#products">المنتجات</a></li>
+      <li><a href="#delivery">التوصيل</a></li>
+      <li><a href="#contact">اتصل بنا</a></li>
+    </ul>
+    <button class="cart-btn" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-emo e-r">🍯</div>
+  <div class="hero-emo e-l">🌴</div>
+  <div class="hero-inner">
+    <div class="hero-badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
+    <h1>ودّع السكر...<br><span>مرحبا بالتمر!</span></h1>
+    <p>دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة.<br>توصيل لجميع المدن المغربية 🇲🇦</p>
+    <a href="#products" class="btn btn-gold">🛍️ تسوق الآن</a>
+    <a href="#delivery" class="btn btn-outline">🚚 التوصيل و الدفع</a>
+  </div>
+</section>
+
+<div class="features">
+  <div class="feature reveal"><div class="ic">🌿</div><h3>طبيعي 100%</h3><p>بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة</p></div>
+  <div class="feature reveal"><div class="ic">🚚</div><h3>توصيل سريع</h3><p>الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
+  <div class="feature reveal"><div class="ic">💵</div><h3>الدفع عند الاستلام</h3><p>خلّص منين توصلك الطلبية لباب دارك</p></div>
+  <div class="feature reveal"><div class="ic">💬</div><h3>تأكيد عبر واتساب</h3><p>طلبيتك كتوصلنا مباشرة فواتساب</p></div>
+</div>
+
+<section id="products">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">منتجاتنا</div>
+      <h2>تشكيلة التمر الطبيعية</h2>
+      <div class="line"></div>
+    </div>
+    <div class="products" id="productsGrid"></div>
+  </div>
+</section>
+
+<div class="ship-sec" id="delivery">
+  <div class="sec-head reveal">
+    <div class="tag">🚚 التوصيل</div>
+    <h2>أثمنة التوصيل</h2>
+    <div class="line"></div>
+  </div>
+  <div class="ship-grid">
+    <div class="ship-card reveal"><div class="ic">🏠</div><h3>الدار البيضاء</h3><div class="pr">25 درهم</div><div class="note">توصيل لباب دارك</div></div>
+    <div class="ship-card reveal"><div class="ic">🇲🇦</div><h3>باقي المدن</h3><div class="pr">35 درهم</div><div class="note">لجميع المدن المغربية</div></div>
+    <div class="ship-card reveal"><div class="ic">💵</div><h3>الدفع عند الاستلام</h3><div class="pr" style="font-size:1rem">خلّص منين توصلك</div><div class="note">بلا خلاص مسبق</div></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <h2>علاش <span>Jnan Edar</span>؟</h2>
+      <p>حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.</p>
+      <p>سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱</p>
+      <div class="stats">
+        <div class="stat"><div class="num">100%</div><div class="lbl">طبيعي</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">منتجات مميزة</div></div>
+        <div class="stat"><div class="num">48h</div><div class="lbl">مدة التوصيل</div></div>
+      </div>
+    </div>
+    <div class="about-emoji reveal">🍯🌴</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="brand"><div class="logo">🌴</div> Jnan Edar <small style="font-size:.8rem;color:var(--gold-light)">جنة دار</small></div>
+  <p>منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة</p>
+  <p>📞 واتساب: <b>+212 723 180 222</b></p>
+  <p>🚚 الدار البيضاء: <b>25 درهم</b> • باقي المدن: <b>35 درهم</b> • 💵 الدفع عند الاستلام</p>
+  <div class="copy">© 2025 Jnan Edar - جميع الحقوق محفوظة</div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h3>🛒 سلة المشتريات</h3><button class="close-x" onclick="closeAll()">✕</button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <label class="lbl-sm">🚚 منطقة التوصيل:</label>
+    <select class="zone-select" id="zoneDrawer" onchange="setZone(this.value)">
+      <option value="casa">🏠 الدار البيضاء — 25 درهم</option>
+      <option value="other">🇲🇦 مدينة أخرى — 35 درهم</option>
+    </select>
+    <div class="sum-row"><span>مجموع المنتجات</span><span id="sumSub">0 درهم</span></div>
+    <div class="sum-row"><span>التوصيل</span><span id="sumShip">25 درهم</span></div>
+    <div class="sum-row total"><span>الإجمالي</span><span id="sumAll" style="color:var(--green)">0 درهم</span></div>
+    <button class="checkout-btn" onclick="openCheckout()">✅ تأكيد الطلب عبر واتساب</button>
+  </div>
+</aside>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:start">
+      <div>
+        <h3>📝 معلومات التوصيل</h3>
+        <div class="sub">عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا</div>
+      </div>
+      <button class="close-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-summary" id="modalSummary"></div>
+    <div class="field"><label>الاسم الكامل *</label><input type="text" id="fName" placeholder="مثال: محمد العلوي"></div>
+    <div class="field"><label>رقم الهاتف *</label><input type="tel" id="fPhone" placeholder="06 XX XX XX XX"></div>
+    <div class="field"><label>المدينة *</label>
+      <select id="zoneModal" onchange="setZone(this.value)">
+        <option value="casa">الدار البيضاء</option>
+        <option value="other">مدينة أخرى</option>
+      </select>
+    </div>
+    <div class="field" id="otherCityField" style="display:none"><label>اسم المدينة *</label><input type="text" id="fOtherCity" placeholder="مثال: مراكش، فاس، طنجة..."></div>
+    <div class="field"><label>العنوان الكامل *</label><textarea id="fAddress" rows="2" placeholder="الحي، الزنقة، الرقم..."></textarea></div>
+    <div class="field"><label>ملاحظات (اختياري)</label><input type="text" id="fNotes" placeholder="وقت التوصيل المناسب..."></div>
+    <button class="wa-send" onclick="sendOrder()">💬 إرسال الطلب عبر واتساب</button>
+  </div>
+</div>
+
+<a href="#" class="float-wa" id="floatWa" target="_blank">💬</a>
+<div class="toast" id="toast"></div>
+<noscript><div style="background:#e63946;color:#fff;padding:15px;text-align:center">⚠️ JavaScript مطفي فالمتصفح ديالك — فعّلوه باش المنتجات يظهرو!</div></noscript>
+
+<script>
+var WHATSAPP_NUMBER = "212723180222";
+var DELIVERY = { casa: 25, other: 35 };
+
+var PRODUCTS = [
+  { id:'dibs', name:'دبس التمر', nameEn:'DATE SYRUP', badge:'الأكثر مبيعاً',
+    desc:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
+    emoji:'🍯', img:'',
+    variants:[ {size:'250غ',price:25}, {size:'400غ',price:35}, {size:'900غ',price:65}, {size:'1.5 كلغ',price:85} ] },
+  { id:'poudre', name:'بودرة التمر', nameEn:'DATE POWDER', badge:'بديل السكر',
+    desc:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
+    emoji:'🥄', img:'',
+    variants:[ {size:'250غ',price:35}, {size:'500غ',price:75} ] },
+  { id:'creme', name:'كريم التمر', nameEn:'DATE SPREAD', badge:'طبيعي 100%',
+    desc:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
+    emoji:'🍫', img:'',
+    variants:[ {size:'330غ',price:35} ] },
+  { id:'ajina', name:'عجينة التمر', nameEn:'DATE PASTE', badge:'مثالية للحلويات',
+    desc:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
+    emoji:'🍪', img:'',
+    variants:[ {size:'500غ',price:40} ] }
+];
+
+var sel = {};
+var cart = JSON.parse(localStorage.getItem('je_cart') || '{}');
+var zone = localStorage.getItem('je_zone') || 'casa';
+
+function renderProducts(){
+  var html = '';
+  for (var i=0; i<PRODUCTS.length; i++){
+    var p = PRODUCTS[i];
+    var chips = '';
+    for (var j=0; j<p.variants.length; j++){
+      chips += '<button class="chip' + (j===0?' active':'') + '" onclick="pickVariant(\'' + p.id + '\',' + j + ',this)">' + p.variants[j].size + '</button>';
+    }
+    html += '<div class="card reveal">' +
+      '<div class="card-img">' +
+        (p.badge ? '<span class="badge">' + p.badge + '</span>' : '') +
+        '<div class="img-emoji">' + p.emoji + '</div>' +
+        (p.img ? '<img src="' + p.img + '" alt="' + p.name + '">' : '') +
+      '</div>' +
+      '<div class="card-body">' +
+        '<h3>' + p.name + ' <span class="en">' + p.nameEn + '</span></h3>' +
+        '<div class="desc">' + p.desc + '</div>' +
+        '<div class="chips">' + chips + '</div>' +
+        '<div class="card-foot">' +
+          '<div class="price">' +
+            '<span class="now" id="price-' + p.id + '">' + p.variants[0].price + ' <small>درهم</small></span>' +
+            '<span class="unit" id="unit-' + p.id + '">' + p.variants[0].size + '</span>' +
+          '</div>' +
+          '<button class="add-btn" onclick="addToCart(\'' + p.id + '\', this)">＋ أضف</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  document.getElementById('productsGrid').innerHTML = html;
+  observeReveal();
+}
+
+function pickVariant(id, i, btn){
+  sel[id] = i;
+  var p = PRODUCTS.find(function(x){ return x.id === id; });
+  document.getElementById('price-'+id).innerHTML = p.variants[i].price + ' <small>درهم</small>';
+  document.getElementById('unit-'+id).textContent = p.variants[i].size;
+  var chips = btn.parentElement.querySelectorAll('.chip');
+  for (var k=0; k<chips.length; k++) chips[k].classList.remove('active');
+  btn.classList.add('active');
+}
+
+function addToCart(id, btn){
+  var vi = sel[id] || 0;
+  var key = id + '|' + vi;
+  cart[key] = (cart[key] || 0) + 1;
+  saveCart(); updateCount();
+  btn.textContent = '✓ زيدت!'; btn.classList.add('added');
+  setTimeout(function(){ btn.textContent = '＋ أضف'; btn.classList.remove('added'); }, 1200);
+  showToast('✅ تزادت للسلة!');
+}
+function changeQty(key, d){
+  cart[key] = (cart[key] || 0) + d;
+  if (cart[key] <= 0) delete cart[key];
+  saveCart(); updateCount();
+}
+function removeItem(key){ delete cart[key]; saveCart(); updateCount(); }
+function updateCount(){
+  var n = 0;
+  for (var k in cart) n += cart[k];
+  document.getElementById('cartCount').textContent = n;
+}
+function cartTotal(){
+  var s = 0;
+  for (var k in cart){
+    var parts = k.split('|');
+    var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
+    s += p.variants[+parts[1]].price * cart[k];
+  }
+  return s;
+}
+function saveCart(){ localStorage.setItem('je_cart', JSON.stringify(cart)); renderCart(); }
+
+function renderCart(){
+  var box = document.getElementById('cartItems');
+  var keys = Object.keys(cart);
+  if (!keys.length){
+    box.innerHTML = '<div class="cart-empty" style="font-size:3.5rem">🛒</div><div class="cart-empty">السلة خاوية... زيد شي منتجات!</div>';
+  } else {
+    var html = '';
+    for (var i=0; i<keys.length; i++){
+      var parts = keys[i].split('|');
+      var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
+      var v = p.variants[+parts[1]];
+      var q = cart[keys[i]];
+      html += '<div class="c-item">' +
+        '<div class="em">' + (p.img ? '<img src="'+p.img+'">' : p.emoji) + '</div>' +
+        '<div style="flex:1">' +
+          '<div class="nm">' + p.name + ' <small style="color:#b0a494">(' + v.size + ')</small></div>' +
+          '<div class="pr">' + (v.price * q) + ' درهم</div>' +
+          '<div class="qty">' +
+            '<button onclick="changeQty(\'' + keys[i] + '\',1)">＋</button>' +
+            '<span>' + q + '</span>' +
+            '<button onclick="changeQty(\'' + keys[i] + '\',-1)">−</button>' +
+            '<button class="del" onclick="removeItem(\'' + keys[i] + '\')">🗑</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+    box.innerHTML = html;
+  }
+  renderTotals();
+}
+
+function renderTotals(){
+  var sub = cartTotal(), ship = DELIVERY[zone];
+  var n = 0; for (var k in cart) n += cart[k];
+  document.getElementById('sumSub').textContent = sub + ' درهم';
+  document.getElementById('sumShip').textContent = ship + ' درهم';
+  document.getElementById('sumAll').textContent = (sub + ship) + ' درهم';
+  document.getElementById('modalSummary').textContent = '🛒 ' + n + ' منتجات — الإجمالي: ' + (sub + ship) + ' درهم (مع التوصيل)';
+}
+
+function setZone(z){
+  zone = z;
+  localStorage.setItem('je_zone', z);
+  document.getElementById('zoneDrawer').value = z;
+  document.getElementById('zoneModal').value = z;
+  document.getElementById('otherCityField').style.display = (z === 'other') ? 'block' : 'none';
+  renderTotals();
+}
+
+function openCart(){
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+  renderCart();
+}
+function openCheckout(){
+  if (!Object.keys(cart).length){ showToast('السلة خاوية! 🛒'); return; }
+  renderTotals();
+  document.getElementById('modal').classList.add('show');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeModal(){ document.getElementById('modal').classList.remove('show'); }
+function closeAll(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('modal').classList.remove('show');
+  document.getElementById('overlay').classList.remove('show');
+}
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2400);
+}
+
+function sendOrder(){
+  var name = document.getElementById('fName').value.trim();
+  var phone = document.getElementById('fPhone').value.trim();
+  var addr = document.getElementById('fAddress').value.trim();
+  var notes = document.getElementById('fNotes').value.trim();
+  var otherCity = document.getElementById('fOtherCity').value.trim();
+  var cityLabel = (zone === 'casa') ? 'الدار البيضاء' : otherCity;
+
+  if (!name || !phone || !addr || !cityLabel){ showToast('⚠️ عمّر جميع المعلومات المطلوبة'); return; }
+
+  var sub = cartTotal(), ship = DELIVERY[zone];
+  var msg = '🌿 *طلب جديد — Jnan Edar* 🌿\n━━━━━━━━━━━━━━\n';
+  msg += '👤 الاسم: ' + name + '\n📞 الهاتف: ' + phone + '\n🏙️ المدينة: ' + cityLabel + '\n📍 العنوان: ' + addr + '\n';
+  if (notes) msg += '📝 ملاحظات: ' + notes + '\n';
+  msg += '━━━━━━━━━━━━━━\n🛒 *الطلب:*\n';
+  for (var k in cart){
+    var parts = k.split('|');
+    var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
+    var v = p.variants[+parts[1]];
+    msg += '▪️ ' + p.name + ' (' + v.size + ') × ' + cart[k] + ' = ' + (v.price * cart[k]) + ' درهم\n';
+  }
+  msg += '━━━━━━━━━━━━━━\n💰 مجموع المنتجات: ' + sub + ' درهم\n🚚 التوصيل: ' + ship + ' درهم (' + cityLabel + ')\n✅ *الإجمالي: ' + (sub + ship) + ' درهم*\n💵 الدفع: عند الاستلام';
+
+  window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  cart = {}; saveCart(); updateCount(); closeAll();
+  showToast('✅ توصلنا بالطلب! غادي نجاوبوك دغيا إن شاء الله');
+}
+
+function observeReveal(){
+  var obs = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ obs.observe(el); });
+}
+
+/* ===== التشغيل ===== */
+try {
+  document.getElementById('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴');
+  setZone(zone);
+  renderProducts();
+  updateCount();
+} catch(err) {
+  document.getElementById('productsGrid').innerHTML = '<div style="padding:40px;text-align:center;color:#e63946">⚠️ وقع خطأ: ' + err.message + '</div>';
+}
+</script>
+</body>
+</html>
