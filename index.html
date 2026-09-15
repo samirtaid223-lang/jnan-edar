@@ -3,158 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jnan Edar | جنان دار — منتجات التمر الطبيعية</title>
+<title>Jnan Edar | جنان الدار — منتجات التمر الطبيعية</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=El+Messiri:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FBF7F0; --dark:#1B120A; --brown:#4A3222;
-    --gold:#C89B4B; --gold-light:#E8C98A; --green:#3E6B48;
-    --wa:#25D366; --shadow:0 10px 30px rgba(27,18,10,.10);
+    --bg:#F7F3E8; --dark:#1C2416; --green:#3A5A34; --green-2:#4E7A42;
+    --gold:#C6A15B; --gold-light:#EAD5A8; --cream:#FFFDF6;
+    --wa:#25D366; --shadow:0 10px 30px rgba(28,36,22,.10);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden}
+  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;transition:background .4s}
   h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
 
-  header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(251,247,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,155,75,.25)}
-  .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-  .brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:700}
-  .brand .logo{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#9a7226);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
-  .brand small{font-size:.75rem;color:var(--gold);font-weight:600}
-  .nav-links{display:flex;gap:28px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--brown);font-weight:600;font-size:.95rem;transition:.3s}
-  .nav-links a:hover{color:var(--gold)}
-  .cart-btn{position:relative;background:var(--dark);color:#fff;border:none;width:48px;height:48px;border-radius:14px;cursor:pointer;font-size:1.3rem;transition:.3s}
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+  @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(var(--r,0deg))}}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  @keyframes cartPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1)}}
+  @keyframes shine{to{left:130%}}
+  @keyframes ring{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(247,243,232,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(198,161,91,.3)}
+  .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:10px}
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:700;cursor:pointer;text-decoration:none;color:var(--dark)}
+  .logo-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(198,161,91,.35)}
+  .logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .brand small{font-size:.72rem;color:var(--green);font-weight:700}
+  .nav-mid{display:flex;align-items:center;gap:22px}
+  .nav-links{display:flex;gap:24px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--green);font-weight:700;font-size:.93rem;transition:.3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .langs{display:flex;gap:5px;background:#efe8d5;border-radius:12px;padding:4px}
+  .lang-btn{border:none;background:transparent;font-family:'Cairo';font-weight:800;font-size:.75rem;padding:6px 11px;border-radius:9px;cursor:pointer;color:var(--green);transition:.25s}
+  .lang-btn.active{background:var(--green);color:#fff;box-shadow:0 3px 8px rgba(58,90,52,.4)}
+  .cart-btn{position:relative;background:var(--green);color:#fff;border:none;width:48px;height:48px;border-radius:14px;cursor:pointer;font-size:1.25rem;transition:.3s}
   .cart-btn:hover{background:var(--gold)}
-  .cart-count{position:absolute;top:-6px;left:-6px;background:#e63946;color:#fff;font-size:.7rem;font-weight:700;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+  .cart-btn.pop{animation:cartPop .5s}
+  .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+  .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(rgba(12,8,4,.78),rgba(12,8,4,.82)),radial-gradient(circle at 70% 25%,#4a3520,#0d0805);color:#fff;text-align:center;padding:120px 20px 90px}
-  .hero::after{content:'';position:absolute;bottom:0;right:0;left:0;height:80px;background:var(--bg);clip-path:ellipse(75% 100% at 50% 100%)}
-  .hero-inner{max-width:820px;margin:auto;position:relative;z-index:2}
-  .hero-badge{display:inline-block;background:rgba(200,155,75,.15);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.9rem;font-weight:600;margin-bottom:24px}
-  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.3;margin-bottom:18px}
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 75% 20%,#31452a,#151d10 70%);color:#fff;text-align:center;padding:130px 20px 110px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(198,161,91,.04) 0 2px,transparent 2px 14px)}
+  .hero-logo{width:150px;height:150px;border-radius:50%;margin:0 auto 26px;position:relative;animation:floatY 5s ease-in-out infinite;--r:0deg}
+  .hero-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid var(--gold);box-shadow:0 18px 45px rgba(0,0,0,.5)}
+  .hero-logo::after{content:'';position:absolute;inset:-8px;border:1.5px dashed rgba(198,161,91,.55);border-radius:50%;animation:spinSlow 22s linear infinite}
+  .hero-inner{max-width:840px;margin:auto;position:relative;z-index:2}
+  .hero-inner>*{animation:fadeUp .9s both}
+  .hero-badge{display:inline-block;background:rgba(198,161,91,.14);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.88rem;font-weight:700;margin-bottom:22px;animation-delay:.05s}
+  .hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.3;margin-bottom:16px;animation-delay:.15s}
   .hero h1 span{color:var(--gold-light)}
-  .hero p{font-size:1.12rem;color:#e8ded0;margin-bottom:36px;line-height:2}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 38px;border-radius:14px;font-family:'Cairo';font-weight:700;font-size:1.05rem;cursor:pointer;text-decoration:none;transition:.3s;border:none}
-  .btn-gold{background:linear-gradient(135deg,var(--gold),#a97e2f);color:#fff;box-shadow:0 8px 25px rgba(200,155,75,.4)}
-  .btn-gold:hover{transform:translateY(-3px)}
-  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);margin-right:12px}
-  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
-  .hero-emo{position:absolute;font-size:7rem;opacity:.1;user-select:none}
-  .e-r{top:16%;right:4%;transform:rotate(12deg)}
-  .e-l{bottom:20%;left:4%;transform:rotate(-10deg)}
+  .hero p{font-size:1.1rem;color:#e6ddc9;margin-bottom:32px;line-height:2;animation-delay:.25s}
+  .hero-cta{animation-delay:.35s}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
+  .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(198,161,91,.55)}
+  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-3px)}
+  .particle{position:absolute;font-size:2rem;opacity:.16;animation:floatY 6s ease-in-out infinite;user-select:none;pointer-events:none}
 
-  .features{max-width:1200px;margin:-40px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .feature{background:#fff;border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(200,155,75,.15);transition:.3s}
-  .feature:hover{transform:translateY(-6px);border-color:var(--gold)}
-  .feature .ic{font-size:2.2rem;margin-bottom:10px}
-  .feature h3{font-size:1.02rem;margin-bottom:6px}
-  .feature p{font-size:.84rem;color:#7a6a58;line-height:1.7}
+  /* ===== MARQUEE ===== */
+  .marquee{background:var(--green);color:#fff;overflow:hidden;padding:11px 0;white-space:nowrap}
+  .marquee-inner{display:inline-block;animation:marquee 22s linear infinite;font-weight:700;font-size:.9rem;letter-spacing:.5px}
+  .marquee-inner span{margin:0 18px}
+
+  /* ===== FEATURES ===== */
+  .features{max-width:1200px;margin:-45px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .feature{background:var(--cream);border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.2);transition:.35s}
+  .feature:hover{transform:translateY(-8px) scale(1.02);border-color:var(--gold);box-shadow:0 16px 38px rgba(28,36,22,.15)}
+  .feature .ic{font-size:2.3rem;margin-bottom:10px;display:inline-block;animation:floatY 4s ease-in-out infinite}
+  .feature:nth-child(2) .ic{animation-delay:.5s}.feature:nth-child(3) .ic{animation-delay:1s}.feature:nth-child(4) .ic{animation-delay:1.5s}
+  .feature h3{font-size:1rem;margin-bottom:6px;color:var(--green)}
+  .feature p{font-size:.83rem;color:#7d7361;line-height:1.7}
 
   section{padding:80px 24px}
   .container{max-width:1200px;margin:auto}
   .sec-head{text-align:center;margin-bottom:50px}
-  .sec-head .tag{color:var(--gold);font-weight:700;letter-spacing:1px;font-size:.9rem}
-  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px}
+  .sec-head .tag{color:var(--gold);font-weight:800;letter-spacing:1px;font-size:.88rem}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
   .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
 
+  /* ===== PRODUCTS ===== */
   .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
-  .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(200,155,75,.14);transition:.35s;display:flex;flex-direction:column}
-  .card:hover{transform:translateY(-8px)}
-  .card-img{height:230px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-  .card-img img{position:absolute;inset:0;margin:auto;max-width:85%;max-height:90%;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.5));transition:.4s}
-  .card:hover .card-img img{transform:scale(1.06)}
-  .img-emoji{font-size:4.2rem}
-  .badge{position:absolute;top:14px;right:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a97e2f);color:#fff;font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:50px}
+  .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-10px);box-shadow:0 20px 45px rgba(28,36,22,.18)}
+  .card-img{height:230px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(198,161,91,.12),transparent 60%)}
+  .card-img img{position:absolute;inset:0;margin:auto;max-width:85%;max-height:90%;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));transition:.45s;z-index:1}
+  .card:hover .card-img img{transform:scale(1.09) rotate(-2deg)}
+  .img-emoji{font-size:4.2rem;z-index:0}
+  .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
   .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
-  .card-body h3{font-size:1.25rem;margin-bottom:6px}
-  .card-body .en{font-size:.68rem;color:#b0a494;font-weight:600;letter-spacing:.5px}
-  .card-body .desc{font-size:.84rem;color:#7a6a58;line-height:1.7}
+  .card-body h3{font-size:1.22rem;margin-bottom:6px;color:var(--green)}
+  .card-body .en{font-size:.66rem;color:#b3a88f;font-weight:700;letter-spacing:.5px}
+  .card-body .desc{font-size:.83rem;color:#7d7361;line-height:1.7}
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
-  .chip{border:1.5px solid #e3d5bd;background:#fdfaf4;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:700;font-size:.8rem;cursor:pointer;color:var(--brown);transition:.25s}
-  .chip.active{background:var(--dark);color:var(--gold-light);border-color:var(--dark)}
+  .chip{border:1.5px solid #ddd2b8;background:#fbf7ec;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:800;font-size:.79rem;cursor:pointer;color:var(--green);transition:.25s}
+  .chip:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .chip.active{background:var(--green);color:#fff;border-color:var(--green)}
   .card-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px}
-  .price .now{font-size:1.35rem;font-weight:900;color:var(--green)}
-  .price .now small{font-size:.75rem;font-weight:600}
-  .price .unit{font-size:.72rem;color:#b0a494;font-weight:600}
-  .add-btn{background:var(--dark);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s}
+  .price .now{font-size:1.35rem;font-weight:900;color:var(--green-2)}
+  .price .now small{font-size:.74rem;font-weight:700}
+  .price .unit{font-size:.72rem;color:#b3a88f;font-weight:700}
+  .add-btn{background:var(--green);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:800;cursor:pointer;font-size:.9rem;transition:.3s;position:relative;overflow:hidden}
+  .add-btn::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:.6s}
+  .add-btn:hover::after{left:130%}
   .add-btn:hover{background:var(--gold)}
-  .add-btn.added{background:var(--green)}
+  .add-btn.added{background:var(--wa)}
 
+  /* ===== DELIVERY ===== */
   .ship-sec{padding:0 24px 80px}
   .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .ship-card{background:#fff;border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.3s}
-  .ship-card:hover{transform:translateY(-4px)}
-  .ship-card .ic{font-size:2.2rem;margin-bottom:8px}
-  .ship-card h3{font-size:1.05rem;margin-bottom:4px}
-  .ship-card .pr{color:var(--green);font-weight:900;font-size:1.3rem}
-  .ship-card .note{font-size:.8rem;color:#7a6a58}
+  .ship-card{background:var(--cream);border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.35s}
+  .ship-card:hover{transform:translateY(-5px);background:#fff;box-shadow:var(--shadow)}
+  .ship-card .ic{font-size:2.3rem;margin-bottom:8px}
+  .ship-card h3{font-size:1.02rem;margin-bottom:4px;color:var(--green)}
+  .ship-card .pr{color:var(--green-2);font-weight:900;font-size:1.35rem}
+  .ship-card .note{font-size:.8rem;color:#7d7361}
 
-  .about{background:linear-gradient(140deg,#1a120a,#0d0805);color:#fff;border-radius:40px;margin:0 24px}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto}
+  /* ===== ABOUT ===== */
+  .about{background:radial-gradient(circle at 20% 30%,#2c3a22,#151d10 70%);color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
+  .about::before{content:'🌴';position:absolute;font-size:14rem;opacity:.05;top:-30px;left:-10px;transform:rotate(-15deg)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
   .about h2{font-size:2.2rem;margin-bottom:18px}
   .about h2 span{color:var(--gold-light)}
-  .about p{color:#d8cbb8;line-height:2;margin-bottom:14px}
-  .about .stats{display:flex;gap:30px;margin-top:28px}
-  .stat .num{font-size:2rem;font-weight:900;color:var(--gold-light)}
-  .stat .lbl{font-size:.85rem;color:#b8a88f}
-  .about-emoji{font-size:7.5rem;text-align:center}
+  .about p{color:#d9d0ba;line-height:2;margin-bottom:14px}
+  .about .stats{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap}
+  .stat .num{font-size:2.3rem;font-weight:900;color:var(--gold-light);font-family:'El Messiri'}
+  .stat .lbl{font-size:.84rem;color:#b8ae94}
+  .about-emoji{font-size:7rem;text-align:center;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));animation:floatY 5s ease-in-out infinite}
 
-  footer{background:#0d0805;color:#c9b9a2;margin-top:80px;padding:60px 24px 24px;text-align:center}
-  footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
-  footer p{font-size:.9rem;max-width:520px;margin:0 auto 8px;line-height:1.9}
+  /* ===== FOOTER ===== */
+  footer{background:#10160b;color:#cfc4a8;margin-top:80px;padding:60px 24px 24px;text-align:center}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:14px;font-size:1.5rem}
+  footer .brand .logo-wrap{width:54px;height:54px}
+  footer p{font-size:.9rem;max-width:540px;margin:0 auto 8px;line-height:1.9}
   footer b{color:var(--gold-light)}
-  .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;font-size:.8rem;color:#8a7a63}
+  .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;font-size:.8rem;color:#8f8468}
 
-  .overlay{position:fixed;inset:0;background:rgba(12,7,3,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
+  /* ===== CART DRAWER ===== */
+  .overlay{position:fixed;inset:0;background:rgba(15,20,10,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
   .overlay.show{opacity:1;pointer-events:auto}
-  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:#fff;z-index:201;transform:translateX(-105%);transition:.4s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:var(--cream);z-index:201;transform:translateX(-105%);transition:.45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;box-shadow:10px 0 40px rgba(0,0,0,.25)}
+  html[dir=ltr] .drawer{left:auto;right:0;transform:translateX(105%)}
   .drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f0e6d4}
-  .close-x{background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--brown)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #eee3c8}
+  .drawer-head h3{font-size:1.2rem;color:var(--green)}
+  .close-x{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
   .drawer-items{flex:1;overflow-y:auto;padding:18px 24px}
-  .cart-empty{text-align:center;padding:60px 0;color:#b0a494}
-  .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #eee2cd}
-  .c-item .em{width:56px;height:56px;border-radius:14px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;overflow:hidden;position:relative}
+  .cart-empty{text-align:center;padding:60px 0;color:#b3a88f}
+  .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #e5d9ba;animation:fadeUp .4s both}
+  .c-item .em{width:56px;height:56px;border-radius:14px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;overflow:hidden;position:relative}
   .c-item .em img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .c-item .nm{font-weight:700;font-size:.93rem}
-  .c-item .pr{color:var(--green);font-weight:700;font-size:.85rem}
+  .c-item .nm{font-weight:800;font-size:.92rem}
+  .c-item .pr{color:var(--green-2);font-weight:800;font-size:.85rem}
   .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
-  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--gold);background:#fff;cursor:pointer;font-weight:700;color:var(--brown)}
-  .qty span{font-weight:700;min-width:20px;text-align:center}
+  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--gold);background:#fff;cursor:pointer;font-weight:800;color:var(--green);transition:.2s}
+  .qty button:hover{background:var(--gold);color:#fff}
+  .qty span{font-weight:800;min-width:20px;text-align:center}
   .del{background:none;border:none;cursor:pointer;color:#e63946;font-size:1.05rem}
-  .drawer-foot{padding:18px 24px;border-top:1px solid #f0e6d4;background:#fdfaf4}
-  .lbl-sm{font-size:.8rem;font-weight:700;display:block;margin-bottom:6px}
-  .zone-select{width:100%;padding:11px 14px;border:1.5px solid #e8dcc6;border-radius:12px;font-family:'Cairo';font-weight:600;font-size:.88rem;background:#fff;margin-bottom:14px}
-  .sum-row{display:flex;justify-content:space-between;font-size:.88rem;color:#7a6a58;margin-bottom:5px}
-  .sum-row.total{font-weight:900;font-size:1.15rem;color:var(--dark);border-top:1px dashed #e8dcc6;padding-top:10px;margin:8px 0 14px}
-  .checkout-btn{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.05rem;cursor:pointer;transition:.3s}
-  .checkout-btn:hover{background:#1fb857}
+  .drawer-foot{padding:18px 24px;border-top:1px solid #eee3c8;background:#fbf7ec}
+  .lbl-sm{font-size:.8rem;font-weight:800;display:block;margin-bottom:6px;color:var(--green)}
+  .zone-select{width:100%;padding:11px 14px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-weight:700;font-size:.87rem;background:#fff;margin-bottom:14px}
+  .zone-select:focus{outline:none;border-color:var(--gold)}
+  .sum-row{display:flex;justify-content:space-between;font-size:.88rem;color:#7d7361;margin-bottom:5px}
+  .sum-row.total{font-weight:900;font-size:1.15rem;color:var(--dark);border-top:1px dashed #ddd2b8;padding-top:10px;margin:8px 0 14px}
+  .checkout-btn{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;transition:.3s}
+  .checkout-btn:hover{background:#1fb857;transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,211,102,.4)}
 
+  /* ===== MODAL ===== */
   .modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.3s}
   .modal.show{opacity:1;pointer-events:auto}
-  .modal-box{background:#fff;border-radius:24px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:30px}
-  .modal-box h3{font-size:1.4rem;margin-bottom:4px}
-  .modal-box .sub{color:#7a6a58;font-size:.87rem;margin-bottom:18px}
-  .modal-summary{background:#f3ead8;border-radius:12px;padding:11px 16px;font-size:.85rem;font-weight:700;margin-bottom:20px;text-align:center;color:var(--brown)}
+  .modal-box{background:var(--cream);border-radius:24px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:30px;transform:scale(.92);transition:.3s}
+  .modal.show .modal-box{transform:scale(1)}
+  .modal-box h3{font-size:1.35rem;margin-bottom:4px;color:var(--green)}
+  .modal-box .sub{color:#7d7361;font-size:.86rem;margin-bottom:18px}
+  .modal-summary{background:#f1e9d2;border-radius:12px;padding:11px 16px;font-size:.84rem;font-weight:800;margin-bottom:20px;text-align:center;color:var(--green)}
   .field{margin-bottom:15px}
-  .field label{display:block;font-weight:700;font-size:.84rem;margin-bottom:6px}
-  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid #e8dcc6;border-radius:12px;font-family:'Cairo';font-size:.95rem;background:#fdfaf4}
-  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold)}
-  .wa-send{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.05rem;cursor:pointer;margin-top:6px}
+  .field label{display:block;font-weight:800;font-size:.83rem;margin-bottom:6px;color:var(--green)}
+  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-size:.94rem;background:#fbf7ec;transition:.3s}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:#fff}
+  .wa-send{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;margin-top:6px;transition:.3s}
+  .wa-send:hover{background:#1fb857;transform:translateY(-2px)}
 
-  .float-wa{position:fixed;bottom:26px;right:26px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:150;text-decoration:none;animation:pulse 2.2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--dark);color:#fff;padding:14px 28px;border-radius:14px;font-weight:700;z-index:400;transition:.4s}
+  .float-wa{position:fixed;bottom:26px;inset-inline-end:26px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:150;text-decoration:none;animation:pulse 2.2s infinite;transition:.3s}
+  .float-wa:hover{transform:scale(1.1)}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--green);color:#fff;padding:14px 28px;border-radius:14px;font-weight:800;z-index:400;transition:.4s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
   .toast.show{transform:translate(-50%,0)}
-  .reveal{opacity:0;transform:translateY(30px);transition:.7s}
+  .reveal{opacity:0;transform:translateY(34px);transition:.7s cubic-bezier(.22,1,.36,1)}
   .reveal.in{opacity:1;transform:none}
 
-  @media(max-width:820px){
-    .nav-links{display:none}
+  @media(max-width:900px){
+    .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:var(--cream);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:2px solid var(--gold);box-shadow:0 15px 30px rgba(0,0,0,.12)}
+    .nav-links.open{display:flex;animation:fadeUp .3s both}
+    .burger{display:block}
+    .nav-mid{gap:8px}
     .about-grid{grid-template-columns:1fr}
     .about-emoji{font-size:5rem}
-    .btn-outline{margin-right:0;margin-top:12px}
+    .btn-outline{margin-inline-start:0;margin-top:12px}
+    .hero-logo{width:120px;height:120px}
   }
 </style>
 </head>
@@ -162,41 +215,60 @@
 
 <header>
   <nav class="nav">
-    <div class="brand"><div class="logo">🌴</div> Jnan Edar <small>جنة دار</small></div>
-    <ul class="nav-links">
-      <li><a href="#home">الرئيسية</a></li>
-      <li><a href="#products">المنتجات</a></li>
-      <li><a href="#delivery">التوصيل</a></li>
-      <li><a href="#contact">اتصل بنا</a></li>
-    </ul>
-    <button class="cart-btn" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+    <a class="brand" href="#home">
+      <div class="logo-wrap">🌴<img src="images/logo.png" alt="Jnan Edar" onerror="this.style.display='none'"></div>
+      <span>Jnan Edar <small>جنان الدار</small></span>
+    </a>
+    <div class="nav-mid">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+        <li><a href="#products" data-i18n="nav_products">المنتجات</a></li>
+        <li><a href="#delivery" data-i18n="nav_delivery">التوصيل</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
+      </ul>
+      <div class="langs">
+        <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">AR</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="cart-btn" id="cartBtn" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+      <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
   </nav>
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-emo e-r">🍯</div>
-  <div class="hero-emo e-l">🌴</div>
+  <span class="particle" style="top:18%;left:6%;font-size:3rem;--r:-12deg">🌴</span>
+  <span class="particle" style="top:60%;left:10%;animation-delay:1s">🍯</span>
+  <span class="particle" style="top:25%;right:7%;font-size:2.6rem;--r:14deg;animation-delay:.5s">🌴</span>
+  <span class="particle" style="top:65%;right:9%;animation-delay:1.6s">✨</span>
+  <span class="particle" style="top:80%;left:45%;animation-delay:2.2s">🫒</span>
   <div class="hero-inner">
-    <div class="hero-badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
-    <h1>ودّع السكر...<br><span>مرحبا بالتمر!</span></h1>
-    <p>دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة.<br>توصيل لجميع المدن المغربية 🇲🇦</p>
-    <a href="#products" class="btn btn-gold">🛍️ تسوق الآن</a>
-    <a href="#delivery" class="btn btn-outline">🚚 التوصيل و الدفع</a>
+    <div class="hero-logo">🌴<img src="images/logo.png" alt="Jnan Edar" onerror="this.style.display='none'"></div>
+    <div class="hero-badge" data-i18n="hero_badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
+    <h1><span data-i18n="hero_t1">ودّع السكر...</span><br><b data-i18n="hero_t2">مرحبا بالتمر!</b></h1>
+    <p data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
+      <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
+    </div>
   </div>
 </section>
 
+<div class="marquee"><div class="marquee-inner" id="marquee"></div></div>
+
 <div class="features">
-  <div class="feature reveal"><div class="ic">🌿</div><h3>طبيعي 100%</h3><p>بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة</p></div>
-  <div class="feature reveal"><div class="ic">🚚</div><h3>توصيل سريع</h3><p>الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
-  <div class="feature reveal"><div class="ic">💵</div><h3>الدفع عند الاستلام</h3><p>خلّص منين توصلك الطلبية لباب دارك</p></div>
-  <div class="feature reveal"><div class="ic">💬</div><h3>تأكيد عبر واتساب</h3><p>طلبيتك كتوصلنا مباشرة فواتساب</p></div>
+  <div class="feature reveal"><div class="ic">🌿</div><h3 data-i18n="f1t">طبيعي 100%</h3><p data-i18n="f1p">بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة</p></div>
+  <div class="feature reveal"><div class="ic">🚚</div><h3 data-i18n="f2t">توصيل سريع</h3><p data-i18n="f2p">الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
+  <div class="feature reveal"><div class="ic">💵</div><h3 data-i18n="f3t">الدفع عند الاستلام</h3><p data-i18n="f3p">خلّص منين توصلك الطلبية لباب دارك</p></div>
+  <div class="feature reveal"><div class="ic">💬</div><h3 data-i18n="f4t">تأكيد عبر واتساب</h3><p data-i18n="f4p">طلبيتك كتوصلنا مباشرة فواتساب</p></div>
 </div>
 
 <section id="products">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="tag">منتجاتنا</div>
-      <h2>تشكيلة التمر الطبيعية</h2>
+      <div class="tag" data-i18n="prod_tag">منتجاتنا</div>
+      <h2 data-i18n="prod_title">تشكيلة التمر الطبيعية</h2>
       <div class="line"></div>
     </div>
     <div class="products" id="productsGrid"></div>
@@ -205,27 +277,27 @@
 
 <div class="ship-sec" id="delivery">
   <div class="sec-head reveal">
-    <div class="tag">🚚 التوصيل</div>
-    <h2>أثمنة التوصيل</h2>
+    <div class="tag" data-i18n="del_tag">🚚 التوصيل</div>
+    <h2 data-i18n="del_title">أثمنة التوصيل</h2>
     <div class="line"></div>
   </div>
   <div class="ship-grid">
-    <div class="ship-card reveal"><div class="ic">🏠</div><h3>الدار البيضاء</h3><div class="pr">25 درهم</div><div class="note">توصيل لباب دارك</div></div>
-    <div class="ship-card reveal"><div class="ic">🇲🇦</div><h3>باقي المدن</h3><div class="pr">35 درهم</div><div class="note">لجميع المدن المغربية</div></div>
-    <div class="ship-card reveal"><div class="ic">💵</div><h3>الدفع عند الاستلام</h3><div class="pr" style="font-size:1rem">خلّص منين توصلك</div><div class="note">بلا خلاص مسبق</div></div>
+    <div class="ship-card reveal"><div class="ic">🏠</div><h3 data-i18n="ship_casa">الدار البيضاء</h3><div class="pr">25 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_casa_n">توصيل لباب دارك</div></div>
+    <div class="ship-card reveal"><div class="ic">🇲🇦</div><h3 data-i18n="ship_other">باقي المدن</h3><div class="pr">35 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_other_n">لجميع المدن المغربية</div></div>
+    <div class="ship-card reveal"><div class="ic">💵</div><h3 data-i18n="ship_cod">الدفع عند الاستلام</h3><div class="pr" style="font-size:1rem" data-i18n="ship_cod_v">خلّص منين توصلك</div><div class="note" data-i18n="ship_cod_n">بلا خلاص مسبق</div></div>
   </div>
 </div>
 
 <section class="about" id="about">
   <div class="about-grid">
     <div class="reveal">
-      <h2>علاش <span>Jnan Edar</span>؟</h2>
-      <p>حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.</p>
-      <p>سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱</p>
+      <h2 data-i18n="ab_title">علاش <span>Jnan Edar</span>؟</h2>
+      <p data-i18n="ab_p1">حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.</p>
+      <p data-i18n="ab_p2">سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱</p>
       <div class="stats">
-        <div class="stat"><div class="num">100%</div><div class="lbl">طبيعي</div></div>
-        <div class="stat"><div class="num">4</div><div class="lbl">منتجات مميزة</div></div>
-        <div class="stat"><div class="num">48h</div><div class="lbl">مدة التوصيل</div></div>
+        <div class="stat"><div class="num"><span class="cnt" data-count="100">0</span>%</div><div class="lbl" data-i18n="st1">طبيعي</div></div>
+        <div class="stat"><div class="num"><span class="cnt" data-count="4">0</span></div><div class="lbl" data-i18n="st2">منتجات مميزة</div></div>
+        <div class="stat"><div class="num"><span class="cnt" data-count="48">0</span>h</div><div class="lbl" data-i18n="st3">مدة التوصيل</div></div>
       </div>
     </div>
     <div class="about-emoji reveal">🍯🌴</div>
@@ -233,27 +305,27 @@
 </section>
 
 <footer id="contact">
-  <div class="brand"><div class="logo">🌴</div> Jnan Edar <small style="font-size:.8rem;color:var(--gold-light)">جنة دار</small></div>
-  <p>منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة</p>
-  <p>📞 واتساب: <b>+212 723 180 222</b></p>
-  <p>🚚 الدار البيضاء: <b>25 درهم</b> • باقي المدن: <b>35 درهم</b> • 💵 الدفع عند الاستلام</p>
-  <div class="copy">© 2025 Jnan Edar - جميع الحقوق محفوظة</div>
+  <div class="brand"><div class="logo-wrap">🌴<img src="images/logo.png" alt="" onerror="this.style.display='none'"></div><span>Jnan Edar <small style="font-size:.75rem;color:var(--gold-light)">جنان الدار</small></span></div>
+  <p data-i18n="ft_tag">منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة</p>
+  <p>📞 <span data-i18n="ft_wa">واتساب</span>: <b>+212 723 180 222</b></p>
+  <p data-i18n="ft_del">🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 💵 الدفع عند الاستلام</p>
+  <div class="copy">© 2025 Jnan Edar — جنان الدار</div>
 </footer>
 
 <div class="overlay" id="overlay" onclick="closeAll()"></div>
 <aside class="drawer" id="drawer">
-  <div class="drawer-head"><h3>🛒 سلة المشتريات</h3><button class="close-x" onclick="closeAll()">✕</button></div>
+  <div class="drawer-head"><h3 data-i18n="cart_t">🛒 سلة المشتريات</h3><button class="close-x" onclick="closeAll()">✕</button></div>
   <div class="drawer-items" id="cartItems"></div>
   <div class="drawer-foot">
-    <label class="lbl-sm">🚚 منطقة التوصيل:</label>
+    <label class="lbl-sm" data-i18n="zone_lbl">🚚 منطقة التوصيل:</label>
     <select class="zone-select" id="zoneDrawer" onchange="setZone(this.value)">
-      <option value="casa">🏠 الدار البيضاء — 25 درهم</option>
-      <option value="other">🇲🇦 مدينة أخرى — 35 درهم</option>
+      <option value="casa" data-i18n="z_casa">🏠 الدار البيضاء — 25 درهم</option>
+      <option value="other" data-i18n="z_other">🇲🇦 مدينة أخرى — 35 درهم</option>
     </select>
-    <div class="sum-row"><span>مجموع المنتجات</span><span id="sumSub">0 درهم</span></div>
-    <div class="sum-row"><span>التوصيل</span><span id="sumShip">25 درهم</span></div>
-    <div class="sum-row total"><span>الإجمالي</span><span id="sumAll" style="color:var(--green)">0 درهم</span></div>
-    <button class="checkout-btn" onclick="openCheckout()">✅ تأكيد الطلب عبر واتساب</button>
+    <div class="sum-row"><span data-i18n="subtotal">مجموع المنتجات</span><span id="sumSub">0</span></div>
+    <div class="sum-row"><span data-i18n="shipping">التوصيل</span><span id="sumShip">25</span></div>
+    <div class="sum-row total"><span data-i18n="total">الإجمالي</span><span id="sumAll" style="color:var(--green-2)">0</span></div>
+    <button class="checkout-btn" onclick="openCheckout()" data-i18n="checkout">✅ تأكيد الطلب عبر واتساب</button>
   </div>
 </aside>
 
@@ -261,96 +333,224 @@
   <div class="modal-box">
     <div style="display:flex;justify-content:space-between;align-items:start">
       <div>
-        <h3>📝 معلومات التوصيل</h3>
-        <div class="sub">عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا</div>
+        <h3 data-i18n="m_title">📝 معلومات التوصيل</h3>
+        <div class="sub" data-i18n="m_sub">عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا</div>
       </div>
       <button class="close-x" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-summary" id="modalSummary"></div>
-    <div class="field"><label>الاسم الكامل *</label><input type="text" id="fName" placeholder="مثال: محمد العلوي"></div>
-    <div class="field"><label>رقم الهاتف *</label><input type="tel" id="fPhone" placeholder="06 XX XX XX XX"></div>
-    <div class="field"><label>المدينة *</label>
+    <div class="field"><label data-i18n="m_name">الاسم الكامل *</label><input type="text" id="fName" data-ph="m_name_ph"></div>
+    <div class="field"><label data-i18n="m_phone">رقم الهاتف *</label><input type="tel" id="fPhone" data-ph="m_phone_ph"></div>
+    <div class="field"><label data-i18n="m_city">المدينة *</label>
       <select id="zoneModal" onchange="setZone(this.value)">
-        <option value="casa">الدار البيضاء</option>
-        <option value="other">مدينة أخرى</option>
+        <option value="casa" data-i18n="m_casa">الدار البيضاء</option>
+        <option value="other" data-i18n="m_other">مدينة أخرى</option>
       </select>
     </div>
-    <div class="field" id="otherCityField" style="display:none"><label>اسم المدينة *</label><input type="text" id="fOtherCity" placeholder="مثال: مراكش، فاس، طنجة..."></div>
-    <div class="field"><label>العنوان الكامل *</label><textarea id="fAddress" rows="2" placeholder="الحي، الزنقة، الرقم..."></textarea></div>
-    <div class="field"><label>ملاحظات (اختياري)</label><input type="text" id="fNotes" placeholder="وقت التوصيل المناسب..."></div>
-    <button class="wa-send" onclick="sendOrder()">💬 إرسال الطلب عبر واتساب</button>
+    <div class="field" id="otherCityField" style="display:none"><label data-i18n="m_city_name">اسم المدينة *</label><input type="text" id="fOtherCity" data-ph="m_city_ph2"></div>
+    <div class="field"><label data-i18n="m_addr">العنوان الكامل *</label><textarea id="fAddress" rows="2" data-ph="m_addr_ph"></textarea></div>
+    <div class="field"><label data-i18n="m_notes">ملاحظات (اختياري)</label><input type="text" id="fNotes" data-ph="m_notes_ph"></div>
+    <button class="wa-send" onclick="sendOrder()" data-i18n="m_send">💬 إرسال الطلب عبر واتساب</button>
   </div>
 </div>
 
 <a href="#" class="float-wa" id="floatWa" target="_blank">💬</a>
 <div class="toast" id="toast"></div>
-<noscript><div style="background:#e63946;color:#fff;padding:15px;text-align:center">⚠️ JavaScript مطفي فالمتصفح ديالك — فعّلوه باش المنتجات يظهرو!</div></noscript>
+<noscript><div style="background:#e63946;color:#fff;padding:15px;text-align:center">⚠️ JavaScript is disabled</div></noscript>
 
 <script>
 var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
 
-/* كل حجم عندو تصويرتو — كيجرب .jpg و إلا ما لقاهش جرب .png أوتوماتيكياً */
-var PRODUCTS = [
-  { id:'dibs', name:'دبس التمر', nameEn:'DATE SYRUP', badge:'الأكثر مبيعاً', emoji:'🍯',
-    desc:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
-    variants:[
-      {size:'250غ',    price:25, img:'images/dibs1.jpg'},
-      {size:'400غ',    price:35, img:'images/dibs2.jpg'},
-      {size:'900غ',    price:65, img:'images/dibs3.jpg'},
-      {size:'1.5 كلغ', price:85, img:'images/dips4.jpg'}
-    ]},
-  { id:'poudre', name:'بودرة التمر', nameEn:'DATE POWDER', badge:'بديل السكر', emoji:'🥄',
-    desc:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
-    variants:[
-      {size:'250غ', price:35, img:'images/poudre1.jpg'},
-      {size:'500غ', price:75, img:'images/pouder2.jpg'}
-    ]},
-  { id:'creme', name:'كريم التمر', nameEn:'DATE SPREAD', badge:'طبيعي 100%', emoji:'🍫',
-    desc:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
-    variants:[ {size:'330غ', price:35, img:'images/creme.jpg'} ]},
-  { id:'ajina', name:'عجينة التمر', nameEn:'DATE PASTE', badge:'مثالية للحلويات', emoji:'🍪',
-    desc:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
-    variants:[ {size:'500غ', price:40, img:'images/ajina.jpg'} ]}
-];
+/* ================= TRANSLATIONS ================= */
+var T = {
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
+hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
+hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦',
+hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
+mq:['🌴 Jnan Edar — جنان الدار','🌿 طبيعي 100%','🚫 بلا سكر مضاف','🚚 توصيل سريع','💵 الدفع عند الاستلام'],
+f1t:'طبيعي 100%',f1p:'بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
+f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f4t:'تأكيد عبر واتساب',f4p:'طلبيتك كتوصلنا مباشرة فواتساب',
+prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
+ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
+ship_cod:'الدفع عند الاستلام',ship_cod_v:'خلّص منين توصلك',ship_cod_n:'بلا خلاص مسبق',
+ab_title:'علاش ',ab_p1:'حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.',
+ab_p2:'سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱',
+st1:'طبيعي',st2:'منتجات مميزة',st3:'مدة التوصيل',
+ft_tag:'منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة',ft_wa:'واتساب',
+ft_del:'🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 💵 الدفع عند الاستلام',
+cart_t:'🛒 سلة المشتريات',cart_empty:'السلة خاوية... زيد شي منتجات!',zone_lbl:'🚚 منطقة التوصيل:',
+z_casa:'🏠 الدار البيضاء — 25 درهم',z_other:'🇲🇦 مدينة أخرى — 35 درهم',
+subtotal:'مجموع المنتجات',shipping:'التوصيل',total:'الإجمالي',checkout:'✅ تأكيد الطلب عبر واتساب',
+m_title:'📝 معلومات التوصيل',m_sub:'عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا',
+m_name:'الاسم الكامل *',m_name_ph:'مثال: محمد العلوي',m_phone:'رقم الهاتف *',m_phone_ph:'06 XX XX XX XX',
+m_city:'المدينة *',m_casa:'الدار البيضاء',m_other:'مدينة أخرى',m_city_name:'اسم المدينة *',m_city_ph2:'مثال: مراكش، فاس، طنجة...',
+m_addr:'العنوان الكامل *',m_addr_ph:'الحي، الزنقة، الرقم...',m_notes:'ملاحظات (اختياري)',m_notes_ph:'وقت التوصيل المناسب...',
+m_send:'💬 إرسال الطلب عبر واتساب',summary:'منتجات — الإجمالي',with_ship:'مع التوصيل',
+add:'＋ أضف',added:'✓ زيدت!',t_added:'✅ تزادت للسلة!',t_empty:'السلة خاوية! 🛒',t_fill:'⚠️ عمّر جميع المعلومات المطلوبة',t_sent:'✅ توصلنا بالطلب! غادي نجاوبوك دغيا إن شاء الله',
+kg:'كلغ',g:'غ',casaName:'الدار البيضاء',
+w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_phone:'📞 الهاتف',w_city:'🏙️ المدينة',w_addr:'📍 العنوان',w_notes:'📝 ملاحظات',
+w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',w_free:'مجاني 🎉',
+sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
+fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_delivery:'Livraison',nav_contact:'Contact',
+hero_badge:'✨ 100% Naturel — Sans sucre ajouté',hero_t1:'Adieu le sucre...',hero_t2:'Bonjour les dattes !',
+hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles et délicieuses. Livraison partout au Maroc 🇲🇦',
+hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
+mq:['🌴 Jnan Edar','🌿 100% Naturel','🚫 Sans sucre ajouté','🚚 Livraison rapide','💵 Paiement à la livraison'],
+f1t:'100% Naturel',f1p:'Sans sucre ajouté, sans gluten, sans conservateurs',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
+f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f4t:'Confirmation WhatsApp',f4p:'Votre commande arrive directement sur WhatsApp',
+prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
+ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
+ship_cod:'Paiement à la livraison',ship_cod_v:'Payez à la réception',ship_cod_n:'Sans avance',
+ab_title:'Pourquoi ',ab_p1:'Nous vous apportons les meilleurs produits naturels à base de dattes — sirop, poudre, crème et pâte — sélectionnés avec soin pour remplacer le sucre blanc sainement et gourmand.',
+ab_p2:'Dans le café, les pâtisseries ou pour les bébés — sans sucre ajouté, sans gluten, et vegan 🌱',
+st1:'Naturel',st2:'Produits',st3:'Livraison',
+ft_tag:'Produits naturels de dattes — Santé & goût réunis',ft_wa:'WhatsApp',
+ft_del:'🚚 Casablanca : 25 DH • Autres villes : 35 DH • 💵 Paiement à la livraison',
+cart_t:'🛒 Panier',cart_empty:'Panier vide... ajoutez des produits !',zone_lbl:'🚚 Zone de livraison :',
+z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Autre ville — 35 DH',
+subtotal:'Sous-total',shipping:'Livraison',total:'Total',checkout:'✅ Commander via WhatsApp',
+m_title:'📝 Informations de livraison',m_sub:'Remplissez vos informations, la commande arrive directement sur WhatsApp',
+m_name:'Nom complet *',m_name_ph:'Ex : Mohamed Alami',m_phone:'Téléphone *',m_phone_ph:'06 XX XX XX XX',
+m_city:'Ville *',m_casa:'Casablanca',m_other:'Autre ville',m_city_name:'Nom de la ville *',m_city_ph2:'Ex : Marrakech, Fès, Tanger...',
+m_addr:'Adresse complète *',m_addr_ph:'Quartier, rue, n°...',m_notes:'Notes (optionnel)',m_notes_ph:'Heure de livraison souhaitée...',
+m_send:'💬 Envoyer via WhatsApp',summary:'produit(s) — Total',with_ship:'avec livraison',
+add:'＋ Ajouter',added:'✓ Ajouté !',t_added:'✅ Ajouté au panier !',t_empty:'Panier vide ! 🛒',t_fill:'⚠️ Veuillez remplir tous les champs',t_sent:'✅ Commande envoyée ! À très vite',
+kg:'kg',g:'g',casaName:'Casablanca',
+w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'📞 Téléphone',w_city:'🏙️ Ville',w_addr:'📍 Adresse',w_notes:'📝 Notes',
+w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',w_free:'Offerte 🎉',
+sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
+
+en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_delivery:'Delivery',nav_contact:'Contact',
+hero_badge:'✨ 100% Natural Date Products — No Added Sugar',hero_t1:'Out with sugar...',hero_t2:'In with dates!',
+hero_sub:'Date syrup, powder, spread & paste — natural and delicious alternatives. Delivery all over Morocco 🇲🇦',
+hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
+mq:['🌴 Jnan Edar','🌿 100% Natural','🚫 No added sugar','🚚 Fast delivery','💵 Cash on delivery'],
+f1t:'100% Natural',f1p:'No added sugar, gluten free, no preservatives',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
+f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f4t:'WhatsApp Confirmation',f4p:'Your order reaches us directly on WhatsApp',
+prod_tag:'Our Products',prod_title:'Natural Date Collection',del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
+ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
+ship_cod:'Cash on Delivery',ship_cod_v:'Pay on arrival',ship_cod_n:'No prepayment',
+ab_title:'Why ',ab_p1:'We bring you the finest natural date products — syrup, powder, spread and paste — carefully selected to replace white sugar the healthy, delicious way.',
+ab_p2:'In coffee, baking, or baby food — no added sugar, gluten free, and vegan 🌱',
+st1:'Natural',st2:'Products',st3:'Delivery',
+ft_tag:'Natural date products — Health & taste in one place',ft_wa:'WhatsApp',
+ft_del:'🚚 Casablanca: 25 DH • Other cities: 35 DH • 💵 Cash on delivery',
+cart_t:'🛒 Shopping Cart',cart_empty:'Cart is empty... add some products!',zone_lbl:'🚚 Delivery zone:',
+z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Other city — 35 DH',
+subtotal:'Subtotal',shipping:'Delivery',total:'Total',checkout:'✅ Checkout via WhatsApp',
+m_title:'📝 Delivery Information',m_sub:'Fill in your details, your order goes straight to our WhatsApp',
+m_name:'Full name *',m_name_ph:'e.g. Mohamed Alami',m_phone:'Phone *',m_phone_ph:'06 XX XX XX XX',
+m_city:'City *',m_casa:'Casablanca',m_other:'Other city',m_city_name:'City name *',m_city_ph2:'e.g. Marrakech, Fes, Tangier...',
+m_addr:'Full address *',m_addr_ph:'Neighborhood, street, n°...',m_notes:'Notes (optional)',m_notes_ph:'Preferred delivery time...',
+m_send:'💬 Send order via WhatsApp',summary:'item(s) — Total',with_ship:'with delivery',
+add:'＋ Add',added:'✓ Added!',t_added:'✅ Added to cart!',t_empty:'Cart is empty! 🛒',t_fill:'⚠️ Please fill all required fields',t_sent:'✅ Order sent! We will reply shortly',
+kg:'kg',g:'g',casaName:'Casablanca',
+w_head:'🌿 *New Order — Jnan Edar* 🌿',w_name:'👤 Name',w_phone:'📞 Phone',w_city:'🏙️ City',w_addr:'📍 Address',w_notes:'📝 Notes',
+w_order:'🛒 *Order:*',w_sub:'💰 Subtotal',w_ship:'🚚 Delivery',w_total:'✅ *Total',w_pay:'💵 Payment: Cash on delivery',w_free:'Free 🎉',
+sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}}
+};
+
+/* ================= PRODUCTS ================= */
+var PRODUCTS = [
+  { id:'dibs', badge:'best', emoji:'🍯',
+    n:{ar:'دبس التمر',fr:'Sirop de Dattes',en:'Date Syrup'}, en:'DATE SYRUP',
+    d:{ar:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
+       fr:'Sirop de dattes 100% naturel — alternative saine au sucre, sans additifs ni conservateurs',
+       en:'100% natural date syrup — a healthy, delicious sugar alternative, no additives'},
+    variants:[
+      {g:250,  price:25, img:'images/dibs1.jpg'},
+      {g:400,  price:35, img:'images/dibs2.jpg'},
+      {g:900,  price:65, img:'images/dibs3.jpg'},
+      {g:1500, price:85, img:'images/dips4.jpg'}
+    ]},
+  { id:'poudre', badge:'sugar', emoji:'🥄',
+    n:{ar:'بودرة التمر',fr:'Poudre de Dattes',en:'Date Powder'}, en:'DATE POWDER',
+    d:{ar:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
+       fr:'Sucre de dattes naturel moulu — riche en fibres, idéal pour pâtisseries, boissons et bébés',
+       en:'Ground natural date sugar — high in fibre, perfect for baking, drinks & baby food'},
+    variants:[
+      {g:250, price:35, img:'images/pouder1.jpg'},
+      {g:500, price:75, img:'images/pouder2.jpg'}
+    ]},
+  { id:'creme', badge:'nat', emoji:'🍫',
+    n:{ar:'كريم التمر',fr:'Crème de Dattes',en:'Date Spread'}, en:'DATE SPREAD',
+    d:{ar:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
+       fr:'Crème de dattes naturelle — une pâte à tartiner gourmande sans sucres ajoutés, vegan',
+       en:'Natural date spread — a delicious guilt-free treat, no added sugar, vegan'},
+    variants:[ {g:330, price:35, img:'images/creme.jpg'} ]},
+  { id:'ajina', badge:'bake', emoji:'🍪',
+    n:{ar:'عجينة التمر',fr:'Pâte de Dattes',en:'Date Paste'}, en:'DATE PASTE',
+    d:{ar:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
+       fr:'Pâte de dattes naturelle — idéale pour la pâtisserie marocaine traditionnelle',
+       en:'Natural date paste — perfect for traditional Moroccan pastries & biscuits'},
+    variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
+];
+var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات'},
+              fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie'},
+              en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking'}};
+
+var lang = localStorage.getItem('je_lang') || 'ar';
 var sel = {};
 var cart = JSON.parse(localStorage.getItem('je_cart') || '{}');
 var zone = localStorage.getItem('je_zone') || 'casa';
+function t(k){ return T[lang][k]; }
 
-/* ذكاء: إلا .jpg ما لقاهش → جرب .png → إلا ما لقاهش → خبي الصورة و خلي الإيموجي */
+/* ===== img fallback: jpg -> png -> hide ===== */
 function imgFix(el){
-  if (el.dataset.tried === '1'){ el.style.display = 'none'; return; }
-  el.dataset.tried = '1';
-  if (el.src.indexOf('.jpg') > -1){ el.src = el.src.replace('.jpg', '.png'); }
-  else if (el.src.indexOf('.png') > -1){ el.src = el.src.replace('.png', '.jpg'); }
-  else { el.style.display = 'none'; }
+  if (el.dataset.tried === '1'){ el.style.display='none'; return; }
+  el.dataset.tried='1';
+  if (el.src.indexOf('.jpg')>-1) el.src = el.src.replace('.jpg','.png');
+  else if (el.src.indexOf('.png')>-1) el.src = el.src.replace('.png','.jpg');
+  else el.style.display='none';
 }
 
+/* ================= LANGUAGE ================= */
+function setLang(l){
+  lang = l; localStorage.setItem('je_lang', l);
+  var tr = T[l];
+  document.documentElement.dir = tr.dir;
+  document.documentElement.lang = l;
+  var btns = document.querySelectorAll('.lang-btn');
+  for (var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+  document.getElementById('btn-'+l).classList.add('active');
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var j=0;j<els.length;j++){ var k = els[j].getAttribute('data-i18n'); if (tr[k]!==undefined) els[j].textContent = tr[k]; }
+  var phs = document.querySelectorAll('[data-ph]');
+  for (var p=0;p<phs.length;p++){ var k2 = phs[p].getAttribute('data-ph'); if (tr[k2]!==undefined) phs[p].placeholder = tr[k2]; }
+  document.getElementById('ab_title').innerHTML = tr.ab_title + '<span>Jnan Edar</span>؟'.replace('؟', l==='ar'?'؟':'');
+  /* marquee */
+  var mq = tr.mq.join('  ✦  ') + '  ✦  ';
+  document.getElementById('marquee').textContent = mq + mq;
+  renderProducts(); renderCart(); startCounters();
+}
+
+/* ================= PRODUCTS ================= */
 function renderProducts(){
   var html = '';
   for (var i=0; i<PRODUCTS.length; i++){
     var p = PRODUCTS[i];
     var chips = '';
     for (var j=0; j<p.variants.length; j++){
-      chips += '<button class="chip' + (j===0?' active':'') + '" onclick="pickVariant(\'' + p.id + '\',' + j + ',this)">' + p.variants[j].size + '</button>';
+      chips += '<button class="chip'+(j===0?' active':'')+'" onclick="pickVariant(\''+p.id+'\','+j+',this)">'+t('sizeL')(p.variants[j].g)+'</button>';
     }
-    html += '<div class="card reveal">' +
+    html += '<div class="card reveal" style="transition-delay:'+(i*0.08)+'s">' +
       '<div class="card-img">' +
-        (p.badge ? '<span class="badge">' + p.badge + '</span>' : '') +
-        '<div class="img-emoji">' + p.emoji + '</div>' +
-        '<img id="img-' + p.id + '" src="' + p.variants[0].img + '" alt="' + p.name + '" onerror="imgFix(this)">' +
+        '<span class="badge">'+BADGES[lang][p.badge]+'</span>' +
+        '<div class="img-emoji">'+p.emoji+'</div>' +
+        '<img id="img-'+p.id+'" src="'+p.variants[0].img+'" alt="'+p.n[lang]+'" onerror="imgFix(this)">' +
       '</div>' +
       '<div class="card-body">' +
-        '<h3>' + p.name + ' <span class="en">' + p.nameEn + '</span></h3>' +
-        '<div class="desc">' + p.desc + '</div>' +
-        '<div class="chips">' + chips + '</div>' +
+        '<h3>'+p.n[lang]+' <span class="en">'+p.en+'</span></h3>' +
+        '<div class="desc">'+p.d[lang]+'</div>' +
+        '<div class="chips">'+chips+'</div>' +
         '<div class="card-foot">' +
           '<div class="price">' +
-            '<span class="now" id="price-' + p.id + '">' + p.variants[0].price + ' <small>درهم</small></span>' +
-            '<span class="unit" id="unit-' + p.id + '">' + p.variants[0].size + '</span>' +
+            '<span class="now" id="price-'+p.id+'">'+p.variants[0].price+' <small>'+t('dh')+'</small></span>' +
+            '<span class="unit" id="unit-'+p.id+'">'+t('sizeL')(p.variants[0].g)+'</span>' +
           '</div>' +
-          '<button class="add-btn" onclick="addToCart(\'' + p.id + '\', this)">＋ أضف</button>' +
+          '<button class="add-btn" onclick="addToCart(\''+p.id+'\', this)">'+t('add')+'</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -361,44 +561,34 @@ function renderProducts(){
 
 function pickVariant(id, i, btn){
   sel[id] = i;
-  var p = PRODUCTS.find(function(x){ return x.id === id; });
-  document.getElementById('price-'+id).innerHTML = p.variants[i].price + ' <small>درهم</small>';
-  document.getElementById('unit-'+id).textContent = p.variants[i].size;
+  var p = PRODUCTS.find(function(x){return x.id===id;});
+  document.getElementById('price-'+id).innerHTML = p.variants[i].price + ' <small>'+t('dh')+'</small>';
+  document.getElementById('unit-'+id).textContent = t('sizeL')(p.variants[i].g);
   var im = document.getElementById('img-'+id);
-  im.dataset.tried = ''; im.style.display = 'block';
-  im.src = p.variants[i].img;
+  im.dataset.tried=''; im.style.display='block'; im.src = p.variants[i].img;
   var chips = btn.parentElement.querySelectorAll('.chip');
-  for (var k=0; k<chips.length; k++) chips[k].classList.remove('active');
+  for (var k=0;k<chips.length;k++) chips[k].classList.remove('active');
   btn.classList.add('active');
 }
 
+/* ================= CART ================= */
 function addToCart(id, btn){
   var vi = sel[id] || 0;
   var key = id + '|' + vi;
-  cart[key] = (cart[key] || 0) + 1;
+  cart[key] = (cart[key]||0) + 1;
   saveCart(); updateCount();
-  btn.textContent = '✓ زيدت!'; btn.classList.add('added');
-  setTimeout(function(){ btn.textContent = '＋ أضف'; btn.classList.remove('added'); }, 1200);
-  showToast('✅ تزادت للسلة!');
+  var cb = document.getElementById('cartBtn');
+  cb.classList.remove('pop'); void cb.offsetWidth; cb.classList.add('pop');
+  btn.textContent = t('added'); btn.classList.add('added');
+  setTimeout(function(){ btn.textContent = t('add'); btn.classList.remove('added'); }, 1200);
+  showToast(t('t_added'));
 }
-function changeQty(key, d){
-  cart[key] = (cart[key] || 0) + d;
-  if (cart[key] <= 0) delete cart[key];
-  saveCart(); updateCount();
-}
+function changeQty(key, d){ cart[key]=(cart[key]||0)+d; if(cart[key]<=0) delete cart[key]; saveCart(); updateCount(); }
 function removeItem(key){ delete cart[key]; saveCart(); updateCount(); }
-function updateCount(){
-  var n = 0;
-  for (var k in cart) n += cart[k];
-  document.getElementById('cartCount').textContent = n;
-}
+function updateCount(){ var n=0; for(var k in cart) n+=cart[k]; document.getElementById('cartCount').textContent=n; }
 function cartTotal(){
-  var s = 0;
-  for (var k in cart){
-    var parts = k.split('|');
-    var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
-    s += p.variants[+parts[1]].price * cart[k];
-  }
+  var s=0;
+  for (var k in cart){ var pr=k.split('|'); var p=PRODUCTS.find(function(x){return x.id===pr[0];}); s+=p.variants[+pr[1]].price*cart[k]; }
   return s;
 }
 function saveCart(){ localStorage.setItem('je_cart', JSON.stringify(cart)); renderCart(); }
@@ -407,27 +597,23 @@ function renderCart(){
   var box = document.getElementById('cartItems');
   var keys = Object.keys(cart);
   if (!keys.length){
-    box.innerHTML = '<div class="cart-empty"><div style="font-size:3.5rem;margin-bottom:14px">🛒</div>السلة خاوية... زيد شي منتجات!</div>';
+    box.innerHTML = '<div class="cart-empty"><div style="font-size:3.5rem;margin-bottom:14px">🛒</div>'+t('cart_empty')+'</div>';
   } else {
-    var html = '';
-    for (var i=0; i<keys.length; i++){
-      var parts = keys[i].split('|');
-      var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
-      var v = p.variants[+parts[1]];
-      var q = cart[keys[i]];
-      html += '<div class="c-item">' +
-        '<div class="em"><span>' + p.emoji + '</span>' + (v.img ? '<img src="' + v.img + '" onerror="imgFix(this)">' : '') + '</div>' +
+    var html='';
+    for (var i=0;i<keys.length;i++){
+      var pr = keys[i].split('|');
+      var p = PRODUCTS.find(function(x){return x.id===pr[0];});
+      var v = p.variants[+pr[1]], q = cart[keys[i]];
+      html += '<div class="c-item" style="animation-delay:'+(i*0.06)+'s">' +
+        '<div class="em"><span>'+p.emoji+'</span><img src="'+v.img+'" onerror="imgFix(this)"></div>' +
         '<div style="flex:1">' +
-          '<div class="nm">' + p.name + ' <small style="color:#b0a494">(' + v.size + ')</small></div>' +
-          '<div class="pr">' + (v.price * q) + ' درهم</div>' +
+          '<div class="nm">'+p.n[lang]+' <small style="color:#b3a88f">('+t('sizeL')(v.g)+')</small></div>' +
+          '<div class="pr">'+(v.price*q)+' '+t('dh')+'</div>' +
           '<div class="qty">' +
-            '<button onclick="changeQty(\'' + keys[i] + '\',1)">＋</button>' +
-            '<span>' + q + '</span>' +
-            '<button onclick="changeQty(\'' + keys[i] + '\',-1)">−</button>' +
-            '<button class="del" onclick="removeItem(\'' + keys[i] + '\')">🗑</button>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
+            '<button onclick="changeQty(\''+keys[i]+'\',1)">＋</button><span>'+q+'</span>' +
+            '<button onclick="changeQty(\''+keys[i]+'\',-1)">−</button>' +
+            '<button class="del" onclick="removeItem(\''+keys[i]+'\')">🗑</button>' +
+          '</div></div></div>';
     }
     box.innerHTML = html;
   }
@@ -435,30 +621,30 @@ function renderCart(){
 }
 
 function renderTotals(){
-  var sub = cartTotal(), ship = DELIVERY[zone];
-  var n = 0; for (var k in cart) n += cart[k];
-  document.getElementById('sumSub').textContent = sub + ' درهم';
-  document.getElementById('sumShip').textContent = ship + ' درهم';
-  document.getElementById('sumAll').textContent = (sub + ship) + ' درهم';
-  document.getElementById('modalSummary').textContent = '🛒 ' + n + ' منتجات — الإجمالي: ' + (sub + ship) + ' درهم (مع التوصيل)';
+  var sub = cartTotal(), ship = DELIVERY[zone], n=0;
+  for (var k in cart) n += cart[k];
+  document.getElementById('sumSub').textContent = sub + ' ' + t('dh');
+  document.getElementById('sumShip').textContent = ship + ' ' + t('dh');
+  document.getElementById('sumAll').textContent = (sub+ship) + ' ' + t('dh');
+  document.getElementById('modalSummary').textContent = '🛒 ' + n + ' ' + t('summary') + ': ' + (sub+ship) + ' ' + t('dh') + ' (' + t('with_ship') + ')';
 }
 
 function setZone(z){
-  zone = z;
-  localStorage.setItem('je_zone', z);
+  zone = z; localStorage.setItem('je_zone', z);
   document.getElementById('zoneDrawer').value = z;
   document.getElementById('zoneModal').value = z;
-  document.getElementById('otherCityField').style.display = (z === 'other') ? 'block' : 'none';
+  document.getElementById('otherCityField').style.display = (z==='other') ? 'block' : 'none';
   renderTotals();
 }
 
+/* ================= UI ================= */
 function openCart(){
   document.getElementById('drawer').classList.add('open');
   document.getElementById('overlay').classList.add('show');
   renderCart();
 }
 function openCheckout(){
-  if (!Object.keys(cart).length){ showToast('السلة خاوية! 🛒'); return; }
+  if (!Object.keys(cart).length){ showToast(t('t_empty')); return; }
   renderTotals();
   document.getElementById('modal').classList.add('show');
   document.getElementById('overlay').classList.add('show');
@@ -470,54 +656,71 @@ function closeAll(){
   document.getElementById('overlay').classList.remove('show');
 }
 function showToast(msg){
-  var t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 2400);
+  var el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  setTimeout(function(){ el.classList.remove('show'); }, 2400);
 }
 
+/* ================= WHATSAPP ================= */
 function sendOrder(){
   var name = document.getElementById('fName').value.trim();
   var phone = document.getElementById('fPhone').value.trim();
   var addr = document.getElementById('fAddress').value.trim();
   var notes = document.getElementById('fNotes').value.trim();
   var otherCity = document.getElementById('fOtherCity').value.trim();
-  var cityLabel = (zone === 'casa') ? 'الدار البيضاء' : otherCity;
-
-  if (!name || !phone || !addr || !cityLabel){ showToast('⚠️ عمّر جميع المعلومات المطلوبة'); return; }
+  var cityLabel = (zone==='casa') ? t('casaName') : otherCity;
+  if (!name || !phone || !addr || !cityLabel){ showToast(t('t_fill')); return; }
 
   var sub = cartTotal(), ship = DELIVERY[zone];
-  var msg = '🌿 *طلب جديد — Jnan Edar* 🌿\n━━━━━━━━━━━━━━\n';
-  msg += '👤 الاسم: ' + name + '\n📞 الهاتف: ' + phone + '\n🏙️ المدينة: ' + cityLabel + '\n📍 العنوان: ' + addr + '\n';
-  if (notes) msg += '📝 ملاحظات: ' + notes + '\n';
-  msg += '━━━━━━━━━━━━━━\n🛒 *الطلب:*\n';
+  var msg = t('w_head') + '\n━━━━━━━━━━━━━━\n';
+  msg += t('w_name') + ': ' + name + '\n' + t('w_phone') + ': ' + phone + '\n' + t('w_city') + ': ' + cityLabel + '\n' + t('w_addr') + ': ' + addr + '\n';
+  if (notes) msg += t('w_notes') + ': ' + notes + '\n';
+  msg += '━━━━━━━━━━━━━━\n' + t('w_order') + '\n';
   for (var k in cart){
-    var parts = k.split('|');
-    var p = PRODUCTS.find(function(x){ return x.id === parts[0]; });
-    var v = p.variants[+parts[1]];
-    msg += '▪️ ' + p.name + ' (' + v.size + ') × ' + cart[k] + ' = ' + (v.price * cart[k]) + ' درهم\n';
+    var pr = k.split('|');
+    var p = PRODUCTS.find(function(x){return x.id===pr[0];});
+    var v = p.variants[+pr[1]];
+    msg += '▪️ ' + p.n[lang] + ' (' + t('sizeL')(v.g) + ') × ' + cart[k] + ' = ' + (v.price*cart[k]) + ' ' + t('dh') + '\n';
   }
-  msg += '━━━━━━━━━━━━━━\n💰 مجموع المنتجات: ' + sub + ' درهم\n🚚 التوصيل: ' + ship + ' درهم (' + cityLabel + ')\n✅ *الإجمالي: ' + (sub + ship) + ' درهم*\n💵 الدفع: عند الاستلام';
+  msg += '━━━━━━━━━━━━━━\n' + t('w_sub') + ': ' + sub + ' ' + t('dh') + '\n';
+  msg += t('w_ship') + ': ' + ship + ' ' + t('dh') + ' (' + cityLabel + ')\n';
+  msg += t('w_total') + ': ' + (sub+ship) + ' ' + t('dh') + '*\n' + t('w_pay');
 
   window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
   cart = {}; saveCart(); updateCount(); closeAll();
-  showToast('✅ توصلنا بالطلب! غادي نجاوبوك دغيا إن شاء الله');
+  showToast(t('t_sent'));
 }
 
+/* ================= ANIMATIONS ================= */
 function observeReveal(){
   var obs = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, {threshold:.12});
   document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ obs.observe(el); });
 }
+function startCounters(){
+  var els = document.querySelectorAll('.cnt');
+  els.forEach(function(el){
+    var target = +el.getAttribute('data-count');
+    if (el.dataset.done === '1'){ el.textContent = target; return; }
+    el.dataset.done = '1';
+    var cur = 0, step = Math.max(1, Math.round(target/40));
+    var iv = setInterval(function(){
+      cur += step;
+      if (cur >= target){ cur = target; clearInterval(iv); }
+      el.textContent = cur;
+    }, 40);
+  });
+}
 
-/* ===== التشغيل ===== */
+/* ================= INIT ================= */
 try {
   document.getElementById('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴');
   setZone(zone);
-  renderProducts();
+  setLang(lang);
   updateCount();
 } catch(err) {
-  document.getElementById('productsGrid').innerHTML = '<div style="padding:40px;text-align:center;color:#e63946">⚠️ وقع خطأ: ' + err.message + '</div>';
+  document.getElementById('productsGrid').innerHTML = '<div style="padding:40px;text-align:center;color:#e63946">⚠️ ' + err.message + '</div>';
 }
 </script>
 </body>
