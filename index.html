@@ -13,10 +13,9 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;transition:background .4s}
+  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden}
   h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
 
-  /* ===== ANIMATIONS ===== */
   @keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
   @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(var(--r,0deg))}}
   @keyframes spinSlow{to{transform:rotate(360deg)}}
@@ -24,30 +23,27 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
   @keyframes cartPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1)}}
   @keyframes shine{to{left:130%}}
-  @keyframes ring{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.6);opacity:0}}
 
-  /* ===== HEADER ===== */
   header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(247,243,232,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(198,161,91,.3)}
   .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:10px}
   .brand{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:700;cursor:pointer;text-decoration:none;color:var(--dark)}
-  .logo-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(198,161,91,.35)}
+  .logo-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(198,161,91,.35);flex-shrink:0}
   .logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .brand small{font-size:.72rem;color:var(--green);font-weight:700}
-  .nav-mid{display:flex;align-items:center;gap:22px}
+  .nav-mid{display:flex;align-items:center;gap:14px}
   .nav-links{display:flex;gap:24px;list-style:none}
   .nav-links a{text-decoration:none;color:var(--green);font-weight:700;font-size:.93rem;transition:.3s;position:relative}
   .nav-links a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
   .nav-links a:hover::after{width:100%}
-  .langs{display:flex;gap:5px;background:#efe8d5;border-radius:12px;padding:4px}
-  .lang-btn{border:none;background:transparent;font-family:'Cairo';font-weight:800;font-size:.75rem;padding:6px 11px;border-radius:9px;cursor:pointer;color:var(--green);transition:.25s}
-  .lang-btn.active{background:var(--green);color:#fff;box-shadow:0 3px 8px rgba(58,90,52,.4)}
-  .cart-btn{position:relative;background:var(--green);color:#fff;border:none;width:48px;height:48px;border-radius:14px;cursor:pointer;font-size:1.25rem;transition:.3s}
+  .langs{display:flex;gap:4px;background:#efe8d5;border-radius:12px;padding:4px}
+  .lang-btn{border:none;background:transparent;font-family:'Cairo';font-weight:800;font-size:.74rem;padding:6px 10px;border-radius:9px;cursor:pointer;color:var(--green);transition:.25s}
+  .lang-btn.active{background:var(--green);color:#fff}
+  .cart-btn{position:relative;background:var(--green);color:#fff;border:none;width:48px;height:48px;border-radius:14px;cursor:pointer;font-size:1.25rem;transition:.3s;flex-shrink:0}
   .cart-btn:hover{background:var(--gold)}
   .cart-btn.pop{animation:cartPop .5s}
   .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  /* ===== HERO ===== */
   .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 75% 20%,#31452a,#151d10 70%);color:#fff;text-align:center;padding:130px 20px 110px;overflow:hidden}
   .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(198,161,91,.04) 0 2px,transparent 2px 14px)}
   .hero-logo{width:150px;height:150px;border-radius:50%;margin:0 auto 26px;position:relative;animation:floatY 5s ease-in-out infinite;--r:0deg}
@@ -63,73 +59,61 @@
   .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
   .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
-  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(198,161,91,.55)}
+  .btn-gold:hover{transform:translateY(-3px)}
   .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
-  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-3px)}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
   .particle{position:absolute;font-size:2rem;opacity:.16;animation:floatY 6s ease-in-out infinite;user-select:none;pointer-events:none}
 
-  /* ===== MARQUEE ===== */
   .marquee{background:var(--green);color:#fff;overflow:hidden;padding:11px 0;white-space:nowrap}
-  .marquee-inner{display:inline-block;animation:marquee 22s linear infinite;font-weight:700;font-size:.9rem;letter-spacing:.5px}
-  .marquee-inner span{margin:0 18px}
+  .marquee-inner{display:inline-block;animation:marquee 22s linear infinite;font-weight:700;font-size:.9rem}
 
-  /* ===== FEATURES ===== */
   .features{max-width:1200px;margin:-45px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
   .feature{background:var(--cream);border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.2);transition:.35s}
-  .feature:hover{transform:translateY(-8px) scale(1.02);border-color:var(--gold);box-shadow:0 16px 38px rgba(28,36,22,.15)}
+  .feature:hover{transform:translateY(-8px);border-color:var(--gold)}
   .feature .ic{font-size:2.3rem;margin-bottom:10px;display:inline-block;animation:floatY 4s ease-in-out infinite}
-  .feature:nth-child(2) .ic{animation-delay:.5s}.feature:nth-child(3) .ic{animation-delay:1s}.feature:nth-child(4) .ic{animation-delay:1.5s}
   .feature h3{font-size:1rem;margin-bottom:6px;color:var(--green)}
   .feature p{font-size:.83rem;color:#7d7361;line-height:1.7}
 
   section{padding:80px 24px}
   .container{max-width:1200px;margin:auto}
   .sec-head{text-align:center;margin-bottom:50px}
-  .sec-head .tag{color:var(--gold);font-weight:800;letter-spacing:1px;font-size:.88rem}
+  .sec-head .tag{color:var(--gold);font-weight:800;font-size:.88rem}
   .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
   .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
 
-  /* ===== PRODUCTS ===== */
   .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
-  .card:hover{transform:translateY(-10px);box-shadow:0 20px 45px rgba(28,36,22,.18)}
+  .card:hover{transform:translateY(-10px)}
   .card-img{height:230px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-  .card-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(198,161,91,.12),transparent 60%)}
   .card-img img{position:absolute;inset:0;margin:auto;max-width:85%;max-height:90%;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));transition:.45s;z-index:1}
   .card:hover .card-img img{transform:scale(1.09) rotate(-2deg)}
   .img-emoji{font-size:4.2rem;z-index:0}
-  .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+  .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px}
   .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
   .card-body h3{font-size:1.22rem;margin-bottom:6px;color:var(--green)}
-  .card-body .en{font-size:.66rem;color:#b3a88f;font-weight:700;letter-spacing:.5px}
+  .card-body .en{font-size:.66rem;color:#b3a88f;font-weight:700}
   .card-body .desc{font-size:.83rem;color:#7d7361;line-height:1.7}
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
   .chip{border:1.5px solid #ddd2b8;background:#fbf7ec;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:800;font-size:.79rem;cursor:pointer;color:var(--green);transition:.25s}
-  .chip:hover{border-color:var(--gold);transform:translateY(-2px)}
   .chip.active{background:var(--green);color:#fff;border-color:var(--green)}
   .card-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px}
   .price .now{font-size:1.35rem;font-weight:900;color:var(--green-2)}
   .price .now small{font-size:.74rem;font-weight:700}
   .price .unit{font-size:.72rem;color:#b3a88f;font-weight:700}
-  .add-btn{background:var(--green);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:800;cursor:pointer;font-size:.9rem;transition:.3s;position:relative;overflow:hidden}
-  .add-btn::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:.6s}
-  .add-btn:hover::after{left:130%}
+  .add-btn{background:var(--green);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:800;cursor:pointer;font-size:.9rem;transition:.3s}
   .add-btn:hover{background:var(--gold)}
   .add-btn.added{background:var(--wa)}
 
-  /* ===== DELIVERY ===== */
   .ship-sec{padding:0 24px 80px}
   .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
   .ship-card{background:var(--cream);border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.35s}
-  .ship-card:hover{transform:translateY(-5px);background:#fff;box-shadow:var(--shadow)}
+  .ship-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
   .ship-card .ic{font-size:2.3rem;margin-bottom:8px}
   .ship-card h3{font-size:1.02rem;margin-bottom:4px;color:var(--green)}
   .ship-card .pr{color:var(--green-2);font-weight:900;font-size:1.35rem}
   .ship-card .note{font-size:.8rem;color:#7d7361}
 
-  /* ===== ABOUT ===== */
   .about{background:radial-gradient(circle at 20% 30%,#2c3a22,#151d10 70%);color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
-  .about::before{content:'🌴';position:absolute;font-size:14rem;opacity:.05;top:-30px;left:-10px;transform:rotate(-15deg)}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
   .about h2{font-size:2.2rem;margin-bottom:18px}
   .about h2 span{color:var(--gold-light)}
@@ -137,20 +121,17 @@
   .about .stats{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap}
   .stat .num{font-size:2.3rem;font-weight:900;color:var(--gold-light);font-family:'El Messiri'}
   .stat .lbl{font-size:.84rem;color:#b8ae94}
-  .about-emoji{font-size:7rem;text-align:center;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));animation:floatY 5s ease-in-out infinite}
+  .about-emoji{font-size:7rem;text-align:center;animation:floatY 5s ease-in-out infinite}
 
-  /* ===== FOOTER ===== */
   footer{background:#10160b;color:#cfc4a8;margin-top:80px;padding:60px 24px 24px;text-align:center}
-  footer .brand{justify-content:center;color:#fff;margin-bottom:14px;font-size:1.5rem}
-  footer .brand .logo-wrap{width:54px;height:54px}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
   footer p{font-size:.9rem;max-width:540px;margin:0 auto 8px;line-height:1.9}
   footer b{color:var(--gold-light)}
   .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;font-size:.8rem;color:#8f8468}
 
-  /* ===== CART DRAWER ===== */
   .overlay{position:fixed;inset:0;background:rgba(15,20,10,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
   .overlay.show{opacity:1;pointer-events:auto}
-  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:var(--cream);z-index:201;transform:translateX(-105%);transition:.45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;box-shadow:10px 0 40px rgba(0,0,0,.25)}
+  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:var(--cream);z-index:201;transform:translateX(-105%);transition:.45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
   html[dir=ltr] .drawer{left:auto;right:0;transform:translateX(105%)}
   .drawer.open{transform:translateX(0)}
   .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #eee3c8}
@@ -158,54 +139,47 @@
   .close-x{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
   .drawer-items{flex:1;overflow-y:auto;padding:18px 24px}
   .cart-empty{text-align:center;padding:60px 0;color:#b3a88f}
-  .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #e5d9ba;animation:fadeUp .4s both}
+  .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #e5d9ba}
   .c-item .em{width:56px;height:56px;border-radius:14px;background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;overflow:hidden;position:relative}
   .c-item .em img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .c-item .nm{font-weight:800;font-size:.92rem}
   .c-item .pr{color:var(--green-2);font-weight:800;font-size:.85rem}
   .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
-  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--gold);background:#fff;cursor:pointer;font-weight:800;color:var(--green);transition:.2s}
-  .qty button:hover{background:var(--gold);color:#fff}
+  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--gold);background:#fff;cursor:pointer;font-weight:800;color:var(--green)}
   .qty span{font-weight:800;min-width:20px;text-align:center}
   .del{background:none;border:none;cursor:pointer;color:#e63946;font-size:1.05rem}
   .drawer-foot{padding:18px 24px;border-top:1px solid #eee3c8;background:#fbf7ec}
   .lbl-sm{font-size:.8rem;font-weight:800;display:block;margin-bottom:6px;color:var(--green)}
   .zone-select{width:100%;padding:11px 14px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-weight:700;font-size:.87rem;background:#fff;margin-bottom:14px}
-  .zone-select:focus{outline:none;border-color:var(--gold)}
   .sum-row{display:flex;justify-content:space-between;font-size:.88rem;color:#7d7361;margin-bottom:5px}
   .sum-row.total{font-weight:900;font-size:1.15rem;color:var(--dark);border-top:1px dashed #ddd2b8;padding-top:10px;margin:8px 0 14px}
   .checkout-btn{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;transition:.3s}
-  .checkout-btn:hover{background:#1fb857;transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,211,102,.4)}
+  .checkout-btn:hover{background:#1fb857}
 
-  /* ===== MODAL ===== */
   .modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.3s}
   .modal.show{opacity:1;pointer-events:auto}
-  .modal-box{background:var(--cream);border-radius:24px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:30px;transform:scale(.92);transition:.3s}
-  .modal.show .modal-box{transform:scale(1)}
+  .modal-box{background:var(--cream);border-radius:24px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:30px}
   .modal-box h3{font-size:1.35rem;margin-bottom:4px;color:var(--green)}
   .modal-box .sub{color:#7d7361;font-size:.86rem;margin-bottom:18px}
   .modal-summary{background:#f1e9d2;border-radius:12px;padding:11px 16px;font-size:.84rem;font-weight:800;margin-bottom:20px;text-align:center;color:var(--green)}
   .field{margin-bottom:15px}
   .field label{display:block;font-weight:800;font-size:.83rem;margin-bottom:6px;color:var(--green)}
-  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-size:.94rem;background:#fbf7ec;transition:.3s}
+  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid #ddd2b8;border-radius:12px;font-family:'Cairo';font-size:.94rem;background:#fbf7ec}
   .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:#fff}
-  .wa-send{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;margin-top:6px;transition:.3s}
-  .wa-send:hover{background:#1fb857;transform:translateY(-2px)}
+  .wa-send{width:100%;background:var(--wa);color:#fff;padding:16px;border:none;border-radius:14px;font-family:'Cairo';font-weight:900;font-size:1.03rem;cursor:pointer;margin-top:6px}
+  .wa-send:hover{background:#1fb857}
 
-  .float-wa{position:fixed;bottom:26px;inset-inline-end:26px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:150;text-decoration:none;animation:pulse 2.2s infinite;transition:.3s}
-  .float-wa:hover{transform:scale(1.1)}
-  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--green);color:#fff;padding:14px 28px;border-radius:14px;font-weight:800;z-index:400;transition:.4s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+  .float-wa{position:fixed;bottom:26px;inset-inline-end:26px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:150;text-decoration:none;animation:pulse 2.2s infinite}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--green);color:#fff;padding:14px 28px;border-radius:14px;font-weight:800;z-index:400;transition:.4s}
   .toast.show{transform:translate(-50%,0)}
   .reveal{opacity:0;transform:translateY(34px);transition:.7s cubic-bezier(.22,1,.36,1)}
   .reveal.in{opacity:1;transform:none}
 
   @media(max-width:900px){
-    .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:var(--cream);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:2px solid var(--gold);box-shadow:0 15px 30px rgba(0,0,0,.12)}
-    .nav-links.open{display:flex;animation:fadeUp .3s both}
+    .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:var(--cream);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:2px solid var(--gold)}
+    .nav-links.open{display:flex}
     .burger{display:block}
-    .nav-mid{gap:8px}
     .about-grid{grid-template-columns:1fr}
-    .about-emoji{font-size:5rem}
     .btn-outline{margin-inline-start:0;margin-top:12px}
     .hero-logo{width:120px;height:120px}
   }
@@ -291,7 +265,7 @@
 <section class="about" id="about">
   <div class="about-grid">
     <div class="reveal">
-      <h2 data-i18n="ab_title">علاش <span>Jnan Edar</span>؟</h2>
+      <h2 id="ab_title">علاش <span>Jnan Edar</span>؟</h2>
       <p data-i18n="ab_p1">حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.</p>
       <p data-i18n="ab_p2">سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱</p>
       <div class="stats">
@@ -356,13 +330,11 @@
 
 <a href="#" class="float-wa" id="floatWa" target="_blank">💬</a>
 <div class="toast" id="toast"></div>
-<noscript><div style="background:#e63946;color:#fff;padding:15px;text-align:center">⚠️ JavaScript is disabled</div></noscript>
 
 <script>
 var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
 
-/* ================= TRANSLATIONS ================= */
 var T = {
 ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
 hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
@@ -374,7 +346,7 @@ f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك ال�
 prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
 ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
 ship_cod:'الدفع عند الاستلام',ship_cod_v:'خلّص منين توصلك',ship_cod_n:'بلا خلاص مسبق',
-ab_title:'علاش ',ab_p1:'حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.',
+ab_title:'علاش ',ab_end:'؟',ab_p1:'حنا كنجيبو ليك أحسن منتجات التمر الطبيعية — دبس، بودرة، كريم و عجينة — منتقاة بعناية باش تعاوض السكر الأبيض بطريقة صحية و لذيذة.',
 ab_p2:'سواء فالقهوة، الحلويات، ولا فطام الصغار — بلا سكر مضاف، بلا گلوتين، و صالحة للنباتيين 🌱',
 st1:'طبيعي',st2:'منتجات مميزة',st3:'مدة التوصيل',
 ft_tag:'منتجات التمر الطبيعية — الصحة و المذاق فبلاصة وحدة',ft_wa:'واتساب',
@@ -388,9 +360,9 @@ m_city:'المدينة *',m_casa:'الدار البيضاء',m_other:'مدينة
 m_addr:'العنوان الكامل *',m_addr_ph:'الحي، الزنقة، الرقم...',m_notes:'ملاحظات (اختياري)',m_notes_ph:'وقت التوصيل المناسب...',
 m_send:'💬 إرسال الطلب عبر واتساب',summary:'منتجات — الإجمالي',with_ship:'مع التوصيل',
 add:'＋ أضف',added:'✓ زيدت!',t_added:'✅ تزادت للسلة!',t_empty:'السلة خاوية! 🛒',t_fill:'⚠️ عمّر جميع المعلومات المطلوبة',t_sent:'✅ توصلنا بالطلب! غادي نجاوبوك دغيا إن شاء الله',
-kg:'كلغ',g:'غ',casaName:'الدار البيضاء',
+casaName:'الدار البيضاء',
 w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_phone:'📞 الهاتف',w_city:'🏙️ المدينة',w_addr:'📍 العنوان',w_notes:'📝 ملاحظات',
-w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',w_free:'مجاني 🎉',
+w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
 fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_delivery:'Livraison',nav_contact:'Contact',
@@ -403,7 +375,7 @@ f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f4t:'Confi
 prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
 ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
 ship_cod:'Paiement à la livraison',ship_cod_v:'Payez à la réception',ship_cod_n:'Sans avance',
-ab_title:'Pourquoi ',ab_p1:'Nous vous apportons les meilleurs produits naturels à base de dattes — sirop, poudre, crème et pâte — sélectionnés avec soin pour remplacer le sucre blanc sainement et gourmand.',
+ab_title:'Pourquoi ',ab_end:' ?',ab_p1:'Nous vous apportons les meilleurs produits naturels à base de dattes — sirop, poudre, crème et pâte — sélectionnés avec soin.',
 ab_p2:'Dans le café, les pâtisseries ou pour les bébés — sans sucre ajouté, sans gluten, et vegan 🌱',
 st1:'Naturel',st2:'Produits',st3:'Livraison',
 ft_tag:'Produits naturels de dattes — Santé & goût réunis',ft_wa:'WhatsApp',
@@ -417,9 +389,9 @@ m_city:'Ville *',m_casa:'Casablanca',m_other:'Autre ville',m_city_name:'Nom de l
 m_addr:'Adresse complète *',m_addr_ph:'Quartier, rue, n°...',m_notes:'Notes (optionnel)',m_notes_ph:'Heure de livraison souhaitée...',
 m_send:'💬 Envoyer via WhatsApp',summary:'produit(s) — Total',with_ship:'avec livraison',
 add:'＋ Ajouter',added:'✓ Ajouté !',t_added:'✅ Ajouté au panier !',t_empty:'Panier vide ! 🛒',t_fill:'⚠️ Veuillez remplir tous les champs',t_sent:'✅ Commande envoyée ! À très vite',
-kg:'kg',g:'g',casaName:'Casablanca',
+casaName:'Casablanca',
 w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'📞 Téléphone',w_city:'🏙️ Ville',w_addr:'📍 Adresse',w_notes:'📝 Notes',
-w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',w_free:'Offerte 🎉',
+w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
 en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_delivery:'Delivery',nav_contact:'Contact',
@@ -432,7 +404,7 @@ f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f4t:'Whats
 prod_tag:'Our Products',prod_title:'Natural Date Collection',del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
 ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
 ship_cod:'Cash on Delivery',ship_cod_v:'Pay on arrival',ship_cod_n:'No prepayment',
-ab_title:'Why ',ab_p1:'We bring you the finest natural date products — syrup, powder, spread and paste — carefully selected to replace white sugar the healthy, delicious way.',
+ab_title:'Why ',ab_end:'?',ab_p1:'We bring you the finest natural date products — syrup, powder, spread and paste — carefully selected to replace white sugar the healthy way.',
 ab_p2:'In coffee, baking, or baby food — no added sugar, gluten free, and vegan 🌱',
 st1:'Natural',st2:'Products',st3:'Delivery',
 ft_tag:'Natural date products — Health & taste in one place',ft_wa:'WhatsApp',
@@ -446,19 +418,18 @@ m_city:'City *',m_casa:'Casablanca',m_other:'Other city',m_city_name:'City name 
 m_addr:'Full address *',m_addr_ph:'Neighborhood, street, n°...',m_notes:'Notes (optional)',m_notes_ph:'Preferred delivery time...',
 m_send:'💬 Send order via WhatsApp',summary:'item(s) — Total',with_ship:'with delivery',
 add:'＋ Add',added:'✓ Added!',t_added:'✅ Added to cart!',t_empty:'Cart is empty! 🛒',t_fill:'⚠️ Please fill all required fields',t_sent:'✅ Order sent! We will reply shortly',
-kg:'kg',g:'g',casaName:'Casablanca',
+casaName:'Casablanca',
 w_head:'🌿 *New Order — Jnan Edar* 🌿',w_name:'👤 Name',w_phone:'📞 Phone',w_city:'🏙️ City',w_addr:'📍 Address',w_notes:'📝 Notes',
-w_order:'🛒 *Order:*',w_sub:'💰 Subtotal',w_ship:'🚚 Delivery',w_total:'✅ *Total',w_pay:'💵 Payment: Cash on delivery',w_free:'Free 🎉',
+w_order:'🛒 *Order:*',w_sub:'💰 Subtotal',w_ship:'🚚 Delivery',w_total:'✅ *Total',w_pay:'💵 Payment: Cash on delivery',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}}
 };
 
-/* ================= PRODUCTS ================= */
 var PRODUCTS = [
   { id:'dibs', badge:'best', emoji:'🍯',
     n:{ar:'دبس التمر',fr:'Sirop de Dattes',en:'Date Syrup'}, en:'DATE SYRUP',
     d:{ar:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
-       fr:'Sirop de dattes 100% naturel — alternative saine au sucre, sans additifs ni conservateurs',
-       en:'100% natural date syrup — a healthy, delicious sugar alternative, no additives'},
+       fr:'Sirop de dattes 100% naturel — alternative saine au sucre, sans additifs',
+       en:'100% natural date syrup — a healthy, delicious sugar alternative'},
     variants:[
       {g:250,  price:25, img:'images/dibs1.jpg'},
       {g:400,  price:35, img:'images/dibs2.jpg'},
@@ -468,8 +439,8 @@ var PRODUCTS = [
   { id:'poudre', badge:'sugar', emoji:'🥄',
     n:{ar:'بودرة التمر',fr:'Poudre de Dattes',en:'Date Powder'}, en:'DATE POWDER',
     d:{ar:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
-       fr:'Sucre de dattes naturel moulu — riche en fibres, idéal pour pâtisseries, boissons et bébés',
-       en:'Ground natural date sugar — high in fibre, perfect for baking, drinks & baby food'},
+       fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
+       en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
     variants:[
       {g:250, price:35, img:'images/pouder1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
@@ -477,14 +448,14 @@ var PRODUCTS = [
   { id:'creme', badge:'nat', emoji:'🍫',
     n:{ar:'كريم التمر',fr:'Crème de Dattes',en:'Date Spread'}, en:'DATE SPREAD',
     d:{ar:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
-       fr:'Crème de dattes naturelle — une pâte à tartiner gourmande sans sucres ajoutés, vegan',
-       en:'Natural date spread — a delicious guilt-free treat, no added sugar, vegan'},
+       fr:'Crème de dattes naturelle — pâte à tartiner gourmande, vegan',
+       en:'Natural date spread — delicious, no added sugar, vegan'},
     variants:[ {g:330, price:35, img:'images/creme.jpg'} ]},
   { id:'ajina', badge:'bake', emoji:'🍪',
     n:{ar:'عجينة التمر',fr:'Pâte de Dattes',en:'Date Paste'}, en:'DATE PASTE',
     d:{ar:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
-       fr:'Pâte de dattes naturelle — idéale pour la pâtisserie marocaine traditionnelle',
-       en:'Natural date paste — perfect for traditional Moroccan pastries & biscuits'},
+       fr:'Pâte de dattes naturelle — idéale pour la pâtisserie marocaine',
+       en:'Natural date paste — perfect for Moroccan pastries & biscuits'},
     variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
 ];
 var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات'},
@@ -493,11 +464,12 @@ var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',n
 
 var lang = localStorage.getItem('je_lang') || 'ar';
 var sel = {};
-var cart = JSON.parse(localStorage.getItem('je_cart') || '{}');
+var cart = {};
+try { cart = JSON.parse(localStorage.getItem('je_cart') || '{}'); } catch(e){ cart = {}; }
 var zone = localStorage.getItem('je_zone') || 'casa';
 function t(k){ return T[lang][k]; }
+function $(id){ return document.getElementById(id); }
 
-/* ===== img fallback: jpg -> png -> hide ===== */
 function imgFix(el){
   if (el.dataset.tried === '1'){ el.style.display='none'; return; }
   el.dataset.tried='1';
@@ -506,7 +478,6 @@ function imgFix(el){
   else el.style.display='none';
 }
 
-/* ================= LANGUAGE ================= */
 function setLang(l){
   lang = l; localStorage.setItem('je_lang', l);
   var tr = T[l];
@@ -514,20 +485,20 @@ function setLang(l){
   document.documentElement.lang = l;
   var btns = document.querySelectorAll('.lang-btn');
   for (var i=0;i<btns.length;i++) btns[i].classList.remove('active');
-  document.getElementById('btn-'+l).classList.add('active');
+  var b = $('btn-'+l); if (b) b.classList.add('active');
   var els = document.querySelectorAll('[data-i18n]');
   for (var j=0;j<els.length;j++){ var k = els[j].getAttribute('data-i18n'); if (tr[k]!==undefined) els[j].textContent = tr[k]; }
   var phs = document.querySelectorAll('[data-ph]');
   for (var p=0;p<phs.length;p++){ var k2 = phs[p].getAttribute('data-ph'); if (tr[k2]!==undefined) phs[p].placeholder = tr[k2]; }
-  document.getElementById('ab_title').innerHTML = tr.ab_title + '<span>Jnan Edar</span>؟'.replace('؟', l==='ar'?'؟':'');
-  /* marquee */
-  var mq = tr.mq.join('  ✦  ') + '  ✦  ';
-  document.getElementById('marquee').textContent = mq + mq;
+  var ab = $('ab_title');
+  if (ab) ab.innerHTML = tr.ab_title + '<span>Jnan Edar</span>' + tr.ab_end;
+  var mq = $('marquee');
+  if (mq){ var m = tr.mq.join('  ✦  ') + '  ✦  '; mq.textContent = m + m; }
   renderProducts(); renderCart(); startCounters();
 }
 
-/* ================= PRODUCTS ================= */
 function renderProducts(){
+  var g = $('productsGrid'); if (!g) return;
   var html = '';
   for (var i=0; i<PRODUCTS.length; i++){
     var p = PRODUCTS[i];
@@ -555,46 +526,45 @@ function renderProducts(){
       '</div>' +
     '</div>';
   }
-  document.getElementById('productsGrid').innerHTML = html;
+  g.innerHTML = html;
   observeReveal();
 }
 
 function pickVariant(id, i, btn){
   sel[id] = i;
   var p = PRODUCTS.find(function(x){return x.id===id;});
-  document.getElementById('price-'+id).innerHTML = p.variants[i].price + ' <small>'+t('dh')+'</small>';
-  document.getElementById('unit-'+id).textContent = t('sizeL')(p.variants[i].g);
-  var im = document.getElementById('img-'+id);
-  im.dataset.tried=''; im.style.display='block'; im.src = p.variants[i].img;
+  $('price-'+id).innerHTML = p.variants[i].price + ' <small>'+t('dh')+'</small>';
+  $('unit-'+id).textContent = t('sizeL')(p.variants[i].g);
+  var im = $('img-'+id);
+  if (im){ im.dataset.tried=''; im.style.display='block'; im.src = p.variants[i].img; }
   var chips = btn.parentElement.querySelectorAll('.chip');
   for (var k=0;k<chips.length;k++) chips[k].classList.remove('active');
   btn.classList.add('active');
 }
 
-/* ================= CART ================= */
 function addToCart(id, btn){
   var vi = sel[id] || 0;
   var key = id + '|' + vi;
   cart[key] = (cart[key]||0) + 1;
   saveCart(); updateCount();
-  var cb = document.getElementById('cartBtn');
-  cb.classList.remove('pop'); void cb.offsetWidth; cb.classList.add('pop');
+  var cb = $('cartBtn');
+  if (cb){ cb.classList.remove('pop'); void cb.offsetWidth; cb.classList.add('pop'); }
   btn.textContent = t('added'); btn.classList.add('added');
   setTimeout(function(){ btn.textContent = t('add'); btn.classList.remove('added'); }, 1200);
   showToast(t('t_added'));
 }
 function changeQty(key, d){ cart[key]=(cart[key]||0)+d; if(cart[key]<=0) delete cart[key]; saveCart(); updateCount(); }
 function removeItem(key){ delete cart[key]; saveCart(); updateCount(); }
-function updateCount(){ var n=0; for(var k in cart) n+=cart[k]; document.getElementById('cartCount').textContent=n; }
+function updateCount(){ var n=0; for(var k in cart) n+=cart[k]; var c=$('cartCount'); if(c) c.textContent=n; }
 function cartTotal(){
   var s=0;
-  for (var k in cart){ var pr=k.split('|'); var p=PRODUCTS.find(function(x){return x.id===pr[0];}); s+=p.variants[+pr[1]].price*cart[k]; }
+  for (var k in cart){ var pr=k.split('|'); var p=PRODUCTS.find(function(x){return x.id===pr[0];}); if(p) s+=p.variants[+pr[1]].price*cart[k]; }
   return s;
 }
 function saveCart(){ localStorage.setItem('je_cart', JSON.stringify(cart)); renderCart(); }
 
 function renderCart(){
-  var box = document.getElementById('cartItems');
+  var box = $('cartItems'); if (!box) return;
   var keys = Object.keys(cart);
   if (!keys.length){
     box.innerHTML = '<div class="cart-empty"><div style="font-size:3.5rem;margin-bottom:14px">🛒</div>'+t('cart_empty')+'</div>';
@@ -603,8 +573,9 @@ function renderCart(){
     for (var i=0;i<keys.length;i++){
       var pr = keys[i].split('|');
       var p = PRODUCTS.find(function(x){return x.id===pr[0];});
+      if (!p) continue;
       var v = p.variants[+pr[1]], q = cart[keys[i]];
-      html += '<div class="c-item" style="animation-delay:'+(i*0.06)+'s">' +
+      html += '<div class="c-item">' +
         '<div class="em"><span>'+p.emoji+'</span><img src="'+v.img+'" onerror="imgFix(this)"></div>' +
         '<div style="flex:1">' +
           '<div class="nm">'+p.n[lang]+' <small style="color:#b3a88f">('+t('sizeL')(v.g)+')</small></div>' +
@@ -623,51 +594,49 @@ function renderCart(){
 function renderTotals(){
   var sub = cartTotal(), ship = DELIVERY[zone], n=0;
   for (var k in cart) n += cart[k];
-  document.getElementById('sumSub').textContent = sub + ' ' + t('dh');
-  document.getElementById('sumShip').textContent = ship + ' ' + t('dh');
-  document.getElementById('sumAll').textContent = (sub+ship) + ' ' + t('dh');
-  document.getElementById('modalSummary').textContent = '🛒 ' + n + ' ' + t('summary') + ': ' + (sub+ship) + ' ' + t('dh') + ' (' + t('with_ship') + ')';
+  if ($('sumSub')) $('sumSub').textContent = sub + ' ' + t('dh');
+  if ($('sumShip')) $('sumShip').textContent = ship + ' ' + t('dh');
+  if ($('sumAll')) $('sumAll').textContent = (sub+ship) + ' ' + t('dh');
+  if ($('modalSummary')) $('modalSummary').textContent = '🛒 ' + n + ' ' + t('summary') + ': ' + (sub+ship) + ' ' + t('dh') + ' (' + t('with_ship') + ')';
 }
 
 function setZone(z){
   zone = z; localStorage.setItem('je_zone', z);
-  document.getElementById('zoneDrawer').value = z;
-  document.getElementById('zoneModal').value = z;
-  document.getElementById('otherCityField').style.display = (z==='other') ? 'block' : 'none';
+  if ($('zoneDrawer')) $('zoneDrawer').value = z;
+  if ($('zoneModal')) $('zoneModal').value = z;
+  if ($('otherCityField')) $('otherCityField').style.display = (z==='other') ? 'block' : 'none';
   renderTotals();
 }
 
-/* ================= UI ================= */
 function openCart(){
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('overlay').classList.add('show');
+  $('drawer').classList.add('open');
+  $('overlay').classList.add('show');
   renderCart();
 }
 function openCheckout(){
   if (!Object.keys(cart).length){ showToast(t('t_empty')); return; }
   renderTotals();
-  document.getElementById('modal').classList.add('show');
-  document.getElementById('overlay').classList.add('show');
+  $('modal').classList.add('show');
+  $('overlay').classList.add('show');
 }
-function closeModal(){ document.getElementById('modal').classList.remove('show'); }
+function closeModal(){ $('modal').classList.remove('show'); }
 function closeAll(){
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('modal').classList.remove('show');
-  document.getElementById('overlay').classList.remove('show');
+  $('drawer').classList.remove('open');
+  $('modal').classList.remove('show');
+  $('overlay').classList.remove('show');
 }
 function showToast(msg){
-  var el = document.getElementById('toast');
+  var el = $('toast'); if (!el) return;
   el.textContent = msg; el.classList.add('show');
   setTimeout(function(){ el.classList.remove('show'); }, 2400);
 }
 
-/* ================= WHATSAPP ================= */
 function sendOrder(){
-  var name = document.getElementById('fName').value.trim();
-  var phone = document.getElementById('fPhone').value.trim();
-  var addr = document.getElementById('fAddress').value.trim();
-  var notes = document.getElementById('fNotes').value.trim();
-  var otherCity = document.getElementById('fOtherCity').value.trim();
+  var name = $('fName').value.trim();
+  var phone = $('fPhone').value.trim();
+  var addr = $('fAddress').value.trim();
+  var notes = $('fNotes').value.trim();
+  var otherCity = $('fOtherCity').value.trim();
   var cityLabel = (zone==='casa') ? t('casaName') : otherCity;
   if (!name || !phone || !addr || !cityLabel){ showToast(t('t_fill')); return; }
 
@@ -679,6 +648,7 @@ function sendOrder(){
   for (var k in cart){
     var pr = k.split('|');
     var p = PRODUCTS.find(function(x){return x.id===pr[0];});
+    if (!p) continue;
     var v = p.variants[+pr[1]];
     msg += '▪️ ' + p.n[lang] + ' (' + t('sizeL')(v.g) + ') × ' + cart[k] + ' = ' + (v.price*cart[k]) + ' ' + t('dh') + '\n';
   }
@@ -691,7 +661,6 @@ function sendOrder(){
   showToast(t('t_sent'));
 }
 
-/* ================= ANIMATIONS ================= */
 function observeReveal(){
   var obs = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
@@ -699,8 +668,7 @@ function observeReveal(){
   document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ obs.observe(el); });
 }
 function startCounters(){
-  var els = document.querySelectorAll('.cnt');
-  els.forEach(function(el){
+  document.querySelectorAll('.cnt').forEach(function(el){
     var target = +el.getAttribute('data-count');
     if (el.dataset.done === '1'){ el.textContent = target; return; }
     el.dataset.done = '1';
@@ -713,15 +681,12 @@ function startCounters(){
   });
 }
 
-/* ================= INIT ================= */
-try {
-  document.getElementById('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴');
-  setZone(zone);
-  setLang(lang);
-  updateCount();
-} catch(err) {
-  document.getElementById('productsGrid').innerHTML = '<div style="padding:40px;text-align:center;color:#e63946">⚠️ ' + err.message + '</div>';
-}
+/* ===== التشغيل — كل خطوة محمية باش أي خطأ ما يطيحش الصفحة ===== */
+function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
+safe(function(){ $('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴'); });
+safe(function(){ setZone(zone); });
+safe(function(){ setLang(lang); });
+safe(function(){ updateCount(); });
 </script>
 </body>
 </html>
