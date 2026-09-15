@@ -48,20 +48,25 @@
   .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  /* ===== HERO — البنير شاد البلاصة كاملة، النص فالجهة الخاوية (اليمين) ===== */
+  /* ===== HERO — البنير شاد كولشي، النص محبوس فالجهة الخاوية (اليمين) ===== */
   .hero{position:relative;min-height:100vh;background:#151d10;overflow:hidden}
   .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;z-index:0}
-  /* البنير الأول كيبان دائماً — حتى إلا الجافاسكريبت تعطل */
   .slide:first-of-type{opacity:1}
   .slide.active{opacity:1}
 
-  .hero-fallback{position:absolute;top:56%;transform:translateY(-50%);right:6%;width:min(560px,86vw);z-index:3}
+  /* تظليل خفيف غير على الجهة اليمنى (الفراغ) — المنتجات فاليسار يبقاو واضحين */
+  .hero::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(to left, rgba(8,6,3,.68) 0%, rgba(8,6,3,.38) 30%, rgba(8,6,3,.10) 48%, transparent 62%)}
+  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:100px;background:linear-gradient(transparent,rgba(0,0,0,.45));z-index:1;pointer-events:none}
+
+  /* النص: عرض محدود ~40% باش ما يدخلش للمنتجات */
+  .hero-fallback{position:absolute;top:50%;transform:translateY(-50%);right:5%;width:min(440px,42vw);z-index:3}
   .hero-fallback>*{animation:fadeUp .9s both}
-  .hero-badge{display:inline-block;background:rgba(21,29,16,.55);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.86rem;font-weight:700;margin-bottom:20px;backdrop-filter:blur(4px)}
-  .hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.3;margin-bottom:14px;color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.8)}
+  .hero-badge{display:inline-block;background:rgba(21,29,16,.55);border:1px solid var(--gold);color:var(--gold-light);padding:7px 18px;border-radius:50px;font-size:.8rem;font-weight:700;margin-bottom:18px;backdrop-filter:blur(4px)}
+  .hero h1{font-size:clamp(1.9rem,4.2vw,3.4rem);line-height:1.35;margin-bottom:14px;color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.85)}
   .hero h1 span{color:var(--gold-light)}
-  .hero p{font-size:1.05rem;color:#f3ecdc;margin-bottom:28px;line-height:2;text-shadow:0 2px 16px rgba(0,0,0,.85)}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
+  .hero p{font-size:1rem;color:#f3ecdc;margin-bottom:26px;line-height:2;text-shadow:0 2px 16px rgba(0,0,0,.9)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:.98rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
   .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
   .btn-gold:hover{transform:translateY(-3px)}
@@ -246,7 +251,7 @@
   <div class="hero-fallback">
     <div class="hero-badge" data-i18n="hero_badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
     <h1><span data-i18n="hero_t1">ودّع السكر...</span><br><b data-i18n="hero_t2">مرحبا بالتمر!</b></h1>
-    <p data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦</p>
+    <p id="heroSub" data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة<br>بدائل طبيعية و لذيذة — توصيل لجميع المدن المغربية 🇲🇦</p>
     <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
     <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
   </div>
@@ -388,7 +393,7 @@ var T = {
 ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
-hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦',
+hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة<br>بدائل طبيعية و لذيذة — توصيل لجميع المدن المغربية 🇲🇦',
 hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
 f1t:'طبيعي 100%',f1p:'بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
 f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
@@ -421,7 +426,7 @@ sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'✨ 100% Naturel — Sans sucre ajouté',hero_t1:'Adieu le sucre...',hero_t2:'Bonjour les dattes !',
-hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles. Livraison partout au Maroc 🇲🇦',
+hero_sub:'Sirop, poudre, crème et pâte de dattes<br>Des alternatives naturelles — Livraison partout au Maroc 🇲🇦',
 hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
 f1t:'100% Naturel',f1p:'Sans sucre ajouté, sans gluten, sans conservateurs',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
 f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
@@ -454,7 +459,7 @@ sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'✨ 100% Natural Date Products — No Added Sugar',hero_t1:'Out with sugar...',hero_t2:'In with dates!',
-hero_sub:'Date syrup, powder, spread & paste — natural and delicious alternatives. Delivery all over Morocco 🇲🇦',
+hero_sub:'Date syrup, powder, spread & paste<br>Natural, delicious alternatives — Delivery all over Morocco 🇲🇦',
 hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
 f1t:'100% Natural',f1p:'No added sugar, gluten free, no preservatives',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
 f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
@@ -503,7 +508,7 @@ var PRODUCTS = [
        fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
        en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
     variants:[
-      {g:250, price:35, img:'images/pouder1.jpg'},
+      {g:250, price:35, img:'images/poudre1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
     ]},
   { id:'creme', badge:'nat', emoji:'🍫',
@@ -549,6 +554,8 @@ function setLang(l){
   var b = $('btn-'+l); if (b) b.classList.add('active');
   var els = document.querySelectorAll('[data-i18n]');
   for (var j=0;j<els.length;j++){ var k = els[j].getAttribute('data-i18n'); if (tr[k]!==undefined) els[j].textContent = tr[k]; }
+  var hs = $('heroSub');
+  if (hs) hs.innerHTML = tr.hero_sub;
   var phs = document.querySelectorAll('[data-ph]');
   for (var p=0;p<phs.length;p++){ var k2 = phs[p].getAttribute('data-ph'); if (tr[k2]!==undefined) phs[p].placeholder = tr[k2]; }
   var ab = $('ab_title');
@@ -603,7 +610,6 @@ function initSlides(){
   for (var i=0;i<s.length;i++){
     (function(sl){
       sl.addEventListener('error', function(){ slideFail(sl); });
-      /* بدا الدوران ملي أول بنير يوصل، أو بعد 2.5 ثانية احتياطاً */
       sl.addEventListener('load', startSlider);
       if (sl.complete && sl.naturalWidth > 0) startSlider();
     })(s[i]);
