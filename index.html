@@ -571,22 +571,6 @@ function slideFail(sl){
   if (sl.dataset.tried !== '1'){ sl.dataset.tried='1'; sl.src = sl.src.replace('.jpg','.png'); return; }
   sl.remove(); buildDots(); showSlide(0);
 }
-
-/* ================= دائرة المنتجات الدوارة ================= */
-var circImgs = [];
-PRODUCTS.forEach(function(p){ p.variants.forEach(function(v){ circImgs.push(v.img); }); });
-var ci = 0;
-function rotCircle(){
-  var im = $('circImg'); if (!im || !circImgs.length) return;
-  im.style.opacity = 0;
-  setTimeout(function(){
-    ci = (ci + 1) % circImgs.length;
-    im.style.display = 'block';
-    im.src = circImgs[ci];
-    im.style.opacity = 1;
-  }, 350);
-}
-
 /* ================= PRODUCTS ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
