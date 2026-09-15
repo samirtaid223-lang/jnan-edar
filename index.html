@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jnan Edar | جنان الدار — منتجات طبيعية</title>
+<title>Jnan Edar | جنان الدار — تمور، فواكه جافة، قطاني و أتاي</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=El+Messiri:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -148,7 +148,7 @@
   .soc-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:13px;font-weight:800;font-size:.9rem;font-family:'Cairo';text-decoration:none;color:#fff;transition:.3s}
   .soc-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
   .soc-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
-  .soc-fb{background:#1877F2}
+  .soc-tk{background:#111;border:1px solid rgba(255,255,255,.2)}
   .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;font-size:.8rem;color:#8f8468}
 
   .overlay{position:fixed;inset:0;background:rgba(15,20,10,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
@@ -235,7 +235,7 @@
   <div class="topbar"><div class="topbar-inner" id="topbarInner"></div></div>
   <nav class="nav">
     <a class="brand" href="#home">
-      <div class="logo-wrap">🌴<img src="images/logo.png" alt="Jnan Edar" onerror="this.style.display='none'"></div>
+      <div class="logo-wrap">🌴<img src="images/logo.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
       <span>Jnan Edar <small>جنان الدار</small></span>
     </a>
     <div class="nav-mid">
@@ -263,9 +263,9 @@
   <img class="slide" src="images/banner3.jpg" alt="Jnan Edar">
 
   <div class="hero-fallback">
-    <div class="hero-badge" data-i18n="hero_badge">✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف</div>
-    <h1><span data-i18n="hero_t1">ودّع السكر...</span><br><b data-i18n="hero_t2">مرحبا بالتمر!</b></h1>
-    <p data-i18n="hero_sub">دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦</p>
+    <div class="hero-badge" data-i18n="hero_badge">🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل</div>
+    <h1><span data-i18n="hero_t1">من طبيعة المغرب...</span><br><b data-i18n="hero_t2">إلى باب دارك!</b></h1>
+    <p data-i18n="hero_sub">تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية 🇲🇦</p>
     <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
     <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
   </div>
@@ -276,7 +276,7 @@
 </section>
 
 <div class="features">
-  <div class="feature reveal"><div class="ic">🌿</div><h3 data-i18n="f1t">طبيعي 100%</h3><p data-i18n="f1p">بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة</p></div>
+  <div class="feature reveal"><div class="ic">🌿</div><h3 data-i18n="f1t">طبيعي 100%</h3><p data-i18n="f1p">بلا مواد حافظة و بجودة مضمونة</p></div>
   <div class="feature reveal"><div class="ic">🚚</div><h3 data-i18n="f2t">توصيل سريع</h3><p data-i18n="f2p">الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
   <div class="feature reveal"><div class="ic">🎁</div><h3 data-i18n="f5t">توصيل مجاني</h3><p data-i18n="f5p">للطلبات فوق 299 درهم</p></div>
   <div class="feature reveal"><div class="ic">💵</div><h3 data-i18n="f3t">الدفع عند الاستلام</h3><p data-i18n="f3p">خلّص منين توصلك الطلبية لباب دارك</p></div>
@@ -286,7 +286,7 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="tag" data-i18n="prod_tag">منتجاتنا</div>
-      <h2 data-i18n="prod_title">تشكيلة التمر الطبيعية</h2>
+      <h2 data-i18n="prod_title">تشكيلة التمر و البدائل الطبيعية</h2>
       <div class="line"></div>
     </div>
     <div class="products" id="productsGrid"></div>
@@ -327,8 +327,8 @@
   <div class="about-grid">
     <div class="reveal">
       <h2 id="ab_title">علاش <span>Jnan Edar</span>؟</h2>
-      <p data-i18n="ab_p1">حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني و أتاي — منتقاة بعناية و بجودة عالية.</p>
-      <p data-i18n="ab_p2">البيع بالتجزئة و النصف بالجملة — بلا مواد حافظة، بجودة مضمونة و توصيل لجميع المدن 🌱</p>
+      <p data-i18n="ab_p1">حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — منتقاة بعناية و بجودة عالية.</p>
+      <p data-i18n="ab_p2">جروسست للمواد الغذائية — البيع بالتجزئة و النصف بالجملة، بجودة مضمونة و توصيل لجميع المدن 🌱</p>
       <div class="stats">
         <div class="stat"><div class="num"><span class="cnt" data-count="100">0</span>%</div><div class="lbl" data-i18n="st1">طبيعي</div></div>
         <div class="stat"><div class="num"><span class="cnt" data-count="900">0</span>+</div><div class="lbl" data-i18n="st4">تابع لينا</div></div>
@@ -345,12 +345,12 @@
 </section>
 
 <footer id="contact">
-  <div class="brand"><div class="logo-wrap">🌴<img src="images/logo.png" alt="" onerror="this.style.display='none'"></div><span>Jnan Edar <small style="font-size:.75rem;color:var(--gold-light)">جنان الدار</small></span></div>
-  <p data-i18n="ft_tag">منتجات طبيعية مغربية — تمور، فواكه جافة، قطاني و أتاي</p>
+  <div class="brand"><div class="logo-wrap">🌴<img src="images/logo.jpg" alt="" onerror="imgFix(this)"></div><span>Jnan Edar <small style="font-size:.75rem;color:var(--gold-light)">جنان الدار</small></span></div>
+  <p data-i18n="ft_tag">براند مغربي للمنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات</p>
   <p>📞 <span data-i18n="ft_wa">واتساب</span>: <b>+212 723 180 222</b></p>
   <div class="socials">
-    <a href="#" id="lnkIg" target="_blank" class="soc-btn soc-ig">📷 <span data-i18n="fol_us">تابعنا</span> @jinan.edar</a>
-    <a href="#" id="lnkFb" target="_blank" class="soc-btn soc-fb">📘 Facebook</a>
+    <a href="#" id="lnkIg" target="_blank" class="soc-btn soc-ig">📷 <span data-i18n="fol_us">تابعنا</span> @jnan.edar</a>
+    <a href="#" id="lnkTk" target="_blank" class="soc-btn soc-tk">🎵 TikTok</a>
   </div>
   <p data-i18n="ft_del">🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 🎁 مجاني فوق 299 درهم • 💵 الدفع عند الاستلام</p>
   <div class="copy">© 2025 Jnan Edar — جنان الدار</div>
@@ -407,29 +407,30 @@ var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
 var FREE_SHIP = 299;
 
-/* ===== 🔗 السوشيال ميديا — بدل الرابط ديال فيسبوك بالصفحة ديالك ===== */
-var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar?stkn=MW5ibTc3NTlua293aw%3D%3D&utm_source=qr";
-var TIKTOK_URL  = "https://www.tiktok.com/@jnanedar0?_r=1&_t=ZS-99lVpE51bJV";
+/* ===== 🔗 السوشيال ميديا ===== */
+var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
+var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
 
 var T = {
 ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
-hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
-hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦',
+hero_badge:'🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل',
+hero_t1:'من طبيعة المغرب...',hero_t2:'إلى باب دارك!',
+hero_sub:'تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية 🇲🇦',
 hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
-f1t:'طبيعي 100%',f1p:'بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
+f1t:'طبيعي 100%',f1p:'بلا مواد حافظة و بجودة مضمونة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
 f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
-prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',
+prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر و البدائل الطبيعية',
 gal_tag:'📸 معرض المنتجات',gal_title:'لمحة من منتجاتنا',
 del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
 ship_free:'توصيل مجاني',ship_free_v:'فوق 299 درهم',ship_free_n:'على جميع الطلبات',
 ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
 ship_cod:'الدفع عند الاستلام',ship_cod_v:'خلّص منين توصلك',ship_cod_n:'بلا خلاص مسبق',
 ab_title:'علاش ',ab_end:'؟',
-ab_p1:'حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني و أتاي — منتقاة بعناية و بجودة عالية.',
-ab_p2:'البيع بالتجزئة و النصف بالجملة — بلا مواد حافظة، بجودة مضمونة و توصيل لجميع المدن 🌱',
+ab_p1:'حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — منتقاة بعناية و بجودة عالية.',
+ab_p2:'جروسست للمواد الغذائية — البيع بالتجزئة و النصف بالجملة، بجودة مضمونة و توصيل لجميع المدن 🌱',
 st1:'طبيعي',st4:'تابع لينا',st3:'مدة التوصيل',
-ft_tag:'منتجات طبيعية مغربية — تمور، فواكه جافة، قطاني و أتاي',ft_wa:'واتساب',fol_us:'تابعنا',
+ft_tag:'براند مغربي للمنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات',ft_wa:'واتساب',fol_us:'تابعنا',
 ft_del:'🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 🎁 مجاني فوق 299 درهم • 💵 الدفع عند الاستلام',
 cart_t:'🛒 سلة المشتريات',cart_empty:'السلة خاوية... زيد شي منتجات!',zone_lbl:'🚚 منطقة التوصيل:',
 z_casa:'🏠 الدار البيضاء — 25 درهم',z_other:'🇲🇦 مدينة أخرى — 35 درهم',
@@ -448,22 +449,23 @@ sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
 fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
-hero_badge:'✨ 100% Naturel — Sans sucre ajouté',hero_t1:'Adieu le sucre...',hero_t2:'Bonjour les dattes !',
-hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles. Livraison partout au Maroc 🇲🇦',
+hero_badge:'🌿 Marque marocaine — Dattes, fruits secs, légumineuses, thé & épices',
+hero_t1:'De la nature du Maroc...',hero_t2:'à votre porte !',
+hero_sub:'Dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — Qualité garantie. Livraison partout au Maroc 🇲🇦',
 hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
-f1t:'100% Naturel',f1p:'Sans sucre ajouté, sans gluten, sans conservateurs',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
+f1t:'100% Naturel',f1p:'Sans conservateurs, qualité garantie',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
 f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
-prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',
+prod_tag:'Nos Produits',prod_title:'Dattes & Alternatives Naturelles',
 gal_tag:'📸 Galerie',gal_title:'Un aperçu de nos produits',
 del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
 ship_free:'Livraison offerte',ship_free_v:'Dès 299 DH',ship_free_n:'Sur toutes les commandes',
 ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
 ship_cod:'Paiement à la livraison',ship_cod_v:'Payez à la réception',ship_cod_n:'Sans avance',
 ab_title:'Pourquoi ',ab_end:' ?',
-ab_p1:'Nous vous apportons les meilleurs produits naturels — dattes, fruits secs, légumineuses et thé — sélectionnés avec soin.',
-ab_p2:'Vente au détail et demi-gros — sans conservateurs, qualité garantie, livraison partout au Maroc 🌱',
+ab_p1:'Nous vous apportons les meilleurs produits naturels — dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — sélectionnés avec soin.',
+ab_p2:'Grossiste alimentaire — vente au détail et demi-gros, qualité garantie, livraison partout au Maroc 🌱',
 st1:'Naturel',st4:'Abonnés',st3:'Livraison',
-ft_tag:'Produits naturels du Maroc — Dattes, fruits secs, légumineuses & thé',ft_wa:'WhatsApp',fol_us:'Suivez-nous',
+ft_tag:'Marque marocaine de produits naturels — Dattes, fruits secs, légumineuses, thé & épices',ft_wa:'WhatsApp',fol_us:'Suivez-nous',
 ft_del:'🚚 Casablanca : 25 DH • Autres villes : 35 DH • 🎁 Offerte dès 299 DH • 💵 Paiement à la livraison',
 cart_t:'🛒 Panier',cart_empty:'Panier vide... ajoutez des produits !',zone_lbl:'🚚 Zone de livraison :',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Autre ville — 35 DH',
@@ -482,22 +484,23 @@ sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
 en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
-hero_badge:'✨ 100% Natural Date Products — No Added Sugar',hero_t1:'Out with sugar...',hero_t2:'In with dates!',
-hero_sub:'Date syrup, powder, spread & paste — natural and delicious alternatives. Delivery all over Morocco 🇲🇦',
+hero_badge:'🌿 Moroccan Brand — Dates, Dried Fruits, Legumes, Tea & Spices',
+hero_t1:"From Morocco's nature...",hero_t2:'to your door!',
+hero_sub:'Dates, dried fruits, legumes, tea, spices & aromatic herbs — Top quality, fair prices. Delivery all over Morocco 🇲🇦',
 hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
-f1t:'100% Natural',f1p:'No added sugar, gluten free, no preservatives',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
+f1t:'100% Natural',f1p:'No preservatives, guaranteed quality',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
 f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
-prod_tag:'Our Products',prod_title:'Natural Date Collection',
+prod_tag:'Our Products',prod_title:'Dates & Natural Alternatives',
 gal_tag:'📸 Gallery',gal_title:'A look at our products',
 del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
 ship_free:'Free Delivery',ship_free_v:'Over 299 DH',ship_free_n:'On all orders',
 ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
 ship_cod:'Cash on Delivery',ship_cod_v:'Pay on arrival',ship_cod_n:'No prepayment',
 ab_title:'Why ',ab_end:'?',
-ab_p1:'We bring you the finest natural products — dates, dried fruits, legumes and tea — carefully selected for top quality.',
-ab_p2:'Retail & semi-wholesale — no preservatives, guaranteed quality, delivery all over Morocco 🌱',
+ab_p1:'We bring you the finest natural products — dates, dried fruits, legumes, tea, spices & aromatic herbs — carefully selected for top quality.',
+ab_p2:'Food wholesaler — retail & semi-wholesale, guaranteed quality, delivery all over Morocco 🌱',
 st1:'Natural',st4:'Followers',st3:'Delivery',
-ft_tag:'Natural Moroccan products — Dates, dried fruits, legumes & tea',ft_wa:'WhatsApp',fol_us:'Follow us',
+ft_tag:'Moroccan brand of natural products — Dates, dried fruits, legumes, tea & spices',ft_wa:'WhatsApp',fol_us:'Follow us',
 ft_del:'🚚 Casablanca: 25 DH • Other cities: 35 DH • 🎁 Free over 299 DH • 💵 Cash on delivery',
 cart_t:'🛒 Shopping Cart',cart_empty:'Cart is empty... add some products!',zone_lbl:'🚚 Delivery zone:',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🇲🇦 Other city — 35 DH',
@@ -830,9 +833,9 @@ function startCounters(){
 function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
 safe(function(){ initSlides(); });
 safe(function(){
-  $('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات التمر 🌴');
+  $('floatWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('سلام، بغيت نسول على منتجات Jnan Edar 🌴');
   $('lnkIg').href = INSTAGRAM_URL;
-  $('lnkFb').href = FACEBOOK_URL;
+  $('lnkTk').href = TIKTOK_URL;
 });
 safe(function(){ setZone(zone); });
 safe(function(){ setLang(lang); });
