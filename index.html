@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jnan Edar | جنة دار — منتجات التمر الطبيعية</title>
+<title>Jnan Edar | جنان دار — منتجات التمر الطبيعية</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=El+Messiri:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -61,8 +61,8 @@
   .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
   .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(200,155,75,.14);transition:.35s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-8px)}
-  .card-img{height:215px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-  .card-img img{position:absolute;inset:0;margin:auto;max-width:82%;max-height:88%;object-fit:contain;transition:.4s}
+  .card-img{height:230px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img img{position:absolute;inset:0;margin:auto;max-width:85%;max-height:90%;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.5));transition:.4s}
   .card:hover .card-img img{transform:scale(1.06)}
   .img-emoji{font-size:4.2rem}
   .badge{position:absolute;top:14px;right:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a97e2f);color:#fff;font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:50px}
@@ -115,8 +115,8 @@
   .drawer-items{flex:1;overflow-y:auto;padding:18px 24px}
   .cart-empty{text-align:center;padding:60px 0;color:#b0a494}
   .c-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed #eee2cd}
-  .c-item .em{width:56px;height:56px;border-radius:14px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;overflow:hidden}
-  .c-item .em img{width:100%;height:100%;object-fit:cover}
+  .c-item .em{width:56px;height:56px;border-radius:14px;background:linear-gradient(140deg,#1a120a,#0a0603);display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;overflow:hidden;position:relative}
+  .c-item .em img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .c-item .nm{font-weight:700;font-size:.93rem}
   .c-item .pr{color:var(--green);font-weight:700;font-size:.85rem}
   .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
@@ -290,28 +290,42 @@
 var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
 
+/* كل حجم عندو تصويرتو — كيجرب .jpg و إلا ما لقاهش جرب .png أوتوماتيكياً */
 var PRODUCTS = [
-  { id:'dibs', name:'دبس التمر', nameEn:'DATE SYRUP', badge:'الأكثر مبيعاً',
+  { id:'dibs', name:'دبس التمر', nameEn:'DATE SYRUP', badge:'الأكثر مبيعاً', emoji:'🍯',
     desc:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
-    emoji:'🍯', img:'',
-    variants:[ {size:'250غ',price:25}, {size:'400غ',price:35}, {size:'900غ',price:65}, {size:'1.5 كلغ',price:85} ] },
-  { id:'poudre', name:'بودرة التمر', nameEn:'DATE POWDER', badge:'بديل السكر',
+    variants:[
+      {size:'250غ',    price:25, img:'images/dibs1.jpg'},
+      {size:'400غ',    price:35, img:'images/dibs2.jpg'},
+      {size:'900غ',    price:65, img:'images/dibs3.jpg'},
+      {size:'1.5 كلغ', price:85, img:'images/dips4.jpg'}
+    ]},
+  { id:'poudre', name:'بودرة التمر', nameEn:'DATE POWDER', badge:'بديل السكر', emoji:'🥄',
     desc:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
-    emoji:'🥄', img:'',
-    variants:[ {size:'250غ',price:35}, {size:'500غ',price:75} ] },
-  { id:'creme', name:'كريم التمر', nameEn:'DATE SPREAD', badge:'طبيعي 100%',
+    variants:[
+      {size:'250غ', price:35, img:'images/pouder1.jpg'},
+      {size:'500غ', price:75, img:'images/pouder2.jpg'}
+    ]},
+  { id:'creme', name:'كريم التمر', nameEn:'DATE SPREAD', badge:'طبيعي 100%', emoji:'🍫',
     desc:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
-    emoji:'🍫', img:'',
-    variants:[ {size:'330غ',price:35} ] },
-  { id:'ajina', name:'عجينة التمر', nameEn:'DATE PASTE', badge:'مثالية للحلويات',
+    variants:[ {size:'330غ', price:35, img:'images/creme.jpg'} ]},
+  { id:'ajina', name:'عجينة التمر', nameEn:'DATE PASTE', badge:'مثالية للحلويات', emoji:'🍪',
     desc:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
-    emoji:'🍪', img:'',
-    variants:[ {size:'500غ',price:40} ] }
+    variants:[ {size:'500غ', price:40, img:'images/ajina.jpg'} ]}
 ];
 
 var sel = {};
 var cart = JSON.parse(localStorage.getItem('je_cart') || '{}');
 var zone = localStorage.getItem('je_zone') || 'casa';
+
+/* ذكاء: إلا .jpg ما لقاهش → جرب .png → إلا ما لقاهش → خبي الصورة و خلي الإيموجي */
+function imgFix(el){
+  if (el.dataset.tried === '1'){ el.style.display = 'none'; return; }
+  el.dataset.tried = '1';
+  if (el.src.indexOf('.jpg') > -1){ el.src = el.src.replace('.jpg', '.png'); }
+  else if (el.src.indexOf('.png') > -1){ el.src = el.src.replace('.png', '.jpg'); }
+  else { el.style.display = 'none'; }
+}
 
 function renderProducts(){
   var html = '';
@@ -325,7 +339,7 @@ function renderProducts(){
       '<div class="card-img">' +
         (p.badge ? '<span class="badge">' + p.badge + '</span>' : '') +
         '<div class="img-emoji">' + p.emoji + '</div>' +
-        (p.img ? '<img src="' + p.img + '" alt="' + p.name + '">' : '') +
+        '<img id="img-' + p.id + '" src="' + p.variants[0].img + '" alt="' + p.name + '" onerror="imgFix(this)">' +
       '</div>' +
       '<div class="card-body">' +
         '<h3>' + p.name + ' <span class="en">' + p.nameEn + '</span></h3>' +
@@ -350,6 +364,9 @@ function pickVariant(id, i, btn){
   var p = PRODUCTS.find(function(x){ return x.id === id; });
   document.getElementById('price-'+id).innerHTML = p.variants[i].price + ' <small>درهم</small>';
   document.getElementById('unit-'+id).textContent = p.variants[i].size;
+  var im = document.getElementById('img-'+id);
+  im.dataset.tried = ''; im.style.display = 'block';
+  im.src = p.variants[i].img;
   var chips = btn.parentElement.querySelectorAll('.chip');
   for (var k=0; k<chips.length; k++) chips[k].classList.remove('active');
   btn.classList.add('active');
@@ -390,7 +407,7 @@ function renderCart(){
   var box = document.getElementById('cartItems');
   var keys = Object.keys(cart);
   if (!keys.length){
-    box.innerHTML = '<div class="cart-empty" style="font-size:3.5rem">🛒</div><div class="cart-empty">السلة خاوية... زيد شي منتجات!</div>';
+    box.innerHTML = '<div class="cart-empty"><div style="font-size:3.5rem;margin-bottom:14px">🛒</div>السلة خاوية... زيد شي منتجات!</div>';
   } else {
     var html = '';
     for (var i=0; i<keys.length; i++){
@@ -399,7 +416,7 @@ function renderCart(){
       var v = p.variants[+parts[1]];
       var q = cart[keys[i]];
       html += '<div class="c-item">' +
-        '<div class="em">' + (p.img ? '<img src="'+p.img+'">' : p.emoji) + '</div>' +
+        '<div class="em"><span>' + p.emoji + '</span>' + (v.img ? '<img src="' + v.img + '" onerror="imgFix(this)">' : '') + '</div>' +
         '<div style="flex:1">' +
           '<div class="nm">' + p.name + ' <small style="color:#b0a494">(' + v.size + ')</small></div>' +
           '<div class="pr">' + (v.price * q) + ' درهم</div>' +
