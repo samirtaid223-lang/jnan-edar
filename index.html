@@ -48,21 +48,22 @@
   .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;padding:140px 20px 90px}
+  /* ===== HERO — النص فوق البنير فالجهة الخاوية (كيتبدل مع اللغة) ===== */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:flex-start;background:#000;overflow:hidden;padding:150px 7% 90px}
   .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;z-index:0}
   .slide.active{opacity:1}
-  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:120px;background:linear-gradient(transparent,rgba(0,0,0,.6));z-index:1;pointer-events:none}
-  .hero-fallback{position:relative;z-index:3;text-align:center;max-width:840px;margin:auto}
-  .hero.ready .hero-fallback{display:none}
-  .hero-badge{display:inline-block;background:rgba(198,161,91,.14);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.88rem;font-weight:700;margin-bottom:22px}
-  .hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.3;margin-bottom:16px;color:#fff}
+  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:110px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:1;pointer-events:none}
+  .hero-fallback{position:relative;z-index:3;max-width:560px;background:radial-gradient(ellipse at center,rgba(0,0,0,.5) 0%,rgba(0,0,0,.22) 55%,transparent 78%);padding:36px;border-radius:36px}
+  .hero-fallback>*{animation:fadeUp .9s both}
+  .hero-badge{display:inline-block;background:rgba(198,161,91,.16);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.86rem;font-weight:700;margin-bottom:20px;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.3;margin-bottom:14px;color:#fff;text-shadow:0 3px 22px rgba(0,0,0,.7)}
   .hero h1 span{color:var(--gold-light)}
-  .hero p{font-size:1.1rem;color:#e6ddc9;margin-bottom:32px;line-height:2}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
+  .hero p{font-size:1.05rem;color:#efe7d5;margin-bottom:28px;line-height:2;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
   .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
   .btn-gold:hover{transform:translateY(-3px)}
-  .btn-outline{background:rgba(0,0,0,.25);color:#fff;border:2px solid rgba(255,255,255,.35);margin-inline-start:12px}
+  .btn-outline{background:rgba(0,0,0,.3);color:#fff;border:2px solid rgba(255,255,255,.4);margin-inline-start:12px}
   .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
 
   .hero-dots{position:absolute;bottom:24px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
@@ -86,18 +87,19 @@
   .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
   .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
 
-  .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:26px}
+  /* ===== PRODUCTS — 2 تحت 2 ===== */
+  .products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:940px;margin:0 auto}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-10px)}
-  .card-img{height:230px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img{height:280px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .card-img img{position:absolute;inset:0;margin:auto;max-width:88%;max-height:92%;object-fit:contain;transition:.45s;z-index:1}
   .card:hover .card-img img{transform:scale(1.09) rotate(-2deg)}
   .img-emoji{font-size:4.2rem;z-index:0}
   .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px}
   .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
-  .card-body h3{font-size:1.22rem;margin-bottom:6px;color:var(--green)}
+  .card-body h3{font-size:1.25rem;margin-bottom:6px;color:var(--green)}
   .card-body .en{font-size:.66rem;color:#b3a88f;font-weight:700}
-  .card-body .desc{font-size:.83rem;color:#7d7361;line-height:1.7}
+  .card-body .desc{font-size:.84rem;color:#7d7361;line-height:1.7}
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
   .chip{border:1.5px solid #ddd2b8;background:#fbf7ec;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:800;font-size:.79rem;cursor:pointer;color:var(--green);transition:.25s}
   .chip.active{background:var(--green);color:#fff;border-color:var(--green)}
@@ -109,6 +111,12 @@
   .add-btn:hover{background:var(--gold)}
   .add-btn.added{background:var(--wa)}
 
+  /* ===== GALLERY — معرض التصاور ===== */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:940px;margin:0 auto}
+  .g-frame{position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:2px solid var(--gold);background:#000;display:flex;align-items:center;justify-content:center;font-size:3rem;box-shadow:var(--shadow)}
+  .g-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.5s}
+  .g-frame:hover img{transform:scale(1.06)}
+
   .ship-sec{padding:0 24px 80px}
   .ship-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
   .ship-card{background:var(--cream);border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.35s}
@@ -119,14 +127,17 @@
   .ship-card .note{font-size:.8rem;color:#7d7361}
 
   .about{background:#151d10;color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
   .about h2{font-size:2.2rem;margin-bottom:18px}
   .about h2 span{color:var(--gold-light)}
   .about p{color:#d9d0ba;line-height:2;margin-bottom:14px}
   .about .stats{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap}
   .stat .num{font-size:2.3rem;font-weight:900;color:var(--gold-light);font-family:'El Messiri'}
   .stat .lbl{font-size:.84rem;color:#b8ae94}
-  .about-emoji{font-size:7rem;text-align:center;animation:floatY 5s ease-in-out infinite}
+  .about-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ap-cell{position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;border:2px solid rgba(198,161,91,.55);background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+  .ap-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}
+  .ap-cell:hover img{transform:scale(1.07)}
 
   footer{background:#10160b;color:#cfc4a8;margin-top:80px;padding:60px 24px 24px;text-align:center}
   footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
@@ -187,8 +198,13 @@
     .burger{display:block}
     .about-grid{grid-template-columns:1fr}
     .btn-outline{margin-inline-start:0;margin-top:12px}
-    .hero{min-height:70vh;padding:120px 16px 80px}
     .h-arrow{display:none}
+  }
+  @media(max-width:760px){
+    .hero{justify-content:center;padding:130px 16px 80px;min-height:75vh}
+    .hero-fallback{text-align:center;padding:24px}
+    .products{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -205,6 +221,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
         <li><a href="#products" data-i18n="nav_products">المنتجات</a></li>
+        <li><a href="#gallery" data-i18n="nav_gallery">المعرض</a></li>
         <li><a href="#delivery" data-i18n="nav_delivery">التوصيل</a></li>
         <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
       </ul>
@@ -255,6 +272,23 @@
   </div>
 </section>
 
+<!-- ===== معرض المنتجات ===== -->
+<section id="gallery" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag" data-i18n="gal_tag">📸 معرض المنتجات</div>
+      <h2 data-i18n="gal_title">لمحة من منتجاتنا</h2>
+      <div class="line"></div>
+    </div>
+    <div class="gallery">
+      <div class="g-frame reveal">🌴<img src="images/gallery1.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="g-frame reveal" style="transition-delay:.08s">🍯<img src="images/gallery2.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="g-frame reveal" style="transition-delay:.16s">🥄<img src="images/gallery3.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="g-frame reveal" style="transition-delay:.24s">🍪<img src="images/gallery4.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+    </div>
+  </div>
+</section>
+
 <div class="ship-sec" id="delivery">
   <div class="sec-head reveal">
     <div class="tag" data-i18n="del_tag">🚚 التوصيل</div>
@@ -281,7 +315,12 @@
         <div class="stat"><div class="num"><span class="cnt" data-count="48">0</span>h</div><div class="lbl" data-i18n="st3">مدة التوصيل</div></div>
       </div>
     </div>
-    <div class="about-emoji reveal">🍯🌴</div>
+    <div class="about-photos reveal">
+      <div class="ap-cell">🌴<img src="images/about1.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="ap-cell">🍯<img src="images/about2.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="ap-cell">🥄<img src="images/about3.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+      <div class="ap-cell">🍪<img src="images/about4.jpg" alt="Jnan Edar" onerror="imgFix(this)"></div>
+    </div>
   </div>
 </section>
 
@@ -345,14 +384,16 @@ var DELIVERY = { casa: 25, other: 35 };
 var FREE_SHIP = 299;
 
 var T = {
-ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'✨ منتجات التمر الطبيعية 100% — بلا سكر مضاف',hero_t1:'ودّع السكر...',hero_t2:'مرحبا بالتمر!',
 hero_sub:'دبس التمر، بودرة التمر، كريم التمر و العجينة — بدائل طبيعية و لذيذة. توصيل لجميع المدن المغربية 🇲🇦',
 hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
 f1t:'طبيعي 100%',f1p:'بلا سكر مضاف، بلا گلوتين و بلا مواد حافظة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
 f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
-prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
+prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر الطبيعية',
+gal_tag:'📸 معرض المنتجات',gal_title:'لمحة من منتجاتنا',
+del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
 ship_free:'توصيل مجاني',ship_free_v:'فوق 299 درهم',ship_free_n:'على جميع الطلبات',
 ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
 ship_cod:'الدفع عند الاستلام',ship_cod_v:'خلّص منين توصلك',ship_cod_n:'بلا خلاص مسبق',
@@ -376,14 +417,16 @@ w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_ph
 w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
-fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_delivery:'Livraison',nav_contact:'Contact',
+fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'✨ 100% Naturel — Sans sucre ajouté',hero_t1:'Adieu le sucre...',hero_t2:'Bonjour les dattes !',
 hero_sub:'Sirop, poudre, crème et pâte de dattes — des alternatives naturelles. Livraison partout au Maroc 🇲🇦',
 hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
 f1t:'100% Naturel',f1p:'Sans sucre ajouté, sans gluten, sans conservateurs',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
 f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
-prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
+prod_tag:'Nos Produits',prod_title:'Gamme Naturelle de Dattes',
+gal_tag:'📸 Galerie',gal_title:'Un aperçu de nos produits',
+del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
 ship_free:'Livraison offerte',ship_free_v:'Dès 299 DH',ship_free_n:'Sur toutes les commandes',
 ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
 ship_cod:'Paiement à la livraison',ship_cod_v:'Payez à la réception',ship_cod_n:'Sans avance',
@@ -407,14 +450,16 @@ w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'
 w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
-en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_delivery:'Delivery',nav_contact:'Contact',
+en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'✨ 100% Natural Date Products — No Added Sugar',hero_t1:'Out with sugar...',hero_t2:'In with dates!',
 hero_sub:'Date syrup, powder, spread & paste — natural and delicious alternatives. Delivery all over Morocco 🇲🇦',
 hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
 f1t:'100% Natural',f1p:'No added sugar, gluten free, no preservatives',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
 f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
-prod_tag:'Our Products',prod_title:'Natural Date Collection',del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
+prod_tag:'Our Products',prod_title:'Natural Date Collection',
+gal_tag:'📸 Gallery',gal_title:'A look at our products',
+del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
 ship_free:'Free Delivery',ship_free_v:'Over 299 DH',ship_free_n:'On all orders',
 ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
 ship_cod:'Cash on Delivery',ship_cod_v:'Pay on arrival',ship_cod_n:'No prepayment',
@@ -457,7 +502,7 @@ var PRODUCTS = [
        fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
        en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
     variants:[
-      {g:250, price:35, img:'images/poudre1.jpg'},
+      {g:250, price:35, img:'images/pouder1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
     ]},
   { id:'creme', badge:'nat', emoji:'🍫',
@@ -512,7 +557,7 @@ function setLang(l){
   renderProducts(); renderCart(); startCounters();
 }
 
-/* ================= HERO SLIDER (نسخة محصّنة) ================= */
+/* ================= HERO SLIDER ================= */
 var slideIdx = 0, sliderStarted = false, sliderTimer = null;
 function getSlides(){
   var a = document.querySelectorAll('.slide'), r = [];
@@ -547,29 +592,20 @@ function startSlider(){
   var s = getSlides();
   if (!s.length) return;
   sliderStarted = true;
-  var h = document.querySelector('.hero');
-  if (h) h.classList.add('ready');
   buildDots(); showSlide(0);
   sliderTimer = setInterval(nextSlide, 4500);
-}
-function stopSlider(){
-  if (sliderTimer) clearInterval(sliderTimer);
-  sliderTimer = null; sliderStarted = false;
-  var h = document.querySelector('.hero');
-  if (h) h.classList.remove('ready');
 }
 function slideFail(sl){
   if (sl.dataset.tried !== '1'){ sl.dataset.tried='1'; sl.src = sl.src.replace('.jpg','.png'); return; }
   sl.remove();
   if (getSlides().length){ buildDots(); showSlide(0); }
-  else stopSlider();
+  else if (sliderTimer){ clearInterval(sliderTimer); sliderTimer = null; }
 }
 function initSlides(){
   var s = getSlides();
   for (var i=0;i<s.length;i++){
     (function(sl){
       if (sl.complete){
-        /* الصورة وصلات قبل الـ JS: نتحققو واش نجحات ولا فشلات */
         if (sl.naturalWidth > 0) startSlider();
         else slideFail(sl);
       } else {
