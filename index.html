@@ -52,7 +52,6 @@
   .slide:first-of-type{opacity:1}
   .slide.active{opacity:1}
   .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:110px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:1;pointer-events:none}
-  /* النص مثبت فاليمين ديال البنير (الفراغ) فكل اللغات */
   .hero-fallback{position:absolute;z-index:3;right:5%;top:50%;transform:translateY(-50%);width:min(420px,40vw)}
   .hero-fallback>*{animation:fadeUp .9s both}
   .hero-badge{display:inline-block;background:rgba(198,161,91,.16);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.86rem;font-weight:700;margin-bottom:20px;backdrop-filter:blur(3px)}
@@ -80,7 +79,6 @@
   .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
   .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
 
-  /* ===== PRODUCTS & PACKS — 2 تحت 2 ===== */
   .products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:940px;margin:0 auto}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-10px)}
@@ -104,7 +102,6 @@
   .add-btn:hover{background:var(--gold)}
   .add-btn.added{background:var(--wa)}
 
-  /* ===== PACKS ===== */
   .pack-card{border:2px solid var(--gold);background:linear-gradient(180deg,#fffdf6,#faf3e0)}
   .pack-card:hover{box-shadow:0 20px 45px rgba(198,161,91,.35)}
   .pack-card .card-img{height:240px;background:#000}
@@ -113,7 +110,6 @@
   .pack-contents li{font-size:.82rem;color:#5c5340;padding:3px 0;display:flex;align-items:center;gap:7px}
   .pack-contents li::before{content:'✔';color:var(--green-2);font-weight:900;font-size:.75rem}
 
-  /* ===== GALLERY ===== */
   .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:940px;margin:0 auto}
   .g-frame{position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:2px solid var(--gold);background:#000;display:flex;align-items:center;justify-content:center;font-size:3rem;box-shadow:var(--shadow)}
   .g-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.5s}
@@ -235,7 +231,8 @@
     <div class="nav-mid">
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
-        <li><a href="#products" data-i18n="nav_products">المنتجات</a></li>
+        <li><a href="#products" data-i18n="nav_products">بديل السكر 🍯</a></li>
+        <li><a href="#fruits" data-i18n="nav_fruits">الفواكه الجافة 🥜</a></li>
         <li><a href="#packs" data-i18n="nav_packs">الباكات 🎁</a></li>
         <li><a href="#gallery" data-i18n="nav_gallery">المعرض</a></li>
         <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
@@ -269,14 +266,27 @@
   <div class="hero-dots" id="heroDots"></div>
 </section>
 
+<!-- ===== بديل السكر — منتجات التمر ===== -->
 <section id="products">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="tag" data-i18n="prod_tag">منتجاتنا</div>
-      <h2 data-i18n="prod_title">تشكيلة التمر و البدائل الطبيعية</h2>
+      <div class="tag" data-i18n="prod_tag">🍯 بديل السكر</div>
+      <h2 data-i18n="prod_title">منتجات التمر الطبيعية</h2>
       <div class="line"></div>
     </div>
     <div class="products" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== الفواكه الجافة و المكسرات ===== -->
+<section id="fruits" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag" data-i18n="fruits_tag">🥜 الفواكه الجافة</div>
+      <h2 data-i18n="fruits_title">مكسرات و فواكه جافة منتقاة</h2>
+      <div class="line"></div>
+    </div>
+    <div class="products" id="fruitsGrid"></div>
   </div>
 </section>
 
@@ -350,7 +360,7 @@
       <option value="casa" data-i18n="z_casa">🏠 الدار البيضاء — 25 درهم</option>
       <option value="other" data-i18n="z_other">🏙️ مدينة أخرى — 35 درهم</option>
     </select>
-    <div class="ship-hint" data-i18n="ship_hint">🎁 التوصيل مجاني للطلبات فوق 299 درهم — و مجاني مع الباكات</div>
+    <div class="ship-hint" data-i18n="ship_hint">🎁 التوصيل مجاني فوق 299 درهم — و مجاني مع الباكات</div>
     <div class="sum-row"><span data-i18n="subtotal">مجموع المنتجات</span><span id="sumSub">0</span></div>
     <div class="sum-row"><span data-i18n="shipping">التوصيل</span><span id="sumShip">25</span></div>
     <div class="sum-row total"><span data-i18n="total">الإجمالي</span><span id="sumAll" style="color:var(--green-2)">0</span></div>
@@ -396,16 +406,17 @@ var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
 var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
 
 var T = {
-ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_contact:'اتصل بنا',
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'بديل السكر 🍯',nav_fruits:'الفواكه الجافة 🥜',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل',
 hero_t1:'من طبيعة المغرب...',hero_t2:'إلى باب دارك!',
 hero_sub:'تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية',
 hero_shop:'🛍️ تسوق الآن',hero_packs:'🎁 الباكات',
-prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر و البدائل الطبيعية',
+prod_tag:'🍯 بديل السكر',prod_title:'منتجات التمر الطبيعية',
+fruits_tag:'🥜 الفواكه الجافة',fruits_title:'مكسرات و فواكه جافة منتقاة',
 pack_tag:'🎁 العروض المخفضة',pack_title:'الباكات — وفّر أكثر',pack_badge:'🎁 باك',
 gal_tag:'📸 معرض المنتجات',gal_title:'لمحة من منتجاتنا',
-dh:'درهم',
+dh:'درهم',soon:'الثمن قريباً',t_na:'⚠️ هاد المنتج غير متوفر دابا',
 ab_title:'علاش ',ab_end:'؟',
 ab_p1:'حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — منتقاة بعناية و بجودة عالية.',
 ab_p2:'جروسست للمواد الغذائية — البيع بالتجزئة و النصف بالجملة، بجودة مضمونة و توصيل لجميع المدن 🌱',
@@ -428,16 +439,17 @@ w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_ph
 w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
-fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_contact:'Contact',
+fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Alternative sucre 🍯',nav_fruits:'Fruits secs 🥜',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'🌿 Marque marocaine — Dattes, fruits secs, légumineuses, thé & épices',
 hero_t1:'De la nature du Maroc...',hero_t2:'à votre porte !',
 hero_sub:'Dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — Qualité garantie. Livraison partout au Maroc',
 hero_shop:'🛍️ Commander',hero_packs:'🎁 Nos Packs',
-prod_tag:'Nos Produits',prod_title:'Dattes & Alternatives Naturelles',
+prod_tag:'🍯 Alternative au sucre',prod_title:'Produits naturels à base de dattes',
+fruits_tag:'🥜 Fruits secs',fruits_title:'Noix & fruits secs sélectionnés',
 pack_tag:'🎁 Offres Spéciales',pack_title:'Nos Packs — Économisez',pack_badge:'🎁 Pack',
 gal_tag:'📸 Galerie',gal_title:'Un aperçu de nos produits',
-dh:'DH',
+dh:'DH',soon:'Prix bientôt',t_na:'⚠️ Produit bientôt disponible',
 ab_title:'Pourquoi ',ab_end:' ?',
 ab_p1:'Nous vous apportons les meilleurs produits naturels — dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — sélectionnés avec soin.',
 ab_p2:'Grossiste alimentaire — vente au détail et demi-gros, qualité garantie, livraison partout au Maroc 🌱',
@@ -460,16 +472,17 @@ w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'
 w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
-en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_contact:'Contact',
+en:{dir:'ltr',nav_home:'Home',nav_products:'Sugar Alt. 🍯',nav_fruits:'Dried Fruits 🥜',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'🌿 Moroccan Brand — Dates, Dried Fruits, Legumes, Tea & Spices',
 hero_t1:"From Morocco's nature...",hero_t2:'to your door!',
 hero_sub:'Dates, dried fruits, legumes, tea, spices & aromatic herbs — Top quality, fair prices. Delivery all over Morocco',
 hero_shop:'🛍️ Shop Now',hero_packs:'🎁 Our Packs',
-prod_tag:'Our Products',prod_title:'Dates & Natural Alternatives',
+prod_tag:'🍯 Sugar Alternative',prod_title:'Natural Date Products',
+fruits_tag:'🥜 Dried Fruits',fruits_title:'Selected nuts & dried fruits',
 pack_tag:'🎁 Special Offers',pack_title:'Our Packs — Save More',pack_badge:'🎁 Pack',
 gal_tag:'📸 Gallery',gal_title:'A look at our products',
-dh:'DH',
+dh:'DH',soon:'Price coming soon',t_na:'⚠️ Product not available yet',
 ab_title:'Why ',ab_end:'?',
 ab_p1:'We bring you the finest natural products — dates, dried fruits, legumes, tea, spices & aromatic herbs — carefully selected for top quality.',
 ab_p2:'Food wholesaler — retail & semi-wholesale, guaranteed quality, delivery all over Morocco 🌱',
@@ -528,6 +541,47 @@ var PRODUCTS = [
     variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
 ];
 
+/* 🥜 الفواكه الجافة — الأثمنة: price:0 يعني "الثمن قريباً"
+   ملي تصيفط ليا الجدول نعطيك السطور الجاهزة ولا بدل 0 بالثمن ديالك */
+var FRUITS = [
+  { id:'kaju', emoji:'🥜', img:'images/kaju.jpg',
+    n:{ar:'كاجو',fr:'Noix de cajou',en:'Cashew'},
+    d:{ar:'كاجو طبيعي منتقى — مقرمش و لذيذ، مثالي للتقديم و الحلويات',
+       fr:'Cajou naturelle sélectionnée — croquant et gourmand',
+       en:'Selected natural cashew — crunchy and delicious'},
+    variants:[ {g:250,price:0,img:'images/kaju.jpg'}, {g:500,price:0,img:'images/kaju.jpg'}, {g:1000,price:0,img:'images/kaju.jpg'} ]},
+  { id:'zbib', emoji:'🍇', img:'images/zbib.jpg',
+    n:{ar:'زبيب',fr:'Raisins secs',en:'Raisins'},
+    d:{ar:'زبيب حلو و طري — طبيعي 100%، مثالي للحلويات و الحلوى التقليدية',
+       fr:'Raisins secs sucrés et moelleux — 100% naturels',
+       en:'Sweet, soft raisins — 100% natural'},
+    variants:[ {g:250,price:0,img:'images/zbib.jpg'}, {g:500,price:0,img:'images/zbib.jpg'}, {g:1000,price:0,img:'images/zbib.jpg'} ]},
+  { id:'tin', emoji:'🫒', img:'images/tin.jpg',
+    n:{ar:'تين مجفف',fr:'Figues séchées',en:'Dried Figs'},
+    d:{ar:'تين مجفف فاخر — حلو و غني بالألياف، من أجود الأصناف',
+       fr:'Figues séchées premium — sucrées et riches en fibres',
+       en:'Premium dried figs — sweet and rich in fibre'},
+    variants:[ {g:250,price:0,img:'images/tin.jpg'}, {g:500,price:0,img:'images/tin.jpg'}, {g:1000,price:0,img:'images/tin.jpg'} ]},
+  { id:'joz', emoji:'🌰', img:'images/joz.jpg',
+    n:{ar:'جوز مقشر',fr:'Cerneaux de noix',en:'Walnut Kernels'},
+    d:{ar:'جوز مقشر طبيعي — للحلويات المغربية و للفطور الصحي',
+       fr:'Cerneaux de noix naturels — pour pâtisserie & petit-déjeuner',
+       en:'Natural walnut kernels — for baking & healthy breakfast'},
+    variants:[ {g:250,price:0,img:'images/joz.jpg'}, {g:500,price:0,img:'images/joz.jpg'}, {g:1000,price:0,img:'images/joz.jpg'} ]},
+  { id:'loz', emoji:'🌰', img:'images/loz.jpg',
+    n:{ar:'لوز طبيعي',fr:'Amandes naturelles',en:'Natural Almonds'},
+    d:{ar:'لوز طبيعي كامل منتقى — بجودة عالية، للحلويات و للتقديم',
+       fr:'Amandes entières sélectionnées — qualité premium',
+       en:'Selected whole natural almonds — premium quality'},
+    variants:[ {g:250,price:0,img:'images/loz.jpg'}, {g:500,price:0,img:'images/loz.jpg'}, {g:1000,price:0,img:'images/loz.jpg'} ]},
+  { id:'fosto9', emoji:'🟢', img:'images/fosto9.jpg',
+    n:{ar:'فستق',fr:'Pistaches',en:'Pistachios'},
+    d:{ar:'فستق بالقشرة منتقى — مقرمش و لذيذ، الأفضلية فالمكسرات',
+       fr:'Pistaches en coque sélectionnées — croquantes et savoureuses',
+       en:'Selected in-shell pistachios — crunchy and tasty'},
+    variants:[ {g:250,price:0,img:'images/fosto9.jpg'}, {g:500,price:0,img:'images/fosto9.jpg'}, {g:1000,price:0,img:'images/fosto9.jpg'} ]}
+];
+
 /* 🎁 الباكات — تصاور: images/pack1.jpg حتى pack6.jpg */
 var PACKS = [
   { id:'p1', emoji:'🌱', price:99, img:'images/pack1.jpg',
@@ -549,9 +603,9 @@ var PACKS = [
     n:{ar:'باك Jnan Edar',fr:'Pack Jnan Edar',en:'Jnan Edar Pack'},
     c:{ar:['دبس التمر 1.5 كلغ','بودرة التمر 500غ','كريم التمر 330غ ×2'],fr:['Sirop 1,5kg','Poudre 500g','Crème 330g ×2'],en:['Syrup 1.5kg','Powder 500g','Spread 330g ×2']} }
 ];
-var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات'},
-              fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie'},
-              en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking'}};
+var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات',nut:'منتقى بعناية'},
+              fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie',nut:'Sélection premium'},
+              en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking',nut:'Selected premium'}};
 
 var lang = localStorage.getItem('je_lang') || 'ar';
 var sel = {};
@@ -569,7 +623,19 @@ function imgFix(el){
   else el.style.display='none';
 }
 
-/* 🔑 كتعرف المنتجات و الباكات بجوج */
+/* عرض الثمن — إلا 0 كيبان "قريباً" */
+function fmtPrice(p){
+  return p ? p+' <small>'+t('dh')+'</small>' : '<small style="color:#b3a88f;font-size:.82rem;font-weight:700">'+t('soon')+'</small>';
+}
+
+/* 🔍 كتقلب على المنتج فالمجموعات بجوج */
+function findProduct(id){
+  for (var i=0;i<PRODUCTS.length;i++) if (PRODUCTS[i].id===id) return PRODUCTS[i];
+  for (var j=0;j<FRUITS.length;j++) if (FRUITS[j].id===id) return FRUITS[j];
+  return null;
+}
+
+/* 🔑 كتعرف المنتجات و الباكات */
 function findItem(key){
   var parts = key.split('|');
   if (parts[0].indexOf('pack:') === 0){
@@ -579,8 +645,7 @@ function findItem(key){
     if (!pk) return null;
     return { name:pk.n[lang], size:'', price:pk.price, img:pk.img, emoji:pk.emoji };
   }
-  var p = null;
-  for (var j=0;j<PRODUCTS.length;j++) if (PRODUCTS[j].id === parts[0]) p = PRODUCTS[j];
+  var p = findProduct(parts[0]);
   if (!p || !p.variants[+parts[1]]) return null;
   var v = p.variants[+parts[1]];
   return { name:p.n[lang], size:t('sizeL')(v.g), price:v.price, img:v.img, emoji:p.emoji };
@@ -602,7 +667,7 @@ function setLang(l){
   if (ab) ab.innerHTML = tr.ab_title + '<span>Jnan Edar</span>' + tr.ab_end;
   var tb = $('topbarInner');
   if (tb){ var s=''; for (var x=0;x<4;x++) s += '<span>'+tr.top+'</span><i>✦</i>'; tb.innerHTML = s; }
-  renderProducts(); renderPacks(); renderCart(); startCounters();
+  renderProducts(); renderFruits(); renderPacks(); renderCart(); startCounters();
 }
 
 /* ================= HERO SLIDER ================= */
@@ -657,7 +722,7 @@ function initSlides(){
   setTimeout(startSlider, 2500);
 }
 
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCTS (بديل السكر) ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
   var html = '';
@@ -679,10 +744,44 @@ function renderProducts(){
         '<div class="chips">'+chips+'</div>' +
         '<div class="card-foot">' +
           '<div class="price">' +
-            '<span class="now" id="price-'+p.id+'">'+p.variants[0].price+' <small>'+t('dh')+'</small></span>' +
+            '<span class="now" id="price-'+p.id+'">'+fmtPrice(p.variants[0].price)+'</span>' +
             '<span class="unit" id="unit-'+p.id+'">'+t('sizeL')(p.variants[0].g)+'</span>' +
           '</div>' +
           '<button class="add-btn" onclick="addToCart(\''+p.id+'\', this)">'+t('add')+'</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  g.innerHTML = html;
+  observeReveal();
+}
+
+/* ================= FRUITS (الفواكه الجافة) ================= */
+function renderFruits(){
+  var g = $('fruitsGrid'); if (!g) return;
+  var html = '';
+  for (var i=0; i<FRUITS.length; i++){
+    var f = FRUITS[i];
+    var chips = '';
+    for (var j=0; j<f.variants.length; j++){
+      chips += '<button class="chip'+(j===0?' active':'')+'" onclick="pickVariant(\''+f.id+'\','+j+',this)">'+t('sizeL')(f.variants[j].g)+'</button>';
+    }
+    html += '<div class="card reveal" style="transition-delay:'+(i*0.08)+'s">' +
+      '<div class="card-img">' +
+        '<span class="badge">'+BADGES[lang]['nut']+'</span>' +
+        '<div class="img-emoji">'+f.emoji+'</div>' +
+        '<img id="img-'+f.id+'" src="'+f.variants[0].img+'" alt="'+f.n[lang]+'" onerror="imgFix(this)">' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<h3>'+f.n[lang]+' <span class="en">'+f.n.en.toUpperCase()+'</span></h3>' +
+        '<div class="desc">'+f.d[lang]+'</div>' +
+        '<div class="chips">'+chips+'</div>' +
+        '<div class="card-foot">' +
+          '<div class="price">' +
+            '<span class="now" id="price-'+f.id+'">'+fmtPrice(f.variants[0].price)+'</span>' +
+            '<span class="unit" id="unit-'+f.id+'">'+t('sizeL')(f.variants[0].g)+'</span>' +
+          '</div>' +
+          '<button class="add-btn" onclick="addToCart(\''+f.id+'\', this)">'+t('add')+'</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -721,10 +820,9 @@ function renderPacks(){
 
 function pickVariant(id, i, btn){
   sel[id] = i;
-  var p = null;
-  for (var x=0;x<PRODUCTS.length;x++) if (PRODUCTS[x].id===id) p = PRODUCTS[x];
+  var p = findProduct(id);
   if (!p) return;
-  $('price-'+id).innerHTML = p.variants[i].price + ' <small>'+t('dh')+'</small>';
+  $('price-'+id).innerHTML = fmtPrice(p.variants[i].price);
   $('unit-'+id).textContent = t('sizeL')(p.variants[i].g);
   var im = $('img-'+id);
   if (im){ im.dataset.tried=''; im.style.display='block'; im.src = p.variants[i].img; }
@@ -736,6 +834,9 @@ function pickVariant(id, i, btn){
 /* ================= CART ================= */
 function addToCart(id, btn){
   var vi = sel[id] || 0;
+  var it = findItem(id + '|' + vi);
+  if (!it){ return; }
+  if (!it.price){ showToast(t('t_na')); return; } /* الثمن مازال ما تحطش */
   var key = id + '|' + vi;
   cart[key] = (cart[key]||0) + 1;
   saveCart(); updateCount();
@@ -780,7 +881,6 @@ function cartTotal(){
   }
   return s;
 }
-/* 🚚 التوصيل: مجاني فوق 299 — و مجاني إلا السلة فيها غير الباكات 🎁 */
 function getShip(){
   if (cartTotal() >= FREE_SHIP) return 0;
   if (!cartHasProducts()) return 0;
