@@ -17,7 +17,6 @@
   h1,h2,h3,.brand{font-family:'El Messiri',sans-serif}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
   @keyframes cartPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1)}}
@@ -74,13 +73,6 @@
   .h-arrow:hover{background:var(--gold)}
   .h-prev{left:18px}.h-next{right:18px}
 
-  .features{max-width:1200px;margin:-30px auto 0;padding:0 24px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .feature{background:var(--cream);border-radius:20px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.2);transition:.35s}
-  .feature:hover{transform:translateY(-8px);border-color:var(--gold)}
-  .feature .ic{font-size:2.3rem;margin-bottom:10px;display:inline-block;animation:floatY 4s ease-in-out infinite}
-  .feature h3{font-size:1rem;margin-bottom:6px;color:var(--green)}
-  .feature p{font-size:.83rem;color:#7d7361;line-height:1.7}
-
   section{padding:80px 24px}
   .container{max-width:1200px;margin:auto}
   .sec-head{text-align:center;margin-bottom:50px}
@@ -127,15 +119,6 @@
   .g-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.5s}
   .g-frame:hover img{transform:scale(1.06)}
 
-  .ship-sec{padding:0 24px 80px}
-  .ship-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .ship-card{background:var(--cream);border:1.5px dashed var(--gold);border-radius:20px;padding:28px 20px;text-align:center;transition:.35s}
-  .ship-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .ship-card .ic{font-size:2.3rem;margin-bottom:8px}
-  .ship-card h3{font-size:1rem;margin-bottom:4px;color:var(--green)}
-  .ship-card .pr{color:var(--green-2);font-weight:900;font-size:1.35rem}
-  .ship-card .note{font-size:.8rem;color:#7d7361}
-
   .about{background:#151d10;color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
   .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
   .about h2{font-size:2.2rem;margin-bottom:18px}
@@ -163,7 +146,6 @@
   .overlay{position:fixed;inset:0;background:rgba(15,20,10,.55);z-index:200;opacity:0;pointer-events:none;transition:.35s}
   .overlay.show{opacity:1;pointer-events:auto}
   .drawer{position:fixed;top:0;left:0;bottom:0;width:min(420px,92vw);background:var(--cream);z-index:201;transform:translateX(-105%);transition:.45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
-  /* ✅ إصلاح التبلوك فـ FR/EN */
   html[dir=ltr] .drawer{left:auto;right:0;transform:translateX(105%)}
   html[dir=ltr] .drawer.open{transform:translateX(0)}
   .drawer.open{transform:translateX(0)}
@@ -219,7 +201,6 @@
   }
   @media(max-width:760px){
     .hero{min-height:75vh;padding:130px 0 80px}
-    /* الموبايل: النص متوسط فوق البنير */
     .hero-fallback{right:50%;transform:translate(50%,-50%);width:calc(100% - 28px);text-align:center}
     .products{grid-template-columns:repeat(2,1fr);gap:13px;max-width:100%}
     .card{border-radius:16px}
@@ -257,7 +238,6 @@
         <li><a href="#products" data-i18n="nav_products">المنتجات</a></li>
         <li><a href="#packs" data-i18n="nav_packs">الباكات 🎁</a></li>
         <li><a href="#gallery" data-i18n="nav_gallery">المعرض</a></li>
-        <li><a href="#delivery" data-i18n="nav_delivery">التوصيل</a></li>
         <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
       </ul>
       <div class="langs">
@@ -281,20 +261,13 @@
     <h1><span data-i18n="hero_t1">من طبيعة المغرب...</span><br><b data-i18n="hero_t2">إلى باب دارك!</b></h1>
     <p data-i18n="hero_sub">تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية</p>
     <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
-    <a href="#delivery" class="btn btn-outline" data-i18n="hero_del">🚚 التوصيل و الدفع</a>
+    <a href="#packs" class="btn btn-outline" data-i18n="hero_packs">🎁 الباكات</a>
   </div>
 
   <button class="h-arrow h-prev" onclick="prevSlide()">‹</button>
   <button class="h-arrow h-next" onclick="nextSlide()">›</button>
   <div class="hero-dots" id="heroDots"></div>
 </section>
-
-<div class="features">
-  <div class="feature reveal"><div class="ic">🌿</div><h3 data-i18n="f1t">طبيعي 100%</h3><p data-i18n="f1p">بلا مواد حافظة و بجودة مضمونة</p></div>
-  <div class="feature reveal"><div class="ic">🚚</div><h3 data-i18n="f2t">توصيل سريع</h3><p data-i18n="f2p">الدار البيضاء 25 درهم • باقي المدن 35 درهم</p></div>
-  <div class="feature reveal"><div class="ic">🎁</div><h3 data-i18n="f5t">توصيل مجاني</h3><p data-i18n="f5p">للطلبات فوق 299 درهم</p></div>
-  <div class="feature reveal"><div class="ic">💵</div><h3 data-i18n="f3t">الدفع عند الاستلام</h3><p data-i18n="f3p">خلّص منين توصلك الطلبية لباب دارك</p></div>
-</div>
 
 <section id="products">
   <div class="container">
@@ -333,19 +306,6 @@
     </div>
   </div>
 </section>
-
-<div class="ship-sec" id="delivery">
-  <div class="sec-head reveal">
-    <div class="tag" data-i18n="del_tag">🚚 التوصيل</div>
-    <h2 data-i18n="del_title">أثمنة التوصيل</h2>
-    <div class="line"></div>
-  </div>
-  <div class="ship-grid">
-    <div class="ship-card reveal"><div class="ic">🎁</div><h3 data-i18n="ship_free">توصيل مجاني</h3><div class="pr" style="font-size:1.05rem" data-i18n="ship_free_v">فوق 299 درهم</div><div class="note" data-i18n="ship_free_n">على جميع الطلبات</div></div>
-    <div class="ship-card reveal"><div class="ic">🏠</div><h3 data-i18n="ship_casa">الدار البيضاء</h3><div class="pr">25 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_casa_n">توصيل لباب دارك</div></div>
-    <div class="ship-card reveal"><div class="ic">🚛</div><h3 data-i18n="ship_other">باقي المدن</h3><div class="pr">35 <span data-i18n="dh">درهم</span></div><div class="note" data-i18n="ship_other_n">لجميع المدن المغربية</div></div>
-  </div>
-</div>
 
 <section class="about" id="about">
   <div class="about-grid">
@@ -390,7 +350,7 @@
       <option value="casa" data-i18n="z_casa">🏠 الدار البيضاء — 25 درهم</option>
       <option value="other" data-i18n="z_other">🏙️ مدينة أخرى — 35 درهم</option>
     </select>
-    <div class="ship-hint" data-i18n="ship_hint">🎁 التوصيل مجاني للطلبات فوق 299 درهم</div>
+    <div class="ship-hint" data-i18n="ship_hint">🎁 التوصيل مجاني للطلبات فوق 299 درهم — و مجاني مع الباكات</div>
     <div class="sum-row"><span data-i18n="subtotal">مجموع المنتجات</span><span id="sumSub">0</span></div>
     <div class="sum-row"><span data-i18n="shipping">التوصيل</span><span id="sumShip">25</span></div>
     <div class="sum-row total"><span data-i18n="total">الإجمالي</span><span id="sumAll" style="color:var(--green-2)">0</span></div>
@@ -436,20 +396,16 @@ var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
 var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
 
 var T = {
-ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل',
 hero_t1:'من طبيعة المغرب...',hero_t2:'إلى باب دارك!',
 hero_sub:'تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية',
-hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدفع',
-f1t:'طبيعي 100%',f1p:'بلا مواد حافظة و بجودة مضمونة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
-f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
+hero_shop:'🛍️ تسوق الآن',hero_packs:'🎁 الباكات',
 prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر و البدائل الطبيعية',
 pack_tag:'🎁 العروض المخفضة',pack_title:'الباكات — وفّر أكثر',pack_badge:'🎁 باك',
 gal_tag:'📸 معرض المنتجات',gal_title:'لمحة من منتجاتنا',
-del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
-ship_free:'توصيل مجاني',ship_free_v:'فوق 299 درهم',ship_free_n:'على جميع الطلبات',
-ship_casa:'الدار البيضاء',ship_casa_n:'توصيل لباب دارك',ship_other:'باقي المدن',ship_other_n:'لجميع المدن المغربية',
+dh:'درهم',
 ab_title:'علاش ',ab_end:'؟',
 ab_p1:'حنا كنجيبو ليك أحسن المنتجات الطبيعية — تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — منتقاة بعناية و بجودة عالية.',
 ab_p2:'جروسست للمواد الغذائية — البيع بالتجزئة و النصف بالجملة، بجودة مضمونة و توصيل لجميع المدن 🌱',
@@ -458,7 +414,7 @@ ft_tag:'براند مغربي للمنتجات الطبيعية — تمور، �
 ft_del:'🚚 الدار البيضاء: 25 درهم • باقي المدن: 35 درهم • 🎁 مجاني فوق 299 درهم • 💵 الدفع عند الاستلام',
 cart_t:'🛒 سلة المشتريات',cart_empty:'السلة خاوية... زيد شي منتجات!',zone_lbl:'🚚 منطقة التوصيل:',
 z_casa:'🏠 الدار البيضاء — 25 درهم',z_other:'🏙️ مدينة أخرى — 35 درهم',
-ship_hint:'🎁 التوصيل مجاني للطلبات فوق 299 درهم',
+ship_hint:'🎁 التوصيل مجاني فوق 299 درهم — و مجاني مع الباكات',
 subtotal:'مجموع المنتجات',shipping:'التوصيل',total:'الإجمالي',checkout:'✅ تأكيد الطلب عبر واتساب',free:'مجاني 🎉',
 pack_free:'🎁 التوصيل مجاني مع الباك',free_ship_txt:'🎉 التوصيل مجاني!',
 m_title:'📝 معلومات التوصيل',m_sub:'عمّر المعلومات و غادي يتسيفط الطلب مباشرة فواتسابنا',
@@ -472,20 +428,16 @@ w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_ph
 w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
-fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
+fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'🌿 Marque marocaine — Dattes, fruits secs, légumineuses, thé & épices',
 hero_t1:'De la nature du Maroc...',hero_t2:'à votre porte !',
 hero_sub:'Dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — Qualité garantie. Livraison partout au Maroc',
-hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
-f1t:'100% Naturel',f1p:'Sans conservateurs, qualité garantie',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
-f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
+hero_shop:'🛍️ Commander',hero_packs:'🎁 Nos Packs',
 prod_tag:'Nos Produits',prod_title:'Dattes & Alternatives Naturelles',
 pack_tag:'🎁 Offres Spéciales',pack_title:'Nos Packs — Économisez',pack_badge:'🎁 Pack',
 gal_tag:'📸 Galerie',gal_title:'Un aperçu de nos produits',
-del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
-ship_free:'Livraison offerte',ship_free_v:'Dès 299 DH',ship_free_n:'Sur toutes les commandes',
-ship_casa:'Casablanca',ship_casa_n:'Livraison à domicile',ship_other:'Autres villes',ship_other_n:'Partout au Maroc',
+dh:'DH',
 ab_title:'Pourquoi ',ab_end:' ?',
 ab_p1:'Nous vous apportons les meilleurs produits naturels — dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — sélectionnés avec soin.',
 ab_p2:'Grossiste alimentaire — vente au détail et demi-gros, qualité garantie, livraison partout au Maroc 🌱',
@@ -494,7 +446,7 @@ ft_tag:'Marque marocaine de produits naturels — Dattes, fruits secs, légumine
 ft_del:'🚚 Casablanca : 25 DH • Autres villes : 35 DH • 🎁 Offerte dès 299 DH • 💵 Paiement à la livraison',
 cart_t:'🛒 Panier',cart_empty:'Panier vide... ajoutez des produits !',zone_lbl:'🚚 Zone de livraison :',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🏙️ Autre ville — 35 DH',
-ship_hint:'🎁 Livraison offerte dès 299 DH d\'achat',
+ship_hint:'🎁 Livraison offerte dès 299 DH — et offerte avec les packs',
 subtotal:'Sous-total',shipping:'Livraison',total:'Total',checkout:'✅ Commander via WhatsApp',free:'Offerte 🎉',
 pack_free:'🎁 Livraison offerte avec le pack',free_ship_txt:'🎉 Livraison offerte !',
 m_title:'📝 Informations de livraison',m_sub:'Remplissez vos informations, la commande arrive directement sur WhatsApp',
@@ -508,20 +460,16 @@ w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'
 w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
-en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
+en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'🌿 Moroccan Brand — Dates, Dried Fruits, Legumes, Tea & Spices',
 hero_t1:"From Morocco's nature...",hero_t2:'to your door!',
 hero_sub:'Dates, dried fruits, legumes, tea, spices & aromatic herbs — Top quality, fair prices. Delivery all over Morocco',
-hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
-f1t:'100% Natural',f1p:'No preservatives, guaranteed quality',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
-f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
+hero_shop:'🛍️ Shop Now',hero_packs:'🎁 Our Packs',
 prod_tag:'Our Products',prod_title:'Dates & Natural Alternatives',
 pack_tag:'🎁 Special Offers',pack_title:'Our Packs — Save More',pack_badge:'🎁 Pack',
 gal_tag:'📸 Gallery',gal_title:'A look at our products',
-del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
-ship_free:'Free Delivery',ship_free_v:'Over 299 DH',ship_free_n:'On all orders',
-ship_casa:'Casablanca',ship_casa_n:'Door-to-door delivery',ship_other:'Other Cities',ship_other_n:'All over Morocco',
+dh:'DH',
 ab_title:'Why ',ab_end:'?',
 ab_p1:'We bring you the finest natural products — dates, dried fruits, legumes, tea, spices & aromatic herbs — carefully selected for top quality.',
 ab_p2:'Food wholesaler — retail & semi-wholesale, guaranteed quality, delivery all over Morocco 🌱',
@@ -530,7 +478,7 @@ ft_tag:'Moroccan brand of natural products — Dates, dried fruits, legumes, tea
 ft_del:'🚚 Casablanca: 25 DH • Other cities: 35 DH • 🎁 Free over 299 DH • 💵 Cash on delivery',
 cart_t:'🛒 Shopping Cart',cart_empty:'Cart is empty... add some products!',zone_lbl:'🚚 Delivery zone:',
 z_casa:'🏠 Casablanca — 25 DH',z_other:'🏙️ Other city — 35 DH',
-ship_hint:'🎁 Free delivery on orders over 299 DH',
+ship_hint:'🎁 Free delivery over 299 DH — and free with packs',
 subtotal:'Subtotal',shipping:'Delivery',total:'Total',checkout:'✅ Checkout via WhatsApp',free:'Free 🎉',
 pack_free:'🎁 Free delivery with pack',free_ship_txt:'🎉 Free delivery!',
 m_title:'📝 Delivery Information',m_sub:'Fill in your details, your order goes straight to our WhatsApp',
@@ -819,13 +767,11 @@ function changeQty(key, d){ cart[key]=(cart[key]||0)+d; if(cart[key]<=0) delete 
 function removeItem(key){ delete cart[key]; saveCart(); updateCount(); }
 function updateCount(){ var n=0; for(var k in cart) n+=cart[k]; var c=$('cartCount'); if(c) c.textContent=n; }
 
-/* واش السلة فيها منتجات عادية (ماشي باكات)؟ */
 function cartHasProducts(){
   for (var k in cart){ if (k.indexOf('pack:') !== 0) return true; }
   return false;
 }
 
-/* 💰 المجموع كيحسب المنتجات و الباكات بجوج */
 function cartTotal(){
   var s=0;
   for (var k in cart){
