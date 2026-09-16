@@ -34,8 +34,8 @@
   .logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .brand small{font-size:.72rem;color:var(--green);font-weight:700}
   .nav-mid{display:flex;align-items:center;gap:14px}
-  .nav-links{display:flex;gap:20px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--green);font-weight:700;font-size:.9rem;transition:.3s;position:relative}
+  .nav-links{display:flex;gap:18px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--green);font-weight:700;font-size:.88rem;transition:.3s;position:relative}
   .nav-links a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
   .nav-links a:hover::after{width:100%}
   .langs{display:flex;gap:4px;background:#efe8d5;border-radius:12px;padding:4px}
@@ -47,55 +47,55 @@
   .cart-count{position:absolute;top:-6px;inset-inline-end:-6px;background:#e63946;color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
   .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green)}
 
-  .hero{position:relative;min-height:92vh;display:flex;align-items:center;background:#000;overflow:hidden;padding:150px 0 90px}
+  .hero{position:relative;min-height:84vh;display:flex;align-items:center;background:#000;overflow:hidden;padding:145px 0 80px}
   .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;z-index:0}
   .slide:first-of-type{opacity:1}
   .slide.active{opacity:1}
-  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:110px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:1;pointer-events:none}
+  .hero::after{content:'';position:absolute;right:0;left:0;bottom:0;height:100px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:1;pointer-events:none}
   .hero-fallback{position:absolute;z-index:3;right:5%;top:50%;transform:translateY(-50%);width:min(420px,40vw)}
   .hero-fallback>*{animation:fadeUp .9s both}
-  .hero-badge{display:inline-block;background:rgba(198,161,91,.16);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.86rem;font-weight:700;margin-bottom:20px;backdrop-filter:blur(3px)}
+  .hero-badge{display:inline-block;background:rgba(198,161,91,.16);border:1px solid var(--gold);color:var(--gold-light);padding:8px 22px;border-radius:50px;font-size:.86rem;font-weight:700;margin-bottom:18px;backdrop-filter:blur(3px)}
   .hero h1{font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.35;margin-bottom:12px;color:#fff;text-shadow:0 3px 22px rgba(0,0,0,.85)}
   .hero h1 span{color:var(--gold-light)}
-  .hero p{font-size:.95rem;color:#efe7d5;margin-bottom:22px;line-height:1.9;text-shadow:0 2px 14px rgba(0,0,0,.9)}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1.02rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
+  .hero p{font-size:.95rem;color:#efe7d5;margin-bottom:20px;line-height:1.9;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:14px;font-family:'Cairo';font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;transition:.3s;border:none;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;box-shadow:0 8px 25px rgba(198,161,91,.4)}
   .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
   .btn-gold:hover{transform:translateY(-3px)}
   .btn-outline{background:rgba(0,0,0,.3);color:#fff;border:2px solid rgba(255,255,255,.4);margin-inline-start:12px}
   .btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
 
-  .hero-dots{position:absolute;bottom:24px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
+  .hero-dots{position:absolute;bottom:22px;right:0;left:0;display:flex;justify-content:center;gap:9px;z-index:4}
   .dot{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.45);cursor:pointer;transition:.3s;padding:0}
   .dot.on{background:var(--gold);transform:scale(1.3)}
   .h-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(198,161,91,.5);width:44px;height:44px;border-radius:50%;font-size:1.25rem;cursor:pointer;transition:.3s;line-height:1}
   .h-arrow:hover{background:var(--gold)}
   .h-prev{left:18px}.h-next{right:18px}
 
-  section{padding:80px 24px}
+  section{padding:55px 24px}
   .container{max-width:1200px;margin:auto}
-  .sec-head{text-align:center;margin-bottom:50px}
+  .sec-head{text-align:center;margin-bottom:34px}
   .sec-head .tag{color:var(--gold);font-weight:800;font-size:.88rem}
-  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
-  .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
+  .sec-head h2{font-size:clamp(1.7rem,3.8vw,2.4rem);margin-top:8px;color:var(--green)}
+  .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:14px auto 0}
 
-  .products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:940px;margin:0 auto}
+  .products{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:940px;margin:0 auto}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-10px)}
-  .card-img{height:280px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-img{height:235px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .card-img img{position:absolute;inset:0;margin:auto;max-width:88%;max-height:92%;object-fit:contain;transition:.45s;z-index:1}
   .card:hover .card-img img{transform:scale(1.09) rotate(-2deg)}
   .img-emoji{font-size:4.2rem;z-index:0}
   .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:linear-gradient(135deg,var(--gold),#a5813f);color:#fff;font-size:.7rem;font-weight:800;padding:5px 13px;border-radius:50px}
-  .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
-  .card-body h3{font-size:1.25rem;margin-bottom:6px;color:var(--green)}
+  .card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+  .card-body h3{font-size:1.22rem;margin-bottom:5px;color:var(--green)}
   .card-body .en{font-size:.66rem;color:#b3a88f;font-weight:700}
-  .card-body .desc{font-size:.84rem;color:#7d7361;line-height:1.7}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
+  .card-body .desc{font-size:.84rem;color:#7d7361;line-height:1.6}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 4px}
   .chip{border:1.5px solid #ddd2b8;background:#fbf7ec;border-radius:10px;padding:6px 13px;font-family:'Cairo';font-weight:800;font-size:.79rem;cursor:pointer;color:var(--green);transition:.25s}
   .chip.active{background:var(--green);color:#fff;border-color:var(--green)}
-  .card-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px}
-  .price .now{font-size:1.35rem;font-weight:900;color:var(--green-2)}
+  .card-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:12px}
+  .price .now{font-size:1.3rem;font-weight:900;color:var(--green-2)}
   .price .now small{font-size:.74rem;font-weight:700}
   .price .unit{font-size:.72rem;color:#b3a88f;font-weight:700}
   .add-btn{background:var(--green);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:800;cursor:pointer;font-size:.9rem;transition:.3s}
@@ -104,9 +104,10 @@
 
   .pack-card{border:2px solid var(--gold);background:linear-gradient(180deg,#fffdf6,#faf3e0)}
   .pack-card:hover{box-shadow:0 20px 45px rgba(198,161,91,.35)}
-  .pack-card .card-img{height:240px;background:#000}
-  .pack-card .card-img img{object-fit:cover;max-width:100%;max-height:100%}
-  .pack-contents{list-style:none;margin:10px 0 2px;padding:0}
+  .pack-card .card-img{height:200px;background:#000}
+  /* ✅ تصويرة الباك تعمر الكادر كامل — بلا كحل على الجوانب */
+  .pack-card .card-img img{object-fit:cover;width:100%;height:100%;max-width:none;max-height:none;position:relative;inset:auto;margin:0}
+  .pack-contents{list-style:none;margin:8px 0 2px;padding:0}
   .pack-contents li{font-size:.82rem;color:#5c5340;padding:3px 0;display:flex;align-items:center;gap:7px}
   .pack-contents li::before{content:'✔';color:var(--green-2);font-weight:900;font-size:.75rem}
 
@@ -116,19 +117,19 @@
   .g-frame:hover img{transform:scale(1.06)}
 
   .about{background:#151d10;color:#fff;border-radius:40px;margin:0 24px;position:relative;overflow:hidden}
-  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
-  .about h2{font-size:2.2rem;margin-bottom:18px}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center;max-width:1100px;margin:auto;position:relative;z-index:1}
+  .about h2{font-size:2.1rem;margin-bottom:16px}
   .about h2 span{color:var(--gold-light)}
-  .about p{color:#d9d0ba;line-height:2;margin-bottom:14px}
-  .about .stats{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap}
-  .stat .num{font-size:2.3rem;font-weight:900;color:var(--gold-light);font-family:'El Messiri'}
+  .about p{color:#d9d0ba;line-height:1.9;margin-bottom:12px}
+  .about .stats{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap}
+  .stat .num{font-size:2.2rem;font-weight:900;color:var(--gold-light);font-family:'El Messiri'}
   .stat .lbl{font-size:.84rem;color:#b8ae94}
   .about-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .ap-cell{position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;border:2px solid rgba(198,161,91,.55);background:radial-gradient(circle at 50% 35%,#2c3a22,#141b0e);display:flex;align-items:center;justify-content:center;font-size:2.4rem}
   .ap-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}
   .ap-cell:hover img{transform:scale(1.07)}
 
-  footer{background:#10160b;color:#cfc4a8;margin-top:80px;padding:60px 24px 24px;text-align:center}
+  footer{background:#10160b;color:#cfc4a8;margin-top:60px;padding:50px 24px 24px;text-align:center}
   footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
   footer p{font-size:.9rem;max-width:540px;margin:0 auto 8px;line-height:1.9}
   footer b{color:var(--gold-light)}
@@ -196,12 +197,12 @@
     .h-arrow{display:none}
   }
   @media(max-width:760px){
-    .hero{min-height:75vh;padding:130px 0 80px}
+    .hero{min-height:70vh;padding:125px 0 70px}
     .hero-fallback{right:50%;transform:translate(50%,-50%);width:calc(100% - 28px);text-align:center}
     .products{grid-template-columns:repeat(2,1fr);gap:13px;max-width:100%}
     .card{border-radius:16px}
-    .card-img{height:150px}
-    .pack-card .card-img{height:130px}
+    .card-img{height:125px}
+    .pack-card .card-img{height:110px}
     .card-img img{max-width:92%;max-height:94%}
     .card-body{padding:12px 11px}
     .card-body h3{font-size:.95rem}
@@ -541,9 +542,7 @@ sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}}
 var PRODUCTS = [
   { id:'dibs', badge:'best', emoji:'🍯',
     n:{ar:'دبس التمر',fr:'Sirop de Dattes',en:'Date Syrup'}, en:'DATE SYRUP',
-    d:{ar:'دبس التمر الطبيعي 100% — بديل صحي و لذيذ للسكر، بلا سكر مضاف و بلا مواد حافظة',
-       fr:'Sirop de dattes 100% naturel — alternative saine au sucre, sans additifs',
-       en:'100% natural date syrup — a healthy, delicious sugar alternative'},
+    d:{ar:'بديل صحي و لذيذ للسكر — طبيعي 100%',fr:'Alternative saine au sucre — 100% naturel',en:'Healthy sugar alternative — 100% natural'},
     variants:[
       {g:250,  price:25, img:'images/dibs1.jpg'},
       {g:400,  price:35, img:'images/dibs2.jpg'},
@@ -552,24 +551,18 @@ var PRODUCTS = [
     ]},
   { id:'poudre', badge:'sugar', emoji:'🥄',
     n:{ar:'بودرة التمر',fr:'Poudre de Dattes',en:'Date Powder'}, en:'DATE POWDER',
-    d:{ar:'سكر التمر الطبيعي المطحون — عالي بالألياف، مثالي للحلويات، المشروبات و الفطام',
-       fr:'Sucre de dattes naturel — riche en fibres, idéal pour pâtisseries et bébés',
-       en:'Ground natural date sugar — high in fibre, perfect for baking & baby food'},
+    d:{ar:'سكر التمر الطبيعي — عالي بالألياف',fr:'Sucre de dattes — riche en fibres',en:'Natural date sugar — high in fibre'},
     variants:[
       {g:250, price:35, img:'images/pouder1.jpg'},
       {g:500, price:75, img:'images/pouder2.jpg'}
     ]},
   { id:'creme', badge:'nat', emoji:'🍫',
     n:{ar:'كريم التمر',fr:'Crème de Dattes',en:'Date Spread'}, en:'DATE SPREAD',
-    d:{ar:'كريم التمر الطبيعي — نيجلا لذيذ بلا سكر مضاف، بلا گلوتين و صالح للنباتيين',
-       fr:'Crème de dattes naturelle — pâte à tartiner gourmande, vegan',
-       en:'Natural date spread — delicious, no added sugar, vegan'},
+    d:{ar:'نيجلا التمر — بلا سكر مضاف',fr:'Tartiner — sans sucres ajoutés',en:'Delicious — no added sugar'},
     variants:[ {g:330, price:35, img:'images/creme.jpg'} ]},
   { id:'ajina', badge:'bake', emoji:'🍪',
     n:{ar:'عجينة التمر',fr:'Pâte de Dattes',en:'Date Paste'}, en:'DATE PASTE',
-    d:{ar:'عجينة التمر الطبيعية — مثالية للحلويات المغربية التقليدية و البسكويت',
-       fr:'Pâte de dattes naturelle — idéale pour la pâtisserie marocaine',
-       en:'Natural date paste — perfect for Moroccan pastries & biscuits'},
+    d:{ar:'مثالية للحلويات و البسكويت',fr:'Idéale pour la pâtisserie',en:'Perfect for baking'},
     variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
 ];
 
@@ -577,101 +570,73 @@ var PRODUCTS = [
 var FRUITS = [
   { id:'kaju', emoji:'🥜', img:'images/kaju.jpg',
     n:{ar:'كاجو',fr:'Noix de cajou',en:'Cashew'},
-    d:{ar:'كاجو طبيعي منتقى — مقرمش و لذيذ، مثالي للتقديم و الحلويات',
-       fr:'Cajou naturelle sélectionnée — croquant et gourmand',
-       en:'Selected natural cashew — crunchy and delicious'},
+    d:{ar:'كاجو منتقى — مقرمش و لذيذ',fr:'Cajou sélectionnée — croquant',en:'Selected cashew — crunchy'},
     variants:[ {g:250,price:0,img:'images/kaju.jpg'}, {g:500,price:0,img:'images/kaju.jpg'}, {g:1000,price:0,img:'images/kaju.jpg'} ]},
   { id:'zbib', emoji:'🍇', img:'images/zbib.jpg',
     n:{ar:'زبيب',fr:'Raisins secs',en:'Raisins'},
-    d:{ar:'زبيب حلو و طري — طبيعي 100%، مثالي للحلويات و الحلوى التقليدية',
-       fr:'Raisins secs sucrés et moelleux — 100% naturels',
-       en:'Sweet, soft raisins — 100% natural'},
+    d:{ar:'زبيب حلو و طري — طبيعي 100%',fr:'Raisins secs sucrés et moelleux',en:'Sweet, soft raisins — natural'},
     variants:[ {g:250,price:0,img:'images/zbib.jpg'}, {g:500,price:0,img:'images/zbib.jpg'}, {g:1000,price:0,img:'images/zbib.jpg'} ]},
   { id:'tin', emoji:'🫒', img:'images/tin.jpg',
     n:{ar:'تين مجفف',fr:'Figues séchées',en:'Dried Figs'},
-    d:{ar:'تين مجفف فاخر — حلو و غني بالألياف، من أجود الأصناف',
-       fr:'Figues séchées premium — sucrées et riches en fibres',
-       en:'Premium dried figs — sweet and rich in fibre'},
+    d:{ar:'تين مجفف فاخر — غني بالألياف',fr:'Figues séchées premium',en:'Premium dried figs'},
     variants:[ {g:250,price:0,img:'images/tin.jpg'}, {g:500,price:0,img:'images/tin.jpg'}, {g:1000,price:0,img:'images/tin.jpg'} ]},
   { id:'joz', emoji:'🌰', img:'images/joz.jpg',
     n:{ar:'جوز مقشر',fr:'Cerneaux de noix',en:'Walnut Kernels'},
-    d:{ar:'جوز مقشر طبيعي — للحلويات المغربية و للفطور الصحي',
-       fr:'Cerneaux de noix naturels — pour pâtisserie & petit-déjeuner',
-       en:'Natural walnut kernels — for baking & healthy breakfast'},
+    d:{ar:'جوز مقشر طبيعي منتقى',fr:'Cerneaux de noix naturels',en:'Natural walnut kernels'},
     variants:[ {g:250,price:0,img:'images/joz.jpg'}, {g:500,price:0,img:'images/joz.jpg'}, {g:1000,price:0,img:'images/joz.jpg'} ]},
   { id:'loz', emoji:'🌰', img:'images/loz.jpg',
     n:{ar:'لوز طبيعي',fr:'Amandes naturelles',en:'Natural Almonds'},
-    d:{ar:'لوز طبيعي كامل منتقى — بجودة عالية، للحلويات و للتقديم',
-       fr:'Amandes entières sélectionnées — qualité premium',
-       en:'Selected whole natural almonds — premium quality'},
+    d:{ar:'لوز طبيعي كامل منتقى',fr:'Amandes entières sélectionnées',en:'Selected whole almonds'},
     variants:[ {g:250,price:0,img:'images/loz.jpg'}, {g:500,price:0,img:'images/loz.jpg'}, {g:1000,price:0,img:'images/loz.jpg'} ]},
   { id:'fosto9', emoji:'🟢', img:'images/fosto9.jpg',
     n:{ar:'فستق',fr:'Pistaches',en:'Pistachios'},
-    d:{ar:'فستق بالقشرة منتقى — مقرمش و لذيذ، الأفضلية فالمكسرات',
-       fr:'Pistaches en coque sélectionnées — croquantes et savoureuses',
-       en:'Selected in-shell pistachios — crunchy and tasty'},
+    d:{ar:'فستق بالقشرة منتقى',fr:'Pistaches en coque sélectionnées',en:'Selected in-shell pistachios'},
     variants:[ {g:250,price:0,img:'images/fosto9.jpg'}, {g:500,price:0,img:'images/fosto9.jpg'}, {g:1000,price:0,img:'images/fosto9.jpg'} ]}
 ];
 
-/* 🍵 الأتاي — نوعين Jnan Edar، كل نوع 500غ و 1 كلغ — تصاور: atay1.jpg و atay2.jpg */
+/* 🍵 الأتاي — نوعين Jnan Edar، كل نوع 500غ و 1 كلغ */
 var TEA = [
   { id:'atay1', badge:'tea', emoji:'🍵',
     n:{ar:'أتاي Jnan Edar 1er',fr:'Thé Jnan Edar 1er',en:'Jnan Edar Tea 1st'}, en:'JNAN EDAR 1ER',
-    d:{ar:'النوع الأول من أتاي Jnan Edar — جودة عالية و مذاق أصيل، مثالي للنعناع و الأتاي المغربي',
-       fr:'Première qualité du thé Jnan Edar — saveur authentique pour le thé à la menthe',
-       en:'First grade Jnan Edar tea — authentic flavour, perfect for mint tea'},
+    d:{ar:'النوع الأول — مذاق أصيل فاخر',fr:'Première qualité — saveur authentique',en:'First grade — authentic flavour'},
     variants:[
       {g:500,  price:0, img:'images/atay1.jpg'},
       {g:1000, price:0, img:'images/atay1.jpg'}
     ]},
   { id:'atay2', badge:'tea', emoji:'🍵',
     n:{ar:'أتاي Jnan Edar 2ème',fr:'Thé Jnan Edar 2ème',en:'Jnan Edar Tea 2nd'}, en:'JNAN EDAR 2ÈME',
-    d:{ar:'النوع الثاني من أتاي Jnan Edar — نفس الجودة بثمن اقتصادي، للاستعمال اليومي',
-       fr:'Deuxième qualité du thé Jnan Edar — même qualité, prix économique',
-       en:'Second grade Jnan Edar tea — same quality, better price'},
+    d:{ar:'النوع الثاني — جودة بثمن اقتصادي',fr:'Deuxième qualité — prix économique',en:'Second grade — better price'},
     variants:[
       {g:500,  price:0, img:'images/atay2.jpg'},
       {g:1000, price:0, img:'images/atay2.jpg'}
     ]}
 ];
 
-/* 🫘 القطاني — حجم واحد: 1 كلغ — price:0 = "الثمن قريباً" */
+/* 🫘 القطاني — حجم واحد: 1 كلغ */
 var LEGUMES = [
   { id:'3adas', emoji:'🟤', img:'images/3adas.jpg',
     n:{ar:'عدس',fr:'Lentilles',en:'Lentils'},
-    d:{ar:'عدس منتقى — نظيف و مغربل، للحريرة و الطواجن',
-       fr:'Lentilles sélectionnées — propres et tamisées',
-       en:'Selected lentils — clean and sifted'},
+    d:{ar:'منتقى و مغربل — للحريرة',fr:'Sélectionnées — pour la harira',en:'Selected — for harira'},
     variants:[ {g:1000, price:0, img:'images/3adas.jpg'} ]},
   { id:'7ommos', emoji:'🟡', img:'images/7ommos.jpg',
     n:{ar:'حمص',fr:'Pois chiches',en:'Chickpeas'},
-    d:{ar:'حمص كبير الحبة — للحريرة و للطاجين',
-       fr:'Pois chiches à gros grains — pour harira & tajine',
-       en:'Large chickpeas — for harira & tagine'},
+    d:{ar:'كبير الحبة — للحريرة و الطاجين',fr:'Gros grains — harira & tajine',en:'Large grains — harira & tagine'},
     variants:[ {g:1000, price:0, img:'images/7ommos.jpg'} ]},
   { id:'lobya', emoji:'⚪', img:'images/lobya.jpg',
     n:{ar:'لوبيا بيضا',fr:'Haricots blancs',en:'White Beans'},
-    d:{ar:'لوبيا بيضا منتقاة — للطواجن و الشوربات',
-       fr:'Haricots blancs sélectionnés — pour tajines & soupes',
-       en:'Selected white beans — for tagines & soups'},
+    d:{ar:'منتقاة — للطواجن و الشوربات',fr:'Sélectionnés — tajines & soupes',en:'Selected — tagines & soups'},
     variants:[ {g:1000, price:0, img:'images/lobya.jpg'} ]},
   { id:'fasolia', emoji:'🔴', img:'images/fasolia.jpg',
     n:{ar:'فاصوليا حمراء',fr:'Haricots rouges',en:'Red Beans'},
-    d:{ar:'فاصوليا حمراء — لذيذة و غنية بالبروتين',
-       fr:'Haricots rouges — savoureux et riches en protéines',
-       en:'Red kidney beans — tasty and protein-rich'},
+    d:{ar:'لذيذة و غنية بالبروتين',fr:'Savoureux et riches en protéines',en:'Tasty and protein-rich'},
     variants:[ {g:1000, price:0, img:'images/fasolia.jpg'} ]},
   { id:'foul', emoji:'🟫', img:'images/foul.jpg',
     n:{ar:'فول جاف',fr:'Fèves',en:'Dried Fava Beans'},
-    d:{ar:'فول جاف منتقى — للفول المدمس و الشوربات',
-       fr:'Fèves sèches sélectionnées — pour le plat traditionnel',
-       en:'Selected dried fava beans — for traditional dishes'},
+    d:{ar:'منتقى — للأطباق التقليدية',fr:'Sélectionnées — plats traditionnels',en:'Selected — traditional dishes'},
     variants:[ {g:1000, price:0, img:'images/foul.jpg'} ]},
   { id:'roz', emoji:'🍚', img:'images/roz1.jpg',
     n:{ar:'رز',fr:'Riz',en:'Rice'},
-    d:{ar:'رز منتقى بنوعين — حسب استعمالك',
-       fr:'Riz sélectionné en deux qualités — selon vos besoins',
-       en:'Selected rice in two grades — for your needs'},
+    d:{ar:'بنوعين — حسب استعمالك',fr:'Deux qualités — selon vos besoins',en:'Two grades — for your needs'},
     variants:[
       {g:1000, price:0, img:'images/roz1.jpg', n:{ar:'النوع الأول (1er)',fr:'Première qualité (1er)',en:'First grade (1er)'}},
       {g:1000, price:0, img:'images/roz2.jpg', n:{ar:'النوع الثاني (2ème)',fr:'Deuxième qualité (2ème)',en:'Second grade (2ème)'}}
@@ -723,12 +688,10 @@ function fmtPrice(p){
   return p ? p+' <small>'+t('dh')+'</small>' : '<small style="color:#b3a88f;font-size:.82rem;font-weight:700">'+t('soon')+'</small>';
 }
 
-/* اسم النوع المخصص ولا الحجم */
 function vLabel(v){
   return (v.n && v.n[lang]) ? v.n[lang] : t('sizeL')(v.g);
 }
 
-/* 🔍 كتقلب على المنتج فالمجموعات كاملين */
 function findProduct(id){
   var all = [PRODUCTS, FRUITS, TEA, LEGUMES];
   for (var c=0;c<all.length;c++)
@@ -737,7 +700,6 @@ function findProduct(id){
   return null;
 }
 
-/* 🔑 كتعرف المنتجات و الباكات */
 function findItem(key){
   var parts = key.split('|');
   if (parts[0].indexOf('pack:') === 0){
