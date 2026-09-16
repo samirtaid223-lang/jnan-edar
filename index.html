@@ -474,7 +474,7 @@
 var WHATSAPP_NUMBER = "212723180222";
 var DELIVERY = { casa: 25, other: 35 };
 var FREE_SHIP = 299;
-var SHOW_HERO_TEXT = true;
+var SHOW_HERO_TEXT = true; /* ⬅️ حط false إلا كتبتي النص داخل تصاور البنرات */
 
 var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
 var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
@@ -690,7 +690,7 @@ var LEGUMES = [
     ]}
 ];
 
-/* 🎁 الباكات */
+/* 🎁 الباكات — تصاور: images/pack1.jpg حتى pack6.jpg */
 var PACKS = [
   { id:'p1', emoji:'🌱', price:99, img:'images/pack1.jpg',
     n:{ar:'باك الاكتشاف',fr:'Pack Découverte',en:'Discovery Pack'},
@@ -722,6 +722,7 @@ try { cart = JSON.parse(localStorage.getItem('je_cart') || '{}'); } catch(e){ ca
 var zone = localStorage.getItem('je_zone') || 'casa';
 function t(k){ return T[lang][k]; }
 function $(id){ return document.getElementById(id); }
+function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
 
 function imgFix(el){
   if (el.dataset.tried === '1'){ el.style.display='none'; return; }
@@ -735,10 +736,12 @@ function fmtPrice(p){
   return p ? p+' <small>'+t('dh')+'</small>' : '<small style="color:#b3a88f;font-size:.82rem;font-weight:700">'+t('soon')+'</small>';
 }
 
+/* اسم النوع المخصص ولا الحجم */
 function vLabel(v){
   return (v.n && v.n[lang]) ? v.n[lang] : t('sizeL')(v.g);
 }
 
+/* 🔍 كتقلب على المنتج فالمجموعات كاملين */
 function findProduct(id){
   var all = [PRODUCTS, FRUITS, TEA, LEGUMES];
   for (var c=0;c<all.length;c++)
@@ -747,6 +750,7 @@ function findProduct(id){
   return null;
 }
 
+/* 🔑 كتعرف المنتجات و الباكات */
 function findItem(key){
   var parts = key.split('|');
   if (parts[0].indexOf('pack:') === 0){
@@ -871,7 +875,7 @@ function renderGroup(list, gridId){
   observeReveal();
 }
 
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCTS (بديل السكر) ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
   var html = '';
@@ -905,7 +909,7 @@ function renderProducts(){
   observeReveal();
 }
 
-/* ================= FRUITS ================= */
+/* ================= FRUITS (الفواكه الجافة) ================= */
 function renderFruits(){
   var g = $('fruitsGrid'); if (!g) return;
   var html = '';
@@ -1238,7 +1242,7 @@ safe(function(){
 });
 /* ═══════════ /LUXURY ═══════════ */
 
-function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
+/* ===== التشغيل ===== */
 safe(function(){ initSlides(); });
 safe(function(){
   if (!SHOW_HERO_TEXT){
