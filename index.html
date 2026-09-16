@@ -35,7 +35,7 @@
   .logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .brand small{font-size:.72rem;color:var(--green);font-weight:700}
   .nav-mid{display:flex;align-items:center;gap:14px}
-  .nav-links{display:flex;gap:24px;list-style:none}
+  .nav-links{display:flex;gap:22px;list-style:none}
   .nav-links a{text-decoration:none;color:var(--green);font-weight:700;font-size:.93rem;transition:.3s;position:relative}
   .nav-links a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
   .nav-links a:hover::after{width:100%}
@@ -87,7 +87,7 @@
   .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--green)}
   .sec-head .line{width:70px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;margin:16px auto 0}
 
-  /* ===== PRODUCTS — 2 تحت 2 ===== */
+  /* ===== PRODUCTS & PACKS — 2 تحت 2 ===== */
   .products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:940px;margin:0 auto}
   .card{background:var(--cream);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(198,161,91,.18);transition:.4s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-10px)}
@@ -110,6 +110,16 @@
   .add-btn{background:var(--green);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-family:'Cairo';font-weight:800;cursor:pointer;font-size:.9rem;transition:.3s}
   .add-btn:hover{background:var(--gold)}
   .add-btn.added{background:var(--wa)}
+
+  /* ===== PACKS — بطاقات خاصة بإطار دهبي ===== */
+  .pack-card{border:2px solid var(--gold);background:linear-gradient(180deg,#fffdf6,#faf3e0)}
+  .pack-card:hover{box-shadow:0 20px 45px rgba(198,161,91,.35)}
+  .pack-card .card-img{height:240px;background:#000}
+  .pack-card .card-img img{object-fit:cover;max-width:100%;max-height:100%}
+  .pack-contents{list-style:none;margin:10px 0 2px;padding:0}
+  .pack-contents li{font-size:.82rem;color:#5c5340;padding:3px 0;display:flex;align-items:center;gap:7px}
+  .pack-contents li::before{content:'✔';color:var(--green-2);font-weight:900;font-size:.75rem}
+  .pack-save{display:inline-block;background:rgba(62,107,72,.1);color:var(--green-2);font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-top:8px}
 
   /* ===== GALLERY ===== */
   .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:940px;margin:0 auto}
@@ -143,7 +153,6 @@
   footer .brand{justify-content:center;color:#fff;margin-bottom:14px}
   footer p{font-size:.9rem;max-width:540px;margin:0 auto 8px;line-height:1.9}
   footer b{color:var(--gold-light)}
-  /* ===== SOCIAL BUTTONS ===== */
   .socials{display:flex;gap:12px;justify-content:center;margin:20px 0 6px;flex-wrap:wrap}
   .soc-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:13px;font-weight:800;font-size:.9rem;font-family:'Cairo';text-decoration:none;color:#fff;transition:.3s}
   .soc-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
@@ -206,18 +215,21 @@
     .btn-outline{margin-inline-start:0;margin-top:12px}
     .h-arrow{display:none}
   }
-  /* ===== MOBILE — المنتجات 2 تحت 2 حتا فالتيليفون ===== */
+  /* ===== MOBILE — 2 تحت 2 حتا فالتيليفون ===== */
   @media(max-width:760px){
     .hero{justify-content:center;padding:130px 16px 80px;min-height:75vh}
     .hero-fallback{text-align:center;padding:24px}
     .products{grid-template-columns:repeat(2,1fr);gap:13px;max-width:100%}
     .card{border-radius:16px}
     .card-img{height:150px}
+    .pack-card .card-img{height:130px}
     .card-img img{max-width:92%;max-height:94%}
     .card-body{padding:12px 11px}
     .card-body h3{font-size:.95rem}
     .card-body .en{display:none}
     .card-body .desc{font-size:.72rem;line-height:1.5}
+    .pack-contents li{font-size:.68rem;padding:2px 0}
+    .pack-save{font-size:.62rem}
     .chips{gap:5px;margin:10px 0 2px}
     .chip{padding:4px 9px;font-size:.68rem;border-radius:8px}
     .card-foot{margin-top:10px;flex-direction:column;align-items:stretch;gap:8px}
@@ -242,6 +254,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
         <li><a href="#products" data-i18n="nav_products">المنتجات</a></li>
+        <li><a href="#packs" data-i18n="nav_packs">الباكات 🎁</a></li>
         <li><a href="#gallery" data-i18n="nav_gallery">المعرض</a></li>
         <li><a href="#delivery" data-i18n="nav_delivery">التوصيل</a></li>
         <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
@@ -290,6 +303,18 @@
       <div class="line"></div>
     </div>
     <div class="products" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== PACKS ===== -->
+<section id="packs" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag" data-i18n="pack_tag">🎁 العروض المخفضة</div>
+      <h2 data-i18n="pack_title">الباكات — وفّر أكثر</h2>
+      <div class="line"></div>
+    </div>
+    <div class="products" id="packsGrid"></div>
   </div>
 </section>
 
@@ -412,7 +437,7 @@ var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
 var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
 
 var T = {
-ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'المنتجات',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_delivery:'التوصيل',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل',
 hero_t1:'من طبيعة المغرب...',hero_t2:'إلى باب دارك!',
@@ -421,6 +446,7 @@ hero_shop:'🛍️ تسوق الآن',hero_del:'🚚 التوصيل و الدف�
 f1t:'طبيعي 100%',f1p:'بلا مواد حافظة و بجودة مضمونة',f2t:'توصيل سريع',f2p:'الدار البيضاء 25 درهم • باقي المدن 35 درهم',
 f3t:'الدفع عند الاستلام',f3p:'خلّص منين توصلك الطلبية لباب دارك',f5t:'توصيل مجاني',f5p:'للطلبات فوق 299 درهم',
 prod_tag:'منتجاتنا',prod_title:'تشكيلة التمر و البدائل الطبيعية',
+pack_tag:'🎁 العروض المخفضة',pack_title:'الباكات — وفّر أكثر',pack_badge:'🎁 باك',
 gal_tag:'📸 معرض المنتجات',gal_title:'لمحة من منتجاتنا',
 del_tag:'🚚 التوصيل',del_title:'أثمنة التوصيل',dh:'درهم',
 ship_free:'توصيل مجاني',ship_free_v:'فوق 299 درهم',ship_free_n:'على جميع الطلبات',
@@ -447,7 +473,7 @@ w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_ph
 w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
-fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
+fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Produits',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_delivery:'Livraison',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'🌿 Marque marocaine — Dattes, fruits secs, légumineuses, thé & épices',
 hero_t1:'De la nature du Maroc...',hero_t2:'à votre porte !',
@@ -456,6 +482,7 @@ hero_shop:'🛍️ Commander',hero_del:'🚚 Livraison & Paiement',
 f1t:'100% Naturel',f1p:'Sans conservateurs, qualité garantie',f2t:'Livraison rapide',f2p:'Casablanca 25 DH • Autres villes 35 DH',
 f3t:'Paiement à la livraison',f3p:'Payez en recevant votre commande',f5t:'Livraison offerte',f5p:'Dès 299 DH d\'achat',
 prod_tag:'Nos Produits',prod_title:'Dattes & Alternatives Naturelles',
+pack_tag:'🎁 Offres Spéciales',pack_title:'Nos Packs — Économisez',pack_badge:'🎁 Pack',
 gal_tag:'📸 Galerie',gal_title:'Un aperçu de nos produits',
 del_tag:'🚚 Livraison',del_title:'Tarifs de Livraison',dh:'DH',
 ship_free:'Livraison offerte',ship_free_v:'Dès 299 DH',ship_free_n:'Sur toutes les commandes',
@@ -482,7 +509,7 @@ w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'
 w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
-en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
+en:{dir:'ltr',nav_home:'Home',nav_products:'Products',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_delivery:'Delivery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'🌿 Moroccan Brand — Dates, Dried Fruits, Legumes, Tea & Spices',
 hero_t1:"From Morocco's nature...",hero_t2:'to your door!',
@@ -491,6 +518,7 @@ hero_shop:'🛍️ Shop Now',hero_del:'🚚 Delivery & Payment',
 f1t:'100% Natural',f1p:'No preservatives, guaranteed quality',f2t:'Fast Delivery',f2p:'Casablanca 25 DH • Other cities 35 DH',
 f3t:'Cash on Delivery',f3p:'Pay when your order arrives at your door',f5t:'Free Delivery',f5p:'On orders over 299 DH',
 prod_tag:'Our Products',prod_title:'Dates & Natural Alternatives',
+pack_tag:'🎁 Special Offers',pack_title:'Our Packs — Save More',pack_badge:'🎁 Pack',
 gal_tag:'📸 Gallery',gal_title:'A look at our products',
 del_tag:'🚚 Delivery',del_title:'Delivery Rates',dh:'DH',
 ship_free:'Free Delivery',ship_free_v:'Over 299 DH',ship_free_n:'On all orders',
@@ -552,6 +580,28 @@ var PRODUCTS = [
        en:'Natural date paste — perfect for Moroccan pastries & biscuits'},
     variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
 ];
+
+/* ===== 🎁 الباكات — التصاور: images/pack1.jpg حتى pack6.jpg ===== */
+var PACKS = [
+  { id:'p1', emoji:'🌱', price:99, img:'images/pack1.jpg',
+    n:{ar:'باك الاكتشاف',fr:'Pack Découverte',en:'Discovery Pack'},
+    c:{ar:['دبس التمر 400غ','بودرة التمر 250غ'],fr:['Sirop de dattes 400g','Poudre de dattes 250g'],en:['Date syrup 400g','Date powder 250g']} },
+  { id:'p2', emoji:'🍳', price:99, img:'images/pack2.jpg',
+    n:{ar:'باك الفطور',fr:'Pack Petit Déj',en:'Breakfast Pack'},
+    c:{ar:['دبس التمر 400غ','كريم التمر 330غ'],fr:['Sirop de dattes 400g','Crème de dattes 330g'],en:['Date syrup 400g','Date spread 330g']} },
+  { id:'p3', emoji:'🎂', price:129, img:'images/pack3.jpg',
+    n:{ar:'باك الحلويات',fr:'Pack Pâtisserie',en:'Baking Pack'},
+    c:{ar:['عجينة التمر 500غ','كريم التمر 330غ'],fr:['Pâte de dattes 500g','Crème de dattes 330g'],en:['Date paste 500g','Date spread 330g']} },
+  { id:'p4', emoji:'🌴', price:159, img:'images/pack4.jpg',
+    n:{ar:'باك 100% تمر',fr:'Pack 100% Dattes',en:'100% Dates Pack'},
+    c:{ar:['دبس التمر 900غ','عجينة التمر 500غ','بودرة التمر 250غ'],fr:['Sirop 900g','Pâte 500g','Poudre 250g'],en:['Syrup 900g','Paste 500g','Powder 250g']} },
+  { id:'p5', emoji:'👨‍👩‍👧', price:179, img:'images/pack5.jpg',
+    n:{ar:'باك العائلة',fr:'Pack Famille',en:'Family Pack'},
+    c:{ar:['دبس التمر 1.5 كلغ','بودرة التمر 250غ','كريم التمر 330غ'],fr:['Sirop 1,5kg','Poudre 250g','Crème 330g'],en:['Syrup 1.5kg','Powder 250g','Spread 330g']} },
+  { id:'p6', emoji:'👑', price:219, img:'images/pack6.jpg',
+    n:{ar:'باك Jnan Edar',fr:'Pack Jnan Edar',en:'Jnan Edar Pack'},
+    c:{ar:['دبس التمر 1.5 كلغ','بودرة التمر 500غ','كريم التمر 330غ ×2'],fr:['Sirop 1,5kg','Poudre 500g','Crème 330g ×2'],en:['Syrup 1.5kg','Powder 500g','Spread 330g ×2']} }
+];
 var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات'},
               fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie'},
               en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking'}};
@@ -572,6 +622,22 @@ function imgFix(el){
   else el.style.display='none';
 }
 
+/* البحث عن أي عنصر (منتج أو باك) بالمفتاح */
+function findItem(key){
+  var parts = key.split('|');
+  if (parts[0].indexOf('pack:') === 0){
+    var pk = null;
+    for (var i=0;i<PACKS.length;i++) if (PACKS[i].id === parts[0].slice(5)) pk = PACKS[i];
+    if (!pk) return null;
+    return { name:pk.n[lang], size:'', price:pk.price, img:pk.img, emoji:pk.emoji };
+  }
+  var p = null;
+  for (var j=0;j<PRODUCTS.length;j++) if (PRODUCTS[j].id === parts[0]) p = PRODUCTS[j];
+  if (!p) return null;
+  var v = p.variants[+parts[1]];
+  return { name:p.n[lang], size:t('sizeL')(v.g), price:v.price, img:v.img, emoji:p.emoji };
+}
+
 function setLang(l){
   lang = l; localStorage.setItem('je_lang', l);
   var tr = T[l];
@@ -588,7 +654,7 @@ function setLang(l){
   if (ab) ab.innerHTML = tr.ab_title + '<span>Jnan Edar</span>' + tr.ab_end;
   var tb = $('topbarInner');
   if (tb){ var s=''; for (var x=0;x<4;x++) s += '<span>'+tr.top+'</span><i>✦</i>'; tb.innerHTML = s; }
-  renderProducts(); renderCart(); startCounters();
+  renderProducts(); renderPacks(); renderCart(); startCounters();
 }
 
 /* ================= HERO SLIDER ================= */
@@ -677,9 +743,38 @@ function renderProducts(){
   observeReveal();
 }
 
+/* ================= PACKS ================= */
+function renderPacks(){
+  var g = $('packsGrid'); if (!g) return;
+  var html = '';
+  for (var i=0; i<PACKS.length; i++){
+    var pk = PACKS[i];
+    var items = '';
+    for (var j=0; j<pk.c[lang].length; j++) items += '<li>'+pk.c[lang][j]+'</li>';
+    html += '<div class="card pack-card reveal" style="transition-delay:'+(i*0.06)+'s">' +
+      '<div class="card-img">' +
+        '<span class="badge">'+t('pack_badge')+'</span>' +
+        '<div class="img-emoji">'+pk.emoji+'</div>' +
+        '<img src="'+pk.img+'" alt="'+pk.n[lang]+'" onerror="imgFix(this)">' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<h3>'+pk.n[lang]+'</h3>' +
+        '<ul class="pack-contents">'+items+'</ul>' +
+        '<div class="card-foot">' +
+          '<div class="price"><span class="now">'+pk.price+' <small>'+t('dh')+'</small></span></div>' +
+          '<button class="add-btn" onclick="addPack(\''+pk.id+'\', this)">'+t('add')+'</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  g.innerHTML = html;
+  observeReveal();
+}
+
 function pickVariant(id, i, btn){
   sel[id] = i;
-  var p = PRODUCTS.find(function(x){return x.id===id;});
+  var p = null;
+  for (var x=0;x<PRODUCTS.length;x++) if (PRODUCTS[x].id===id) p = PRODUCTS[x];
   $('price-'+id).innerHTML = p.variants[i].price + ' <small>'+t('dh')+'</small>';
   $('unit-'+id).textContent = t('sizeL')(p.variants[i].g);
   var im = $('img-'+id);
@@ -701,12 +796,22 @@ function addToCart(id, btn){
   setTimeout(function(){ btn.textContent = t('add'); btn.classList.remove('added'); }, 1200);
   showToast(t('t_added'));
 }
+function addPack(id, btn){
+  var key = 'pack:' + id + '|0';
+  cart[key] = (cart[key]||0) + 1;
+  saveCart(); updateCount();
+  var cb = $('cartBtn');
+  if (cb){ cb.classList.remove('pop'); void cb.offsetWidth; cb.classList.add('pop'); }
+  btn.textContent = t('added'); btn.classList.add('added');
+  setTimeout(function(){ btn.textContent = t('add'); btn.classList.remove('added'); }, 1200);
+  showToast(t('t_added'));
+}
 function changeQty(key, d){ cart[key]=(cart[key]||0)+d; if(cart[key]<=0) delete cart[key]; saveCart(); updateCount(); }
 function removeItem(key){ delete cart[key]; saveCart(); updateCount(); }
 function updateCount(){ var n=0; for(var k in cart) n+=cart[k]; var c=$('cartCount'); if(c) c.textContent=n; }
 function cartTotal(){
   var s=0;
-  for (var k in cart){ var pr=k.split('|'); var p=PRODUCTS.find(function(x){return x.id===pr[0];}); if(p) s+=p.variants[+pr[1]].price*cart[k]; }
+  for (var k in cart){ var it=findItem(k); if (it) s+=it.price*cart[k]; }
   return s;
 }
 function getShip(){ return cartTotal() >= FREE_SHIP ? 0 : DELIVERY[zone]; }
@@ -720,15 +825,14 @@ function renderCart(){
   } else {
     var html='';
     for (var i=0;i<keys.length;i++){
-      var pr = keys[i].split('|');
-      var p = PRODUCTS.find(function(x){return x.id===pr[0];});
-      if (!p) continue;
-      var v = p.variants[+pr[1]], q = cart[keys[i]];
+      var it = findItem(keys[i]);
+      if (!it) continue;
+      var q = cart[keys[i]];
       html += '<div class="c-item">' +
-        '<div class="em"><span>'+p.emoji+'</span><img src="'+v.img+'" onerror="imgFix(this)"></div>' +
+        '<div class="em"><span>'+it.emoji+'</span><img src="'+it.img+'" onerror="imgFix(this)"></div>' +
         '<div style="flex:1">' +
-          '<div class="nm">'+p.n[lang]+' <small style="color:#b3a88f">('+t('sizeL')(v.g)+')</small></div>' +
-          '<div class="pr">'+(v.price*q)+' '+t('dh')+'</div>' +
+          '<div class="nm">'+it.name+(it.size?' <small style="color:#b3a88f">('+it.size+')</small>':'')+'</div>' +
+          '<div class="pr">'+(it.price*q)+' '+t('dh')+'</div>' +
           '<div class="qty">' +
             '<button onclick="changeQty(\''+keys[i]+'\',1)">＋</button><span>'+q+'</span>' +
             '<button onclick="changeQty(\''+keys[i]+'\',-1)">−</button>' +
@@ -795,11 +899,9 @@ function sendOrder(){
   if (notes) msg += t('w_notes') + ': ' + notes + '\n';
   msg += '━━━━━━━━━━━━━━\n' + t('w_order') + '\n';
   for (var k in cart){
-    var pr = k.split('|');
-    var p = PRODUCTS.find(function(x){return x.id===pr[0];});
-    if (!p) continue;
-    var v = p.variants[+pr[1]];
-    msg += '▪️ ' + p.n[lang] + ' (' + t('sizeL')(v.g) + ') × ' + cart[k] + ' = ' + (v.price*cart[k]) + ' ' + t('dh') + '\n';
+    var it = findItem(k);
+    if (!it) continue;
+    msg += '▪️ ' + it.name + (it.size?' ('+it.size+')':'') + ' × ' + cart[k] + ' = ' + (it.price*cart[k]) + ' ' + t('dh') + '\n';
   }
   msg += '━━━━━━━━━━━━━━\n' + t('w_sub') + ': ' + sub + ' ' + t('dh') + '\n';
   msg += ship===0 ? (t('w_ship') + ': ' + t('free') + '\n') : (t('w_ship') + ': ' + ship + ' ' + t('dh') + ' (' + cityLabel + ')\n');
