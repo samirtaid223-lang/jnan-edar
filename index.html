@@ -280,6 +280,7 @@
     <div class="nav-mid">
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+        <li><a href="#dates" data-i18n="nav_dates">تمور فاخرة 🌴</a></li>
         <li><a href="#products" data-i18n="nav_products">بديل السكر 🍯</a></li>
         <li><a href="#fruits" data-i18n="nav_fruits">الفواكه الجافة 🥜</a></li>
         <li><a href="#tea" data-i18n="nav_tea">الأتاي 🍵</a></li>
@@ -309,7 +310,7 @@
     <div class="hero-badge" data-i18n="hero_badge">🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل</div>
     <h1><span data-i18n="hero_t1">من طبيعة المغرب...</span><br><b data-i18n="hero_t2">إلى باب دارك!</b></h1>
     <p data-i18n="hero_sub">تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية</p>
-    <a href="#products" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
+    <a href="#dates" class="btn btn-gold" data-i18n="hero_shop">🛍️ تسوق الآن</a>
     <a href="#packs" class="btn btn-outline" data-i18n="hero_packs">🎁 الباكات</a>
   </div>
 
@@ -318,8 +319,20 @@
   <div class="hero-dots" id="heroDots"></div>
 </section>
 
+<!-- ===== تمور فاخرة ===== -->
+<section id="dates">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag" data-i18n="dates_tag">🌴 تمور فاخرة</div>
+      <h2 data-i18n="dates_title">تمور مختارة من أجود الأصناف</h2>
+      <div class="line"></div>
+    </div>
+    <div class="products" id="datesGrid"></div>
+  </div>
+</section>
+
 <!-- ===== بديل السكر — منتجات التمر ===== -->
-<section id="products">
+<section id="products" style="padding-top:0">
   <div class="container">
     <div class="sec-head reveal">
       <div class="tag" data-i18n="prod_tag">🍯 بديل السكر</div>
@@ -482,12 +495,13 @@ var INSTAGRAM_URL = "https://www.instagram.com/jnan.edar";
 var TIKTOK_URL    = "https://www.tiktok.com/@jnanedar0";
 
 var T = {
-ar:{dir:'rtl',nav_home:'الرئيسية',nav_products:'بديل السكر 🍯',nav_fruits:'الفواكه الجافة 🥜',nav_tea:'الأتاي 🍵',nav_leg:'القطاني 🫘',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_contact:'اتصل بنا',
+ar:{dir:'rtl',nav_home:'الرئيسية',nav_dates:'تمور فاخرة 🌴',nav_products:'بديل السكر 🍯',nav_fruits:'الفواكه الجافة 🥜',nav_tea:'الأتاي 🍵',nav_leg:'القطاني 🫘',nav_packs:'الباكات 🎁',nav_gallery:'المعرض',nav_contact:'اتصل بنا',
 top:'🚚 توصيل مجاني فوق 299 درهم — كاش عند الاستلام 💵',
 hero_badge:'🌿 براند مغربي — تمور، فواكه جافة، قطاني، أتاي و توابل',
 hero_t1:'من طبيعة المغرب...',hero_t2:'إلى باب دارك!',
 hero_sub:'تمور، فواكه جافة، قطاني، أتاي، توابل و عطريات — جودة عالية و أثمنة مناسبة. توصيل لجميع المدن المغربية',
 hero_shop:'🛍️ تسوق الآن',hero_packs:'🎁 الباكات',
+dates_tag:'🌴 تمور فاخرة',dates_title:'تمور مختارة من أجود الأصناف',
 prod_tag:'🍯 بديل السكر',prod_title:'منتجات التمر الطبيعية',
 fruits_tag:'🥜 الفواكه الجافة',fruits_title:'مكسرات و فواكه جافة منتقاة',
 tea_tag:'🍵 الأتاي',tea_title:'أتاي Jnan Edar الفاخر',
@@ -517,12 +531,13 @@ w_head:'🌿 *طلب جديد — Jnan Edar* 🌿',w_name:'👤 الاسم',w_ph
 w_order:'🛒 *الطلب:*',w_sub:'💰 مجموع المنتجات',w_ship:'🚚 التوصيل',w_total:'✅ *الإجمالي',w_pay:'💵 الدفع: عند الاستلام',
 sizeL:function(g){return g>=1000?(g/1000)+' كلغ':g+'غ';}},
 
-fr:{dir:'ltr',nav_home:'Accueil',nav_products:'Alternative sucre 🍯',nav_fruits:'Fruits secs 🥜',nav_tea:'Thé 🍵',nav_leg:'Légumineuses 🫘',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_contact:'Contact',
+fr:{dir:'ltr',nav_home:'Accueil',nav_dates:'Dattes Premium 🌴',nav_products:'Alternative sucre 🍯',nav_fruits:'Fruits secs 🥜',nav_tea:'Thé 🍵',nav_leg:'Légumineuses 🫘',nav_packs:'Packs 🎁',nav_gallery:'Galerie',nav_contact:'Contact',
 top:'🚚 Livraison gratuite dès 299 DH — Paiement à la livraison 💵',
 hero_badge:'🌿 Marque marocaine — Dattes, fruits secs, légumineuses, thé & épices',
 hero_t1:'De la nature du Maroc...',hero_t2:'à votre porte !',
 hero_sub:'Dattes, fruits secs, légumineuses, thé, épices & plantes aromatiques — Qualité garantie. Livraison partout au Maroc',
 hero_shop:'🛍️ Commander',hero_packs:'🎁 Nos Packs',
+dates_tag:'🌴 Dattes Premium',dates_title:'Dattes sélectionnées des meilleures variétés',
 prod_tag:'🍯 Alternative au sucre',prod_title:'Produits naturels à base de dattes',
 fruits_tag:'🥜 Fruits secs',fruits_title:'Noix & fruits secs sélectionnés',
 tea_tag:'🍵 Thé',tea_title:'Le Thé Jnan Edar Premium',
@@ -552,12 +567,13 @@ w_head:'🌿 *Nouvelle commande — Jnan Edar* 🌿',w_name:'👤 Nom',w_phone:'
 w_order:'🛒 *Commande :*',w_sub:'💰 Sous-total',w_ship:'🚚 Livraison',w_total:'✅ *Total',w_pay:'💵 Paiement : à la livraison',
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}},
 
-en:{dir:'ltr',nav_home:'Home',nav_products:'Sugar Alt. 🍯',nav_fruits:'Dried Fruits 🥜',nav_tea:'Tea 🍵',nav_leg:'Legumes 🫘',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_contact:'Contact',
+en:{dir:'ltr',nav_home:'Home',nav_dates:'Premium Dates 🌴',nav_products:'Sugar Alt. 🍯',nav_fruits:'Dried Fruits 🥜',nav_tea:'Tea 🍵',nav_leg:'Legumes 🫘',nav_packs:'Packs 🎁',nav_gallery:'Gallery',nav_contact:'Contact',
 top:'🚚 Free delivery over 299 DH — Cash on delivery 💵',
 hero_badge:'🌿 Moroccan Brand — Dates, Dried Fruits, Legumes, Tea & Spices',
 hero_t1:"From Morocco's nature...",hero_t2:'to your door!',
 hero_sub:'Dates, dried fruits, legumes, tea, spices & aromatic herbs — Top quality, fair prices. Delivery all over Morocco',
 hero_shop:'🛍️ Shop Now',hero_packs:'🎁 Our Packs',
+dates_tag:'🌴 Premium Dates',dates_title:'Finest selected date varieties',
 prod_tag:'🍯 Sugar Alternative',prod_title:'Natural Date Products',
 fruits_tag:'🥜 Dried Fruits',fruits_title:'Selected nuts & dried fruits',
 tea_tag:'🍵 Tea',tea_title:'Jnan Edar Premium Tea',
@@ -588,6 +604,26 @@ w_order:'🛒 *Order:*',w_sub:'💰 Subtotal',w_ship:'🚚 Delivery',w_total:'�
 sizeL:function(g){return g>=1000?(g/1000)+' kg':g+' g';}}
 };
 
+/* 🌴 تمور فاخرة — كل واحد 1 كلغ — price:0 = "الثمن قريباً" */
+var DATES = [
+  { id:'majhoul', badge:'dates', emoji:'🌴', img:'images/majhoul.jpg',
+    n:{ar:'تمر مجهول',fr:'Dattes Medjool',en:'Medjool Dates'},
+    d:{ar:'ملكة التمور — كبيرة، طرية و حلوة',fr:'La reine des dattes — fondante',en:'The queen of dates — luscious'},
+    variants:[ {g:1000, price:0, img:'images/majhoul.jpg'} ]},
+  { id:'soukari', badge:'dates', emoji:'🟡', img:'images/soukari.jpg',
+    n:{ar:'تمر سكري',fr:'Dattes Soukkari',en:'Sukkari Dates'},
+    d:{ar:'سكري رطب — حلو و طري، المفضلة عند الجميع',fr:'Soukkari rutab — douce et moelleuse',en:'Sukkari rutab — soft and sweet'},
+    variants:[ {g:1000, price:0, img:'images/soukari.jpg'} ]},
+  { id:'ajwa', badge:'dates', emoji:'🖤', img:'images/ajwa.jpg',
+    n:{ar:'تمر عجوة',fr:'Dattes Ajwa',en:'Ajwa Dates'},
+    d:{ar:'عجوة المدينة المنورة — الأصيلة و الفاخرة',fr:'Ajwa de Médine — authentique',en:'Ajwa of Medina — authentic'},
+    variants:[ {g:1000, price:0, img:'images/ajwa.jpg'} ]},
+  { id:'lulu', badge:'dates', emoji:'🟤', img:'images/lulu.jpg',
+    n:{ar:'تمر لولو',fr:'Dattes Lulu',en:'Lulu Dates'},
+    d:{ar:'لولو عربي فاخر — طبيعي و طازج',fr:'Lulu arabe premium — naturel',en:'Premium Arabian Lulu — fresh'},
+    variants:[ {g:1000, price:0, img:'images/lulu.jpg'} ]}
+];
+
 var PRODUCTS = [
   { id:'dibs', badge:'best', emoji:'🍯',
     n:{ar:'دبس التمر',fr:'Sirop de Dattes',en:'Date Syrup'}, en:'DATE SYRUP',
@@ -596,7 +632,7 @@ var PRODUCTS = [
       {g:250,  price:25, img:'images/dibs1.jpg'},
       {g:400,  price:35, img:'images/dibs2.jpg'},
       {g:900,  price:65, img:'images/dibs3.jpg'},
-      {g:1500, price:85, img:'images/dips4.jpg'}
+      {g:1500, price:85, img:'images/dibs4.jpg'}
     ]},
   { id:'poudre', badge:'sugar', emoji:'🥄',
     n:{ar:'بودرة التمر',fr:'Poudre de Dattes',en:'Date Powder'}, en:'DATE POWDER',
@@ -713,9 +749,9 @@ var PACKS = [
     n:{ar:'باك Jnan Edar',fr:'Pack Jnan Edar',en:'Jnan Edar Pack'},
     c:{ar:['دبس التمر 1.5 كلغ','بودرة التمر 500غ','كريم التمر 330غ ×2'],fr:['Sirop 1,5kg','Poudre 500g','Crème 330g ×2'],en:['Syrup 1.5kg','Powder 500g','Spread 330g ×2']} }
 ];
-var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات',nut:'منتقى بعناية',tea:'أتاي فاخر'},
-              fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie',nut:'Sélection premium',tea:'Thé Premium'},
-              en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking',nut:'Selected premium',tea:'Premium Tea'}};
+var BADGES = {ar:{best:'الأكثر مبيعاً',sugar:'بديل السكر',nat:'طبيعي 100%',bake:'للحلويات',nut:'منتقى بعناية',tea:'أتاي فاخر',dates:'تمور فاخرة'},
+              fr:{best:'Best-seller',sugar:'Anti-sucre',nat:'100% Naturel',bake:'Pâtisserie',nut:'Sélection premium',tea:'Thé Premium',dates:'Dattes Premium'},
+              en:{best:'Best Seller',sugar:'Sugar Swap',nat:'100% Natural',bake:'For Baking',nut:'Selected premium',tea:'Premium Tea',dates:'Premium Dates'}};
 
 var lang = localStorage.getItem('je_lang') || 'ar';
 var sel = {};
@@ -724,6 +760,7 @@ try { cart = JSON.parse(localStorage.getItem('je_cart') || '{}'); } catch(e){ ca
 var zone = localStorage.getItem('je_zone') || 'casa';
 function t(k){ return T[lang][k]; }
 function $(id){ return document.getElementById(id); }
+function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
 
 function imgFix(el){
   if (el.dataset.tried === '1'){ el.style.display='none'; return; }
@@ -742,7 +779,7 @@ function vLabel(v){
 }
 
 function findProduct(id){
-  var all = [PRODUCTS, FRUITS, TEA, LEGUMES];
+  var all = [PRODUCTS, DATES, FRUITS, TEA, LEGUMES];
   for (var c=0;c<all.length;c++)
     for (var i=0;i<all[c].length;i++)
       if (all[c][i].id===id) return all[c][i];
@@ -780,7 +817,7 @@ function setLang(l){
   if (ab) ab.innerHTML = tr.ab_title + '<span>Jnan Edar</span>' + tr.ab_end;
   var tb = $('topbarInner');
   if (tb){ var s=''; for (var x=0;x<4;x++) s += '<span>'+tr.top+'</span><i>✦</i>'; tb.innerHTML = s; }
-  renderProducts(); renderFruits(); renderGroup(TEA,'teaGrid'); renderGroup(LEGUMES,'legumesGrid'); renderPacks(); renderCart(); startCounters();
+  renderGroup(DATES,'datesGrid'); renderProducts(); renderFruits(); renderGroup(TEA,'teaGrid'); renderGroup(LEGUMES,'legumesGrid'); renderPacks(); renderCart(); startCounters();
 }
 
 /* ================= HERO SLIDER ================= */
@@ -873,7 +910,7 @@ function renderGroup(list, gridId){
   observeReveal();
 }
 
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCTS (بديل السكر) ================= */
 function renderProducts(){
   var g = $('productsGrid'); if (!g) return;
   var html = '';
@@ -953,7 +990,8 @@ function renderPacks(){
       '<div class="card-img">' +
         '<span class="badge">'+t('pack_badge')+'</span>' +
         '<div class="img-emoji">'+pk.emoji+'</div>' +
-        '<img src="'+pk.img+'" alt="'+pk.n[lang]+'" onerror="imgFix(this)">' +
+        '<img class="pk-bg" src="'+pk.img+'" alt="" onerror="this.style.display=\'none\'">' +
+        '<img class="pk-main" src="'+pk.img+'" alt="'+pk.n[lang]+'" onerror="imgFix(this)">' +
       '</div>' +
       '<div class="card-body">' +
         '<h3>'+pk.n[lang]+'</h3>' +
@@ -1159,8 +1197,6 @@ function startCounters(){
 }
 
 /* ═══════════ LUXURY ANIMATIONS JS ═══════════ */
-
-/* 1) Preloader */
 safe(function(){
   var pl = $('preloader');
   if (pl){
@@ -1170,8 +1206,6 @@ safe(function(){
     setTimeout(function(){ pl.classList.add('done'); }, 3500);
   }
 });
-
-/* 2) شريط التقدم الذهبي */
 safe(function(){
   var sb = $('scrollBar');
   window.addEventListener('scroll', function(){
@@ -1179,8 +1213,6 @@ safe(function(){
     if (sb) sb.style.width = ((window.scrollY / (h||1)) * 100) + '%';
   }, {passive:true});
 });
-
-/* 3) Particles ذهبية فالـ Hero */
 safe(function(){
   var box = $('gParticles');
   if (!box) return;
@@ -1199,8 +1231,6 @@ safe(function(){
     box.appendChild(p);
   }
 });
-
-/* 4) Tilt 3D على الكارتات — ديسكتوب */
 safe(function(){
   if (window.innerWidth < 901) return;
   document.addEventListener('mousemove', function(e){
@@ -1221,8 +1251,6 @@ safe(function(){
     for (var i=0;i<cards.length;i++){ cards[i].classList.remove('tilting'); cards[i].style.transform=''; }
   }, true);
 });
-
-/* 5) Ripple على البوطونات */
 safe(function(){
   document.addEventListener('click', function(e){
     var btn = e.target.closest ? e.target.closest('.add-btn,.checkout-btn,.wa-send,.btn-gold') : null;
@@ -1240,7 +1268,7 @@ safe(function(){
 });
 /* ═══════════ /LUXURY ═══════════ */
 
-function safe(fn){ try { fn(); } catch(e){ console.error(e); } }
+/* ===== التشغيل ===== */
 safe(function(){ initSlides(); });
 safe(function(){
   if (!SHOW_HERO_TEXT){
