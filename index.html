@@ -487,7 +487,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-var WHATSAPP_NUMBER = "212723180222";
+var WHATSAPP_NUMBER = "212797657281";
 var DELIVERY = { casa: 25, other: 35 };
 var FREE_SHIP = 299;
 var SHOW_HERO_TEXT = true;
@@ -631,109 +631,97 @@ var PRODUCTS = [
     d:{ar:'مثالية للحلويات و البسكويت',fr:'Idéale pour la pâtisserie',en:'Perfect for baking'},
     variants:[ {g:500, price:40, img:'images/ajina.jpg'} ]}
 ];
-
-/* 🌴 تمور فاخرة — كل واحد 1 كلغ — price:0 = "الثمن قريباً" */
-var DATES = [
   { id:'majhoul', badge:'dates', emoji:'🌴', img:'images/majhoul.jpg',
     n:{ar:'تمر مجهول',fr:'Dattes Medjool',en:'Medjool Dates'},
     d:{ar:'مجلهول المدينة — كبير، طري و حلو',fr:'Medjool de Médine — généreux et fondant',en:'Medjool of Medina — large and luscious'},
-    variants:[ {g:1000, price:0, img:'images/majhoul.jpg'} ]},
+    variants:[ {g:1000, price:85, img:'images/majhoul.jpg'} ]},
   { id:'soukari', badge:'dates', emoji:'🟡', img:'images/soukari.jpg',
     n:{ar:'تمر سكري',fr:'Dattes Soukkari',en:'Sukkari Dates'},
     d:{ar:'سكري رطب — حلو و طري، المفضلة عند الجميع',fr:'Soukkari rutab — douce et moelleuse',en:'Sukkari rutab — soft and sweet'},
-    variants:[ {g:1000, price:0, img:'images/soukari.jpg'} ]},
+    variants:[ {g:1000, price:45, img:'images/soukari.jpg'} ]},
   { id:'ajwa', badge:'dates', emoji:'🖤', img:'images/ajwa.jpg',
     n:{ar:'تمر عجوة',fr:'Dattes Ajwa',en:'Ajwa Dates'},
     d:{ar:'عجوة المدينة المنورة — الأصيلة و الفاخرة',fr:'Ajwa de Médine — authentique',en:'Ajwa of Medina — authentic'},
-    variants:[ {g:1000, price:0, img:'images/ajwa.jpg'} ]},
+    variants:[ {g:900, price:110, img:'images/ajwa.jpg'} ]},
   { id:'lulu', badge:'dates', emoji:'🟤', img:'images/lulu.jpg',
     n:{ar:'تمر لولو',fr:'Dattes Lulu',en:'Lulu Dates'},
     d:{ar:'لولو عربي فاخر — طبيعي و طازج',fr:'Lulu arabe premium — naturel',en:'Premium Arabian Lulu — fresh'},
-    variants:[ {g:1000, price:0, img:'images/lulu.jpg'} ]}
+    variants:[ {g:1000, price:55, img:'images/lulu.jpg'} ]}
 ];
-
-/* 🥜 الفواكه الجافة — price:0 = "الثمن قريباً" */
-var FRUITS = [
   { id:'kaju', emoji:'🥜', img:'images/kaju.jpg',
     n:{ar:'كاجو',fr:'Noix de cajou',en:'Cashew'},
     d:{ar:'كاجو منتقى — مقرمش و لذيذ',fr:'Cajou sélectionnée — croquant',en:'Selected cashew — crunchy'},
-    variants:[ {g:250,price:0,img:'images/kaju.jpg'}, {g:500,price:0,img:'images/kaju.jpg'}, {g:1000,price:0,img:'images/kaju.jpg'} ]},
+    variants:[ {g:250,price:35,img:'images/kaju.jpg'}, {g:500,price:60,img:'images/kaju.jpg'}, {g:1000,price:120,img:'images/kaju.jpg'} ]},
   { id:'zbib', emoji:'🍇', img:'images/zbib.jpg',
     n:{ar:'زبيب',fr:'Raisins secs',en:'Raisins'},
     d:{ar:'زبيب حلو و طري — طبيعي 100%',fr:'Raisins secs sucrés et moelleux',en:'Sweet, soft raisins — natural'},
-    variants:[ {g:250,price:0,img:'images/zbib.jpg'}, {g:500,price:0,img:'images/zbib.jpg'}, {g:1000,price:0,img:'images/zbib.jpg'} ]},
+    variants:[ {g:250,price:15,img:'images/zbib.jpg'}, {g:500,price:30,img:'images/zbib.jpg'}, {g:1000,price:60,img:'images/zbib.jpg'} ]},
   { id:'tin', emoji:'🫒', img:'images/tin.jpg',
     n:{ar:'تين مجفف',fr:'Figues séchées',en:'Dried Figs'},
     d:{ar:'تين مجفف فاخر — غني بالألياف',fr:'Figues séchées premium',en:'Premium dried figs'},
-    variants:[ {g:250,price:0,img:'images/tin.jpg'}, {g:500,price:0,img:'images/tin.jpg'}, {g:1000,price:0,img:'images/tin.jpg'} ]},
+    variants:[ {g:250,price:25,img:'images/tin.jpg'}, {g:500,price:45,img:'images/tin.jpg'}, {g:1000,price:90,img:'images/tin.jpg'} ]},
   { id:'joz', emoji:'🌰', img:'images/joz.jpg',
     n:{ar:'جوز مقشر',fr:'Cerneaux de noix',en:'Walnut Kernels'},
     d:{ar:'جوز مقشر طبيعي منتقى',fr:'Cerneaux de noix naturels',en:'Natural walnut kernels'},
-    variants:[ {g:250,price:0,img:'images/joz.jpg'}, {g:500,price:0,img:'images/joz.jpg'}, {g:1000,price:0,img:'images/joz.jpg'} ]},
+    variants:[ {g:250,price:25,img:'images/joz.jpg'}, {g:500,price:45,img:'images/joz.jpg'}, {g:1000,price:90,img:'images/joz.jpg'} ]},
   { id:'loz', emoji:'🌰', img:'images/loz.jpg',
     n:{ar:'لوز طبيعي',fr:'Amandes naturelles',en:'Natural Almonds'},
     d:{ar:'لوز طبيعي كامل منتقى',fr:'Amandes entières sélectionnées',en:'Selected whole almonds'},
-    variants:[ {g:250,price:0,img:'images/loz.jpg'}, {g:500,price:0,img:'images/loz.jpg'}, {g:1000,price:0,img:'images/loz.jpg'} ]},
+    variants:[ {g:250,price:23,img:'images/loz.jpg'}, {g:500,price:47,img:'images/loz.jpg'}, {g:1000,price:95,img:'images/loz.jpg'} ]},
   { id:'fosto9', emoji:'🟢', img:'images/fosto9.jpg',
     n:{ar:'فستق',fr:'Pistaches',en:'Pistachios'},
     d:{ar:'فستق بالقشرة منتقى',fr:'Pistaches en coque sélectionnées',en:'Selected in-shell pistachios'},
-        variants:[ {g:250,price:0,img:'images/fosto9.jpg'}, {g:500,price:0,img:'images/fosto9.jpg'}, {g:1000,price:0,img:'images/fosto9.jpg'} ]},
+        variants:[ {g:250,price:37,img:'images/fosto9.jpg'}, {g:500,price:75,img:'images/fosto9.jpg'}, {g:1000,price:150,img:'images/fosto9.jpg'} ]},
   { id:'machmach', emoji:'🍑', img:'images/machmach.jpg',
     n:{ar:'مشمش مجفف',fr:'Abricots secs',en:'Dried Apricots'},
     d:{ar:'مشمش مجفف — حلو و طري، غني بالفيتامينات',fr:'Abricots secs — sucrés, moelleux et riches en vitamines',en:'Dried apricots — sweet, soft and vitamin-rich'},
-    variants:[ {g:250,price:0,img:'images/machmach.jpg'}, {g:500,price:0,img:'images/machmach.jpg'}, {g:1000,price:0,img:'images/machmach.jpg'} ]},
+    variants:[ {g:250,price:42,img:'images/machmach.jpg'}, {g:500,price:85,img:'images/machmach.jpg'}, {g:1000,price:170,img:'images/machmach.jpg'} ]},
   { id:'bar9o9', emoji:'🫐', img:'images/bar9o9.jpg',
     n:{ar:'برقوق مجفف',fr:'Pruneaux secs',en:'Dried Prunes'},
     d:{ar:'برقوق مجفف — لذيذ و مفيد للهضم',fr:'Pruneaux secs — délicieux et bons pour la digestion',en:'Dried prunes — delicious and digestive'},
-    variants:[ {g:250,price:0,img:'images/bar9o9.jpg'}, {g:500,price:0,img:'images/bar9o9.jpg'}, {g:1000,price:0,img:'images/bar9o9.jpg'} ]}
+    variants:[ {g:500,price:20,img:'images/bar9o9.jpg'}, {g:1000,price:40,img:'images/bar9o9.jpg'} ]}
 ];
-
-/* 🍵 الأتاي — نوعين Jnan Edar، كل نوع 500غ و 1 كلغ */
-var TEA = [
   { id:'atay1', badge:'tea', emoji:'🍵',
     n:{ar:'أتاي Jnan Edar 1er',fr:'Thé Jnan Edar 1er',en:'Jnan Edar Tea 1st'}, en:'JNAN EDAR 1ER',
     d:{ar:'النوع الأول — مذاق أصيل فاخر',fr:'Première qualité — saveur authentique',en:'First grade — authentic flavour'},
     variants:[
-      {g:500,  price:0, img:'images/atay1.jpg'},
-      {g:1000, price:0, img:'images/atay1.jpg'}
+      {g:500,  price:45, img:'images/atay1.jpg'},
+      {g:1000, price:90, img:'images/atay1.jpg'}
     ]},
   { id:'atay2', badge:'tea', emoji:'🍵',
     n:{ar:'أتاي Jnan Edar 2ème',fr:'Thé Jnan Edar 2ème',en:'Jnan Edar Tea 2nd'}, en:'JNAN EDAR 2ÈME',
     d:{ar:'النوع الثاني — جودة بثمن اقتصادي',fr:'Deuxième qualité — prix économique',en:'Second grade — better price'},
     variants:[
-      {g:500,  price:0, img:'images/atay2.jpg'},
-      {g:1000, price:0, img:'images/atay2.jpg'}
+      {g:500,  price:30, img:'images/atay2.jpg'},
+      {g:1000, price:60, img:'images/atay2.jpg'}
     ]}
 ];
-
-/* 🫘 القطاني — حجم واحد: 1 كلغ */
-var LEGUMES = [
   { id:'3adas', emoji:'🟤', img:'images/3adas.jpg',
     n:{ar:'عدس',fr:'Lentilles',en:'Lentils'},
     d:{ar:'منتقى و مغربل — للحريرة',fr:'Sélectionnées — pour la harira',en:'Selected — for harira'},
-    variants:[ {g:1000, price:0, img:'images/3adas.jpg'} ]},
+    variants:[ {g:1000, price:19, img:'images/3adas.jpg'} ]},
   { id:'7ommos', emoji:'🟡', img:'images/7ommos.jpg',
     n:{ar:'حمص',fr:'Pois chiches',en:'Chickpeas'},
     d:{ar:'كبير الحبة — للحريرة و الطاجين',fr:'Gros grains — harira & tajine',en:'Large grains — harira & tagine'},
-    variants:[ {g:1000, price:0, img:'images/7ommos.jpg'} ]},
+    variants:[ {g:1000, price:21, img:'images/7ommos.jpg'} ]},
   { id:'lobya', emoji:'⚪', img:'images/lobya.jpg',
     n:{ar:'لوبيا بيضا',fr:'Haricots blancs',en:'White Beans'},
     d:{ar:'منتقاة — للطواجن و الشوربات',fr:'Sélectionnés — tajines & soupes',en:'Selected — tagines & soups'},
-    variants:[ {g:1000, price:0, img:'images/lobya.jpg'} ]},
+    variants:[ {g:1000, price:22, img:'images/lobya.jpg'} ]},
   { id:'fasolia', emoji:'🔴', img:'images/fasolia.jpg',
     n:{ar:'فاصوليا حمراء',fr:'Haricots rouges',en:'Red Beans'},
     d:{ar:'لذيذة و غنية بالبروتين',fr:'Savoureux et riches en protéines',en:'Tasty and protein-rich'},
-    variants:[ {g:1000, price:0, img:'images/fasolia.jpg'} ]},
+    variants:[ {g:1000, price:19, img:'images/fasolia.jpg'} ]},
   { id:'foul', emoji:'🟫', img:'images/foul.jpg',
     n:{ar:'فول جاف',fr:'Fèves',en:'Dried Fava Beans'},
     d:{ar:'منتقى — للأطباق التقليدية',fr:'Sélectionnées — plats traditionnels',en:'Selected — traditional dishes'},
-    variants:[ {g:1000, price:0, img:'images/foul.jpg'} ]},
+    variants:[ {g:1000, price:15, img:'images/foul.jpg'} ]},
   { id:'roz', emoji:'🍚', img:'images/roz1.jpg',
     n:{ar:'رز',fr:'Riz',en:'Rice'},
     d:{ar:'بنوعين — حسب استعمالك',fr:'Deux qualités — selon vos besoins',en:'Two grades — for your needs'},
     variants:[
-      {g:1000, price:0, img:'images/roz1.jpg', n:{ar:'النوع الأول (1er)',fr:'Première qualité (1er)',en:'First grade (1er)'}},
-      {g:1000, price:0, img:'images/roz2.jpg', n:{ar:'النوع الثاني (2ème)',fr:'Deuxième qualité (2ème)',en:'Second grade (2ème)'}}
+      {g:1000, price:45, img:'images/roz1.jpg', n:{ar:'النوع الأول ',fr:'Première qualité ',en:'First grade '}},
+      {g:1000, price:35, img:'images/roz2.jpg', n:{ar:'النوع الثاني ',fr:'Deuxième qualité ',en:'Second grade '}}
     ]}
 ];
 
