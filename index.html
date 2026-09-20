@@ -1161,6 +1161,13 @@ function sendOrder(){
   if (!name || !phone || !addr || !cityLabel){ showToast(t('t_fill')); return; }
 
   var sub = cartTotal(), ship = getShip();
+
+  // ── lugha l7aliya (bach tban details dyal lpack b nafs loghat site) ──
+  var lg = 'ar';
+  if (typeof lang !== 'undefined') lg = lang;
+  else if (typeof LANG !== 'undefined') lg = LANG;
+  else lg = (t('dir') === 'rtl') ? 'ar' : (t('top').indexOf('Livraison') > -1 ? 'fr' : 'en');
+
   var msg = t('w_head') + '\n━━━━━━━━━━━━━━\n';
   msg += t('w_name') + ': ' + name + '\n' + t('w_phone') + ': ' + phone + '\n' + t('w_city') + ': ' + cityLabel + '\n' + t('w_addr') + ': ' + addr + '\n';
   if (notes) msg += t('w_notes') + ': ' + notes + '\n';
@@ -1169,6 +1176,20 @@ function sendOrder(){
     var it = findItem(k);
     if (!it) continue;
     msg += '▪️ ' + it.name + (it.size?' ('+it.size+')':'') + ' × ' + cart[k] + ' = ' + (it.price*cart[k]) + ' ' + t('dh') + '\n';
+
+    // ── ila kan had litem pack → zid les produits dyalo taht lthaman ──
+    var pk = null;
+    for (var i = 0; i < PACKS.length; i++){ if (PACKS[i].id === k){ pk = PACKS[i]; break; } }
+    if (!pk){
+      var base = String(k).split('-')[0];
+      for (var j = 0; j < PACKS.length; j++){ if (PACKS[j].id === base){ pk = PACKS[j]; break; } }
+    }
+    if (pk && pk.c && pk.c[lg]){
+      var arr = pk.c[lg];
+      for (var x = 0; x < arr.length; x++){
+        msg += '     └─ ' + arr[x] + '\n';
+      }
+    }
   }
   msg += '━━━━━━━━━━━━━━\n' + t('w_sub') + ': ' + sub + ' ' + t('dh') + '\n';
   msg += ship===0 ? (t('w_ship') + ': ' + t('free') + '\n') : (t('w_ship') + ': ' + ship + ' ' + t('dh') + ' (' + cityLabel + ')\n');
