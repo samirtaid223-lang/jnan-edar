@@ -1162,12 +1162,6 @@ function sendOrder(){
 
   var sub = cartTotal(), ship = getShip();
 
-  // ── lugha l7aliya (bach tban details dyal lpack b nafs loghat site) ──
-  var lg = 'ar';
-  if (typeof lang !== 'undefined') lg = lang;
-  else if (typeof LANG !== 'undefined') lg = LANG;
-  else lg = (t('dir') === 'rtl') ? 'ar' : (t('top').indexOf('Livraison') > -1 ? 'fr' : 'en');
-
   var msg = t('w_head') + '\n━━━━━━━━━━━━━━\n';
   msg += t('w_name') + ': ' + name + '\n' + t('w_phone') + ': ' + phone + '\n' + t('w_city') + ': ' + cityLabel + '\n' + t('w_addr') + ': ' + addr + '\n';
   if (notes) msg += t('w_notes') + ': ' + notes + '\n';
@@ -1177,17 +1171,17 @@ function sendOrder(){
     if (!it) continue;
     msg += '▪️ ' + it.name + (it.size?' ('+it.size+')':'') + ' × ' + cart[k] + ' = ' + (it.price*cart[k]) + ' ' + t('dh') + '\n';
 
-    // ── ila kan had litem pack → zid les produits dyalo taht lthaman ──
-    var pk = null;
-    for (var i = 0; i < PACKS.length; i++){ if (PACKS[i].id === k){ pk = PACKS[i]; break; } }
-    if (!pk){
-      var base = String(k).split('-')[0];
-      for (var j = 0; j < PACKS.length; j++){ if (PACKS[j].id === base){ pk = PACKS[j]; break; } }
-    }
-    if (pk && pk.c && pk.c[lg]){
-      var arr = pk.c[lg];
-      for (var x = 0; x < arr.length; x++){
-        msg += '     └─ ' + arr[x] + '\n';
+    // ── ila kan pack → zid les produits dyalo taht lthaman ──
+    var parts = k.split('|');
+    if (parts[0].indexOf('pack:') === 0){
+      var pid = parts[0].slice(5);
+      var pk = null;
+      for (var i=0;i<PACKS.length;i++) if (PACKS[i].id === pid) pk = PACKS[i];
+      if (pk && pk.c && pk.c[lang]){
+        var arr = pk.c[lang];
+        for (var x=0;x<arr.length;x++){
+          msg += '     └─ ' + arr[x] + '\n';
+        }
       }
     }
   }
@@ -1199,7 +1193,6 @@ function sendOrder(){
   cart = {}; saveCart(); updateCount(); closeAll();
   showToast(t('t_sent'));
 }
-
 function observeReveal(){
   var obs = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
